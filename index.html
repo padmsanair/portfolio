@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Padma Nair - Educational Leader</title>
+    <link rel="icon" type="image/png" href="profile.png">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">Padma Nair<span>.</span></a>
+            <a href="#" class="logo">Padma Nair<span class="dot">.</span></a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -23,27 +24,34 @@
     </nav>
 
     <header class="hero">
-        <div class="container hero-content">
-            <span class="badge">Principal & Educational Leader</span>
-            <h1>Padma Nair</h1>
-            <p class="tagline">Building value-based, student-centered learning environments with 25+ years of excellence.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="badge fade-in">Principal & Educational Leader</span>
+                <h1 class="fade-in">Building Futures Through Visionary Leadership.</h1>
+                <p class="tagline fade-in">Creating value-based, student-centered learning environments with over 25 years of dedication to excellence in education.</p>
+                <div class="hero-btns fade-in">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+            <div class="hero-image-container fade-in-right">
+                <div class="image-border">
+                    <img src="profile.png" alt="Padma Nair" class="profile-img">
+                </div>
             </div>
         </div>
-        <div class="hero-shape"></div>
+        <div class="hero-overlay"></div>
     </header>
 
     <section id="about" class="section">
         <div class="container">
             <div class="about-grid">
-                <div class="about-text">
+                <div class="about-text slide-up">
                     <h2 class="section-title">About Me</h2>
-                    <p class="lead">Educational Leader with over two decades of experience in school administration and academic excellence.</p>
+                    <p class="lead">A transformative leader with two decades of experience in school administration and academic excellence.</p>
                     <p>Currently serving as Principal at <strong>Spring Dale Public School</strong> (Firozabad), I specialize in curriculum planning, faculty mentoring, and operational excellence. My focus is on strengthening school systems through modern policies and structured communication.</p>
                 </div>
-                <div class="about-stats">
+                <div class="about-stats slide-up">
                     <div class="stat-box">
                         <h3>25+</h3>
                         <p>Years Experience</p>
@@ -66,40 +74,40 @@
             <h2 class="section-title text-center">Career Journey</h2>
             <div class="timeline">
                 
-                <div class="timeline-item">
+                <div class="timeline-item slide-up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="date">Feb 2011 – Present</span>
+                        <div class="date-badge">Feb 2011 – Present</div>
                         <h3>Principal</h3>
                         <span class="company">Spring Dale Public School, Firozabad</span>
                         <p>Leading academic operations, faculty mentoring, and curriculum alignment. Successfully executing large-scale annual events and implementing modern student safety systems.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item slide-up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="date">2008 – 2011</span>
+                        <div class="date-badge">2008 – 2011</div>
                         <h3>Principal</h3>
                         <span class="company">Shri Saraswati Vidya Mandir High School, Gujarat</span>
                         <p>Directed administration during transition phases, streamlined operations, and introduced structured extracurricular programs.</p>
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item slide-up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="date">2003 – 2007</span>
+                        <div class="date-badge">2003 – 2007</div>
                         <h3>Teacher (Grades 1–8)</h3>
                         <span class="company">Kids Corner Happy Senior Secondary School</span>
                         <p>Taught multi-subject curriculum and created inclusive classroom environments.</p>
                     </div>
                 </div>
 
-                 <div class="timeline-item">
+                 <div class="timeline-item slide-up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="date">2001 – 2003</span>
+                        <div class="date-badge">2001 – 2003</div>
                         <h3>Teacher</h3>
                         <span class="company">Rajeshwar Convent Higher Secondary School</span>
                         <p>Delivered creative lessons in Social Studies and Languages.</p>
@@ -108,57 +116,3 @@
             </div>
         </div>
     </section>
-
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title text-center">Core Competencies</h2>
-            <div class="skills-wrapper">
-                <div class="skill-card"><i class="fas fa-university"></i> <span>School Leadership</span></div>
-                <div class="skill-card"><i class="fas fa-book-reader"></i> <span>Curriculum Planning</span></div>
-                <div class="skill-card"><i class="fas fa-users"></i> <span>Faculty Mentoring</span></div>
-                <div class="skill-card"><i class="fas fa-user-graduate"></i> <span>Student Discipline</span></div>
-                <div class="skill-card"><i class="fas fa-calendar-alt"></i> <span>Event Management</span></div>
-                <div class="skill-card"><i class="fas fa-handshake"></i> <span>Parent Engagement</span></div>
-                <div class="skill-card"><i class="fas fa-chart-line"></i> <span>Process Improvement</span></div>
-                <div class="skill-card"><i class="fas fa-microphone"></i> <span>Public Speaking</span></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" class="section bg-dark">
-        <div class="container">
-            <h2 class="section-title text-white text-center">Education</h2>
-            <div class="education-grid">
-                <div class="edu-card">
-                    <h3>B.Ed.</h3>
-                    <p class="school">Bangalore University</p>
-                    <span class="year">2006 – 2007</span>
-                </div>
-                <div class="edu-card">
-                    <h3>M.A. (Social Work)</h3>
-                    <p class="school">Barkatullah University, Bhopal</p>
-                    <span class="year">2001 – 2003</span>
-                </div>
-                <div class="edu-card">
-                    <h3>B.A. Economics</h3>
-                    <p class="school">Mahatma Gandhi University, Kottayam</p>
-                    <span class="year">1994 – 1997</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container footer-content">
-            <h2>Let's Connect</h2>
-            <p>Open to discussions on educational leadership and school administration.</p>
-            <div class="social-links">
-                <a href="mailto:padmasnair1@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email Me</a>
-                <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-            </div>
-            <p class="copyright">© 2026 Padma Nair. Designed with elegance.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
