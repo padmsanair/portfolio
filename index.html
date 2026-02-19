@@ -6,132 +6,226 @@
     <title>Padma Nair | Educational Leader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. DESIGN THEME (CSS) --- */
+        :root {
+            --royal-navy: #0a192f;
+            --rich-gold: #c5a059;
+            --soft-cream: #f9f7f2;
+            --white: #ffffff;
+            --text-dark: #1f2937;
+            --text-gray: #4b5563;
+            
+            --font-display: 'Cormorant Garamond', serif; /* Elegant headings */
+            --font-body: 'Montserrat', sans-serif;       /* Clean modern text */
+        }
 
-    <nav>
-        <div class="logo">PADMA NAIR</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-            <a href="#contact" class="btn-nav">Contact</a>
-        </div>
-    </nav>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <header class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <span class="badge">Principal & Educational Leader</span>
-                <h1>Padma Nair</h1>
-                <p>Transforming schools through value-based leadership, curriculum innovation, and student-centered administration.</p>
-                <div class="hero-details">
-                    <span>📍 Palai, Kerala, India</span>
-                    <span>🎓 25+ Years Experience</span>
-                </div>
-                <div class="cta-group">
-                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                    <a href="#experience" class="btn btn-outline">View Portfolio</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="img-frame">
-                    <img src="profile.jpg" alt="Padma Nair Principal">
-                </div>
-            </div>
-        </div>
-    </header>
+        body {
+            font-family: var(--font-body);
+            background-color: var(--soft-cream);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
 
-    <section id="about" class="section-cream">
-        <div class="container">
-            <h2 class="section-title">Professional Summary</h2>
-            <div class="about-content">
-                <p class="lead-text">
-                    Educational Leader with <strong>25+ years of experience</strong> in school teaching, administration, and academic leadership. Currently serving as Principal at Spring Dale Public School (Firozabad).
-                </p>
-                <p>
-                    Expertise in curriculum planning, faculty mentoring, student discipline, event execution, and operational excellence. Known for building value-based, student-centered learning environments and strengthening school systems through modern policies and structured communication.
-                </p>
-                
-                <div class="skills-grid">
-                    <div class="skill-item">School Leadership</div>
-                    <div class="skill-item">Academic Oversight</div>
-                    <div class="skill-item">Curriculum Planning</div>
-                    <div class="skill-item">Faculty Training</div>
-                    <div class="skill-item">Student Discipline</div>
-                    <div class="skill-item">Event Management</div>
-                    <div class="skill-item">Parent Engagement</div>
-                    <div class="skill-item">Process Improvement</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Career Trajectory</h2>
-            <div class="timeline">
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb 2011 – Present</div>
-                    <div class="timeline-content">
-                        <h3>Principal</h3>
-                        <h4>Spring Dale Public School, Firozabad, UP</h4>
-                        <ul>
-                            <li>Lead overall academic and administrative operations of the institution.</li>
-                            <li>Manage recruitment, mentoring, and professional development of teachers.</li>
-                            <li>Plan curriculum alignment, examinations, and midterm frameworks across grades.</li>
-                            <li>Execute large-scale annual events to strengthen community engagement and school branding.</li>
-                            <li>Implement modern discipline policies and student safety systems including netiquette guidelines.</li>
-                        </ul>
-                    </div>
-                </div>
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--royal-navy);
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--rich-gold);
+        }
 
-                <div class="timeline-item">
-                    <div class="timeline-date">2008 – 2011</div>
-                    <div class="timeline-content">
-                        <h3>Principal</h3>
-                        <h4>Shri Saraswati Vidya Mandir High School, Gujarat</h4>
-                        <ul>
-                            <li>Directed school administration and academic quality during growth and transition.</li>
-                            <li>Streamlined daily operations and improved internal communication efficiency.</li>
-                            <li>Introduced structured extracurricular programs while ensuring academic compliance.</li>
-                            <li>Strengthened parent-school relationships through consistent feedback loops.</li>
-                        </ul>
-                    </div>
-                </div>
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            color: var(--text-gray); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-links a:hover { color: var(--rich-gold); }
 
-                <div class="timeline-item">
-                    <div class="timeline-date">2003 – 2007</div>
-                    <div class="timeline-content">
-                        <h3>Teacher (Grades 1–8)</h3>
-                        <h4>Kids Corner Happy Senior Secondary School, Firozabad</h4>
-                        <p>Taught multi-subject curriculum for primary/middle school learners and guided students for competitions.</p>
-                    </div>
-                </div>
+        /* --- HERO SECTION (The Top Part) --- */
+        .hero {
+            position: relative;
+            background: var(--royal-navy);
+            color: var(--white);
+            padding: 6rem 5% 8rem 5%;
+            display: flex;
+            flex-direction: column-reverse; /* Text below image on mobile */
+            align-items: center;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
 
-                <div class="timeline-item">
-                    <div class="timeline-date">2001 – 2003</div>
-                    <div class="timeline-content">
-                        <h3>Teacher</h3>
-                        <h4>Rajeshwar Convent Higher Secondary School, MP</h4>
-                        <p>Delivered lessons in Social Studies and Languages with creative planning.</p>
-                    </div>
-                </div>
+        .hero-content {
+            margin-top: 2rem;
+            max-width: 800px;
+            z-index: 2;
+        }
 
-                 <div class="timeline-item">
-                    <div class="timeline-date">2000 – 2001</div>
-                    <div class="timeline-content">
-                        <h3>Teacher</h3>
-                        <h4>Shri L.G. Haria Multipurpose School, Gujarat</h4>
-                        <p>Facilitated foundational learning with focus on literacy and social development.</p>
-                    </div>
-                </div>
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
 
-            </div>
-        </div>
-    </section>
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--rich-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            display: block;
+            font-weight: 600;
+        }
 
-    <section
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        /* --- THE CIRCLE IMAGE --- */
+        .profile-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin-bottom: 1rem;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures face isn't stretched */
+            object-position: top center;
+            border-radius: 50%;
+            border: 6px solid var(--rich-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Decorative background circle behind photo */
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid rgba(197, 160, 89, 0.5);
+            z-index: -1;
+            transform: scale(1.1);
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-gold {
+            background: var(--rich-gold);
+            color: var(--royal-navy);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+        }
+        .btn-gold:hover { transform: translateY(-3px); background: #d4af37; }
+
+        /* --- SECTIONS --- */
+        section { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--royal-navy);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--rich-gold);
+            margin: 10px auto 0;
+        }
+
+        /* --- ABOUT CARDS --- */
+        .about-text {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--royal-navy);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: 0.3s;
+        }
+        .skill-tag:hover { border-color: var(--rich-gold); transform: translateY(-2px); }
+
+        /* --- EXPERIENCE TIMELINE --- */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid #e5e7eb;
+        }
+
+        .job-card {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem
