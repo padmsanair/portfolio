@@ -158,7 +158,7 @@
         .btn-gold:hover { transform: translateY(-3px); background: #d4af37; }
 
         /* --- SECTIONS COMMON --- */
-        section { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
+        section { padding: 5rem 5%; max-width: 1000px; margin: 0 auto; }
 
         .section-title {
             font-family: var(--font-display);
@@ -181,10 +181,10 @@
         /* --- ABOUT & SKILLS --- */
         .about-text {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-gray);
             margin-bottom: 3rem;
-            max-width: 900px;
+            max-width: 850px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -218,12 +218,6 @@
         }
         .skill-tag:hover { border-color: var(--rich-gold); transform: translateY(-2px); }
 
-        .strength-tag {
-            background: rgba(197, 160, 89, 0.1);
-            border: 1px solid var(--rich-gold);
-            color: var(--royal-navy);
-        }
-
         /* --- EXPERIENCE TIMELINE --- */
         .timeline {
             position: relative;
@@ -233,17 +227,24 @@
 
         .job-card {
             position: relative;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
             background: var(--white);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid transparent;
+            transition: 0.3s;
+        }
+
+        .job-card:hover {
+            border-top: 4px solid var(--rich-gold);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
         .job-card::before {
             content: '';
             position: absolute;
-            left: -2.6rem;
+            left: -3.1rem;
             top: 2rem;
             width: 1rem;
             height: 1rem;
@@ -273,7 +274,7 @@
             color: #9ca3af;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: block;
         }
 
@@ -281,7 +282,7 @@
             list-style: none;
             position: relative;
             padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: var(--text-gray);
         }
         .job-desc li::before {
@@ -296,22 +297,25 @@
         /* --- EDUCATION --- */
         .edu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .edu-card {
             background: var(--white);
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             border-radius: 12px;
             border-top: 4px solid var(--rich-gold);
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             text-align: center;
+            transition: 0.3s;
         }
+        
+        .edu-card:hover { transform: translateY(-5px); }
 
         .edu-degree {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--royal-navy);
             margin-bottom: 0.5rem;
@@ -369,183 +373,4 @@
         @media (max-width: 767px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.5rem; }
-            .job-card::before { left: -2.3rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">PADMA NAIR</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-content">
-            <span class="hero-subtitle">Principal & Educational Leader</span>
-            <h1>Leading with Vision & Values</h1>
-            <p>Educational Leader with 25+ years of experience in school teaching, administration, and academic leadership in India.</p>
-            <a href="#contact" class="btn-gold">Get in Touch</a>
-        </div>
-
-        <div class="profile-container">
-            <img src="profile.jpg" alt="Padma Nair" class="profile-img">
-        </div>
-    </header>
-
-    <section id="about">
-        <h2 class="section-title">Professional Summary</h2>
-        <div class="about-text">
-            <p>Educational Leader with 25+ years of experience in school teaching, administration, and academic leadership. Currently serving as Principal at Spring Dale Public School (Firozabad) with expertise in curriculum planning, faculty mentoring, student discipline, event execution, and operational excellence. Known for building value-based, student-centered learning environments and strengthening school systems through modern policies and structured communication.</p>
-        </div>
-        
-        <div class="skills-container">
-            <h3>Core Skills</h3>
-            <div class="skills-grid">
-                <span class="skill-tag">School Leadership</span>
-                <span class="skill-tag">Academic Oversight</span>
-                <span class="skill-tag">Curriculum Planning</span>
-                <span class="skill-tag">Faculty Recruitment & Training</span>
-                <span class="skill-tag">Examination Scheduling</span>
-                <span class="skill-tag">Student Welfare & Discipline</span>
-                <span class="skill-tag">Parent-Teacher Engagement</span>
-                <span class="skill-tag">Event Management</span>
-                <span class="skill-tag">Digital Literacy & Netiquette</span>
-                <span class="skill-tag">Process Improvement</span>
-            </div>
-        </div>
-
-        <div class="skills-container">
-            <h3>Additional Strengths</h3>
-            <div class="skills-grid">
-                <span class="skill-tag strength-tag">Public Speaking</span>
-                <span class="skill-tag strength-tag">Teacher Mentorship</span>
-                <span class="skill-tag strength-tag">Team Leadership</span>
-                <span class="skill-tag strength-tag">Research & Documentation</span>
-                <span class="skill-tag strength-tag">Financial & Academic Reporting</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="timeline">
-            
-            <div class="job-card">
-                <span class="job-role">Principal</span>
-                <span class="job-company">Spring Dale Public School, Firozabad, Uttar Pradesh</span>
-                <span class="job-date">Feb 2011 – Present</span>
-                <ul class="job-desc">
-                    <li>Lead overall academic and administrative operations of the institution.</li>
-                    <li>Manage recruitment, mentoring, and professional development of teachers.</li>
-                    <li>Plan curriculum alignment, examinations, and midterm frameworks across grades.</li>
-                    <li>Execute large-scale annual events to strengthen community engagement and school branding.</li>
-                    <li>Implement modern discipline policies and student safety systems including netiquette guidelines.</li>
-                </ul>
-            </div>
-
-            <div class="job-card">
-                <span class="job-role">Principal</span>
-                <span class="job-company">Shri Saraswati Vidya Mandir High School, Gujarat</span>
-                <span class="job-date">2008 – 2011</span>
-                <ul class="job-desc">
-                    <li>Directed school administration and academic quality during growth and transition.</li>
-                    <li>Streamlined daily operations and improved internal communication efficiency.</li>
-                    <li>Introduced structured extracurricular programs while ensuring academic compliance.</li>
-                    <li>Strengthened parent-school relationships through consistent feedback loops.</li>
-                </ul>
-            </div>
-
-            <div class="job-card">
-                <span class="job-role">Teacher (Grades 1–8)</span>
-                <span class="job-company">Kids Corner Happy Senior Secondary School, Firozabad</span>
-                <span class="job-date">2003 – 2007</span>
-                <ul class="job-desc">
-                    <li>Taught multi-subject curriculum for primary and middle school learners.</li>
-                    <li>Created inclusive classroom environments and guided students for competitions.</li>
-                </ul>
-            </div>
-
-            <div class="job-card">
-                <span class="job-role">Teacher</span>
-                <span class="job-company">Rajeshwar Convent Higher Secondary School, Madhya Pradesh</span>
-                <span class="job-date">2001 – 2003</span>
-                <ul class="job-desc">
-                    <li>Delivered lessons in Social Studies and Languages with creative planning.</li>
-                    <li>Monitored student performance and provided personalized academic support.</li>
-                </ul>
-            </div>
-
-            <div class="job-card">
-                <span class="job-role">Teacher</span>
-                <span class="job-company">Shri L.G. Haria Multipurpose School, Vapi, Gujarat</span>
-                <span class="job-date">2000 – 2001</span>
-                <ul class="job-desc">
-                    <li>Facilitated foundational learning with focus on literacy and social development.</li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="education">
-        <h2 class="section-title">Education</h2>
-        <div class="edu-grid">
-            
-            <div class="edu-card">
-                <div class="edu-degree">B.Ed.</div>
-                <div class="edu-uni">Bangalore University</div>
-                <div class="edu-year">2006 – 2007</div>
-            </div>
-
-            <div class="edu-card">
-                <div class="edu-degree">M.A. (Social Work)</div>
-                <div class="edu-uni">Barkatullah University, Bhopal</div>
-                <div class="edu-year">2001 – 2003</div>
-            </div>
-
-            <div class="edu-card">
-                <div class="edu-degree">B.A. Economics</div>
-                <div class="edu-uni">Mahatma Gandhi University (MGU), Kottayam</div>
-                <div class="edu-year">1994 – 1997</div>
-                <div class="edu-extra">Activities: NCC, NSS</div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-box">
-            <h2 class="section-title" style="color: white; margin-bottom: 1rem;">Contact Information</h2>
-            
-            <div class="contact-links">
-                <a href="mailto:padmasnair1@gmail.com" class="contact-item">
-                    <span>✉ padmasnair1@gmail.com</span>
-                </a>
-                <div class="contact-item">
-                    <span>📞 +91 8279839919</span>
-                </div>
-                <div class="contact-item">
-                    <span>📍 Palai, Kerala, India</span>
-                </div>
-            </div>
-            
-            <div style="margin-top: 2rem;">
-                <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" style="color: var(--rich-gold); border-bottom: 1px solid var(--rich-gold); padding-bottom: 3px; font-weight: 600;">
-                    Connect on LinkedIn
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer style="text-align: center; padding: 2rem; color: #9ca3af; font-size: 0.9rem;">
-        &copy; 2024 Padma Nair. Educational Portfolio.
-    </footer>
-
-</body>
-</html>
+            .job-card::
