@@ -358,6 +358,29 @@
         }
         .contact-item:hover { background: var(--rich-gold); color: var(--royal-navy); }
 
+        /* Social Links styling */
+        .social-links-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+        .social-link {
+            color: var(--rich-gold);
+            border-bottom: 1px solid var(--rich-gold);
+            padding-bottom: 3px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .social-link:hover {
+            color: var(--white);
+            border-color: var(--white);
+        }
+
         /* --- RESPONSIVE --- */
         @media (min-width: 768px) {
             .hero {
@@ -377,6 +400,16 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 2.5rem; }
             .job-card::before { left: -3.1rem; }
+            
+            /* Fix for Core Expertise on mobile - makes them stack neatly */
+            .skills-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .skill-tag {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -530,10 +563,10 @@
                 </div>
             </div>
             
-            <div style="margin-top: 2rem;">
-                <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" style="color: var(--rich-gold); border-bottom: 1px solid var(--rich-gold); padding-bottom: 3px; font-weight: 600;">
-                    View LinkedIn Profile
-                </a>
+            <div class="social-links-container">
+                <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" class="social-link">LinkedIn</a>
+                <a href="https://www.instagram.com/padma.nair.ms?igsh=Nm93dmw4Zjd1ZDY2" target="_blank" class="social-link">Instagram</a>
+                <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" class="social-link">Facebook</a>
             </div>
         </div>
     </section>
@@ -544,6 +577,3 @@
 
 </body>
 </html>
-
-
-
