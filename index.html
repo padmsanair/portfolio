@@ -127,6 +127,7 @@
             border-radius: 50%;
             border: 6px solid var(--rich-gold);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            background-color: var(--royal-navy); /* Fallback color */
         }
 
         /* Decorative background circle behind photo */
@@ -228,4 +229,219 @@
             left: -2.6rem;
             top: 0.5rem;
             width: 1rem;
-            height: 1rem
+            height: 1rem;
+            background: var(--rich-gold);
+            border-radius: 50%;
+            border: 3px solid var(--soft-cream);
+        }
+
+        .job-role {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--royal-navy);
+            line-height: 1.2;
+        }
+
+        .job-company {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--rich-gold);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .job-desc li {
+            list-style: none;
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+        .job-desc li::before {
+            content: '•';
+            color: var(--rich-gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            line-height: 1rem;
+        }
+
+        /* --- CONTACT --- */
+        .contact-box {
+            background: var(--royal-navy);
+            color: var(--white);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.2);
+        }
+
+        .contact-box .section-title { color: var(--white); }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        .contact-item:hover { background: var(--rich-gold); color: var(--royal-navy); }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (min-width: 768px) {
+            .hero {
+                flex-direction: row; /* Side by side on computer */
+                text-align: left;
+                justify-content: center;
+                gap: 4rem;
+                padding-top: 8rem;
+                padding-bottom: 8rem;
+            }
+            .hero-content { margin-top: 0; align-items: flex-start; }
+            .profile-container { width: 350px; height: 350px; }
+            .nav-links { display: flex; }
+        }
+        
+        @media (max-width: 767px) {
+            .nav-links { display: none; } /* Hide menu on small mobile for cleanliness */
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PADMA NAIR</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="hero-subtitle">Principal & Educational Leader</span>
+            <h1>Leading with Vision & Values</h1>
+            <p>25+ years of expertise in school administration, curriculum innovation, and building student-centered learning environments in Kerala and across India.</p>
+            <a href="#contact" class="btn btn-gold">Get in Touch</a>
+        </div>
+
+        <div class="profile-container">
+            <img src="profile.jpg" alt="Padma Nair" class="profile-img">
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">Professional Profile</h2>
+        <div class="about-text">
+            <p>Currently serving as Principal at <strong>Spring Dale Public School (Firozabad)</strong>. I specialize in curriculum planning, faculty mentoring, and operational excellence. My goal is to strengthen school systems through modern policies while maintaining rich traditional values.</p>
+        </div>
+        
+        <div class="skills-grid">
+            <span class="skill-tag">School Leadership</span>
+            <span class="skill-tag">Curriculum Planning</span>
+            <span class="skill-tag">Faculty Training</span>
+            <span class="skill-tag">Student Discipline</span>
+            <span class="skill-tag">Event Management</span>
+            <span class="skill-tag">Public Speaking</span>
+            <span class="skill-tag">Process Improvement</span>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Career Trajectory</h2>
+        <div class="timeline">
+            
+            <div class="job-card">
+                <span class="job-role">Principal</span>
+                <span class="job-company">Spring Dale Public School, Firozabad, UP</span>
+                <span class="job-date">Feb 2011 – Present</span>
+                <ul class="job-desc">
+                    <li>Lead overall academic and administrative operations.</li>
+                    <li>Manage recruitment, mentoring, and professional development of teachers.</li>
+                    <li>Plan curriculum alignment, examinations, and midterm frameworks.</li>
+                    <li>Implement modern discipline policies and student safety systems.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <span class="job-role">Principal</span>
+                <span class="job-company">Shri Saraswati Vidya Mandir High School, Gujarat</span>
+                <span class="job-date">2008 – 2011</span>
+                <ul class="job-desc">
+                    <li>Directed school administration and academic quality during growth.</li>
+                    <li>Streamlined daily operations and improved internal communication.</li>
+                    <li>Introduced structured extracurricular programs.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <span class="job-role">Teacher (Grades 1–8)</span>
+                <span class="job-company">Kids Corner Happy Senior Secondary School</span>
+                <span class="job-date">2003 – 2007</span>
+                <ul class="job-desc">
+                    <li>Taught multi-subject curriculum for primary and middle school.</li>
+                    <li>Created inclusive classroom environments.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <span class="job-role">Teacher</span>
+                <span class="job-company">Rajeshwar Convent Higher Secondary School, MP</span>
+                <span class="job-date">2001 – 2003</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box">
+            <h2 class="section-title" style="color: white; margin-bottom: 1rem;">Contact Me</h2>
+            <p>Available for Educational Leadership Consultations</p>
+            
+            <div class="contact-links">
+                <a href="mailto:padmasnair1@gmail.com" class="contact-item">
+                    <span>✉ padmasnair1@gmail.com</span>
+                </a>
+                <div class="contact-item">
+                    <span>📞 +91 8279839919</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍 Palai, Kerala, India</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" style="color: var(--rich-gold); border-bottom: 1px solid var(--rich-gold);">
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; color: #9ca3af; font-size: 0.8rem;">
+        &copy; 2024 Padma Nair. Educational Portfolio.
+    </footer>
+
+</body>
+</html>
