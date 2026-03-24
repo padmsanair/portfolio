@@ -1,212 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="google-site-verification" content="53L8I_778aIcxi-C3Ubf0l0R8cFq57xw2kTN-K0zzNg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Padma Nair | Educational Leader</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Padma Nair | Principal & Educational Leader</title>
+    <meta name="description" content="Principal and Educational Leader with 25+ years of experience in school administration, curriculum innovation, and student-centered learning.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="canonical" href="https://padmsanair.github.io/portfolio/" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* --- DESIGN THEME --- */
         :root {
-            /* NEW COLOR TONE: DEEP FOREST & SILVER */
-            --bg-dark: #040d0b;           /* Deep Black-Green */
-            --accent: #a8d5ba;            /* Soft Sage/Mint */
-            --secondary: #e2e8f0;         /* Frost Silver */
-            --glass-base: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(168, 213, 186, 0.15);
-            --text-bright: #f1f5f9;
-            --text-muted: #94a3b8;
+            --royal-navy: #0a192f;
+            --rich-gold: #c5a059;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-dark: #1f2937;
+            --text-gray: #4b5563;
+            --font-display: 'Cormorant Garamond', serif; 
+            --font-body: 'Montserrat', sans-serif;       
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--bg-dark);
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(168, 213, 186, 0.12) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(4, 13, 11, 0.8) 0px, transparent 50%);
+            font-family: var(--font-body);
+            /* Gradient background is necessary for glass effect to be visible */
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             background-attachment: fixed;
-            color: var(--text-bright);
+            color: var(--text-dark);
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
-        .glass-card {
-            background: var(--glass-base);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        /* --- NAVIGATION --- */
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* --- GLASS NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 8%;
+            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px); /* The "Glass" effect */
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            background: rgba(4, 13, 11, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
+            z-index: 100;
         }
 
         .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
             font-weight: 700;
-            letter-spacing: 3px;
-            color: var(--accent);
-            text-transform: uppercase;
+            color: var(--royal-navy);
+            letter-spacing: 1px;
         }
 
-        .nav-links a {
-            margin-left: 2.5rem;
-            font-size: 0.75rem;
-            font-weight: 600;
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            color: var(--royal-navy); 
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: 0.4s;
         }
+        .nav-links a:hover { color: var(--rich-gold); }
 
-        .nav-links a:hover { color: var(--accent); text-shadow: 0 0 10px rgba(168, 213, 186, 0.5); }
-
-        /* --- HERO --- */
+        /* --- HERO SECTION --- */
         .hero {
+            position: relative;
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), 
+                        url('https://www.transparenttextures.com/patterns/cubes.png');
+            color: white;
+            padding: 6rem 5% 8rem 5%;
             display: flex;
+            flex-direction: column-reverse;
             align-items: center;
-            justify-content: center;
-            padding: 8rem 8%;
-            min-height: 90vh;
-            gap: 5rem;
+            text-align: center;
         }
 
-        .hero-content { flex: 1.2; }
         .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 6vw, 5rem);
-            line-height: 1;
-            margin-bottom: 2rem;
-            font-style: italic;
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
         }
 
         .hero-subtitle {
-            color: var(--accent);
+            color: var(--rich-gold);
             text-transform: uppercase;
-            letter-spacing: 6px;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .profile-container {
-            position: relative;
-            flex: 0.8;
-        }
-
-        .profile-img {
-            width: 100%;
-            max-width: 400px;
-            aspect-ratio: 4/5;
-            object-fit: cover;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            transition: 0.5s ease;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.02) rotate(-1deg);
-            border-color: var(--accent);
-        }
-
-        /* --- BUTTON --- */
-        .btn-silver {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            border-radius: 4px;
+            letter-spacing: 3px;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            transition: 0.4s;
-            background: transparent;
-        }
-        .btn-silver:hover {
-            background: var(--accent);
-            color: var(--bg-dark);
-            box-shadow: 0 0 30px rgba(168, 213, 186, 0.3);
         }
 
-        /* --- SECTIONS --- */
-        section { padding: 8rem 8%; max-width: 1200px; margin: 0 auto; }
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            margin-bottom: 4rem;
-            text-align: center;
-            color: var(--secondary);
-        }
-
-        .job-card {
-            padding: 3rem;
-            margin-bottom: 2.5rem;
+        /* --- GLASS CARDS --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            padding: 2.5rem;
             transition: 0.4s;
         }
-        .job-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: var(--accent);
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.6);
             transform: translateY(-5px);
         }
 
-        .job-role { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--text-bright); }
-        .job-company { color: var(--accent); font-weight: 600; font-size: 0.9rem; letter-spacing: 1.5px; text-transform: uppercase; display: block; }
-        
+        /* --- PROFILE IMAGE --- */
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* --- BUTTONS --- */
+        .btn-gold {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            background: rgba(197, 160, 89, 0.9);
+            color: white;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* --- SECTIONS --- */
+        section { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
+        .section-title { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
+
+        .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
         .skill-tag {
-            padding: 0.7rem 1.8rem;
-            background: rgba(168, 213, 186, 0.05);
-            border: 1px solid var(--glass-border);
-            border-radius: 4px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            background: rgba(10, 25, 47, 0.05);
+            backdrop-filter: blur(5px);
+            padding: 0.7rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.8);
+            font-weight: 600;
+            font-size: 0.8rem;
         }
-        .skill-tag:hover { background: var(--accent); color: var(--bg-dark); }
 
-        footer {
+        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+
+        /* --- CONTACT BOX --- */
+        .contact-box {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(15px);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            padding: 5rem;
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
         }
 
-        /* MOBILE FIX */
-        @media (max-width: 992px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 4rem; }
-            .nav-links { display: none; }
+        /* Responsive */
+        @media (min-width: 768px) {
+            .hero { flex-direction: row; text-align: left; gap: 4rem; }
+            .hero h1 { font-size: 4.5rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">P. Nair</div>
+        <div class="logo">PADMA NAIR</div>
         <div class="nav-links">
             <a href="#about">Profile</a>
-            <a href="#experience">Career</a>
+            <a href="#experience">Experience</a>
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
         </div>
@@ -214,47 +187,85 @@
 
     <header class="hero">
         <div class="hero-content">
-            <span class="hero-subtitle">Educational Excellence</span>
-            <h1>Leading Institutions with Visionary Purpose.</h1>
-            <p style="color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; font-weight: 300; font-size: 1.1rem;">Bridging the gap between traditional wisdom and modern innovation in the Indian education sector.</p>
-            <a href="#contact" class="btn-silver">Inquire Personally</a>
+            <span class="hero-subtitle">Principal & Educational Leader</span>
+            <h1>Leading with Vision</h1>
+            <p>Empowering students and faculty through 25+ years of strategic leadership and academic excellence.</p>
+            <a href="#contact" class="btn-gold">Get in Touch</a>
         </div>
-
-        <div class="profile-container">
-            <img src="profile.jpg" alt="Padma Nair" class="profile-img">
-        </div>
+        <img src="profile.jpg" alt="Padma Nair" class="profile-img">
     </header>
 
+    <section id="about">
+        <h2 class="section-title">Professional Profile</h2>
+        <div class="glass-card" style="text-align: center;">
+            <p>A visionary Educational Leader with over 25 years of experience shaping academic excellence. Currently serving as Principal at Spring Dale Public School, specializing in strategic curriculum development and institutional growth.</p>
+            <div class="skills-grid" style="margin-top: 2rem;">
+                <span class="skill-tag">School Leadership</span>
+                <span class="skill-tag">Curriculum Strategy</span>
+                <span class="skill-tag">Faculty Mentorship</span>
+                <span class="skill-tag">Digital Literacy</span>
+            </div>
+        </div>
+    </section>
+
     <section id="experience">
-        <h2 class="section-title">Professional Journey</h2>
-        
-        <div class="glass-card job-card">
-            <span class="job-company">Spring Dale Public School</span>
-            <h3 class="job-role">Principal</h3>
-            <p style="color: var(--text-muted); margin-top: 1rem;">Spearheading institutional growth through strategic curriculum design and robust faculty empowerment programs.</p>
+        <h2 class="section-title">Career Trajectory</h2>
+        <div class="glass-card">
+            <h3 style="color: var(--rich-gold)">Principal</h3>
+            <p><strong>Spring Dale Public School, Firozabad</strong></p>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">Feb 2011 – Present</p>
+            <ul style="margin-top: 1rem; padding-left: 1rem;">
+                <li>Lead overall academic and administrative operations.</li>
+                <li>Manage recruitment and professional development of teachers.</li>
+                <li>Implement modern discipline policies and student safety systems.</li>
+            </ul>
         </div>
-
-        <div class="glass-card job-card">
-            <span class="job-company">Shri Saraswati Vidya Mandir</span>
-            <h3 class="job-role">Principal</h3>
-            <p style="color: var(--text-muted); margin-top: 1rem;">Managed complex transitions and modernised administrative operations for high-efficiency outcomes.</p>
-        </div>
-    </section>
-
-    <section id="about" style="text-align: center;">
-        <h2 class="section-title">Core Expertise</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-            <span class="skill-tag">School Leadership</span>
-            <span class="skill-tag">Curriculum Strategy</span>
-            <span class="skill-tag">Parent Engagement</span>
-            <span class="skill-tag">Process Innovation</span>
-            <span class="skill-tag">Digital Literacy</span>
+        <br>
+        <div class="glass-card">
+            <h3 style="color: var(--rich-gold)">Principal</h3>
+            <p><strong>Shri Saraswati Vidya Mandir, Gujarat</strong></p>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">2008 – 2011</p>
         </div>
     </section>
 
-    <footer>
-        &copy; 2026 Padma Nair. The Art of Leadership.
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="edu-grid">
+            <div class="glass-card" style="text-align: center;">
+                <h3 style="font-family: var(--font-display);">B.Ed.</h3>
+                <p>Bangalore University</p>
+            </div>
+            <div class="glass-card" style="text-align: center;">
+                <h3 style="font-family: var(--font-display);">M.A. Social Work</h3>
+                <p>Barkatullah University</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box">
+            <h2 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1rem;">Let's Connect</h2>
+            <p>✉ padmasnair1@gmail.com | 📞 +91 8279839919</p>
+            <div style="margin-top: 2rem; font-size: 2rem; display: flex; justify-content: center; gap: 20px;">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-gray); font-size: 0.8rem;">
+        &copy; 2026 Padma Nair. Built for Educational Excellence.
     </footer>
 
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
