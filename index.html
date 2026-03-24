@@ -7,542 +7,475 @@
     <title>Padma Nair | Principal & Educational Leader</title>
     <meta name="description" content="Principal and Educational Leader with 25+ years of experience in school administration, curriculum innovation, and student-centered learning.">
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="canonical" href="https://padmsanair.github.io/portfolio/" />
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://padmsanair.github.io/portfolio/">
-    <meta property="og:title" content="Padma Nair | Educational Leader">
-    <meta property="og:description" content="Principal and Educational Leader with 25+ years of experience in school administration, curriculum innovation, and student-centered learning.">
-    <meta property="og:image" content="https://padmsanair.github.io/portfolio/profile.jpg">
-    <meta property="og:site_name" content="Padma Nair">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Padma Nair | Educational Leader">
-    <meta name="twitter:description" content="Principal and Educational Leader with 25+ years of experience in school administration, curriculum innovation, and student-centered learning.">
-    <meta name="twitter:image" content="https://padmsanair.github.io/portfolio/profile.jpg">
-
-   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Padma Nair Portfolio",
-  "url": "https://padmsanair.github.io/portfolio/",
-  "author": {
-    "@type": "Person",
-    "name": "Padma Nair",
-    "jobTitle": "Principal",
-    "image": "https://padmsanair.github.io/portfolio/profile.jpg",
-    "sameAs": [
-      "https://linkedin.com/in/padma-nair-6529212b7/",
-      "https://www.instagram.com/padma.nair.ms",
-      "https://www.facebook.com/share/14DZ6U2zyuN/"
-    ]
-  }
-}
-</script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- NEW DARK VIBRANT GLASS THEME --- */
+        /* --- THEME VARIABLES --- */
         :root {
-            --accent-color: #38bdf8; /* Vibrant cyan for highlights */
-            --accent-hover: #0ea5e9;
-            --text-main: #ffffff;
-            --text-muted: #cbd5e1;
-            
-            /* Glass Variables */
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-bg-hover: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-border-light: rgba(255, 255, 255, 0.25); /* For top/left edges to mimic light reflection */
-            --glass-blur: 16px;
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            
-            --font-display: 'Cormorant Garamond', serif; 
-            --font-body: 'Montserrat', sans-serif;       
+            --primary-teal: #183b32; /* The dark green/teal from the image */
+            --light-teal: #225246;
+            --accent-orange: #f59e0b; /* The warm call-to-action button color */
+            --bg-light: #f8fcfb; /* Slightly tinted off-white */
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --font-main: 'Poppins', sans-serif;       
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: var(--font-body);
-            color: var(--text-main);
-            line-height: 1.8;
+            font-family: var(--font-main);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
             overflow-x: hidden;
-            /* Animated gradient background for maximum glass effect */
-            background: linear-gradient(-45deg, #0f172a, #312e81, #4c1d95, #0f172a);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            background-attachment: fixed;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
 
-        /* --- GLASS UTILITY CLASS --- */
-        .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border: 1px solid var(--glass-border);
-            border-top: 1px solid var(--glass-border-light);
-            border-left: 1px solid var(--glass-border-light);
-            box-shadow: var(--glass-shadow);
-            border-radius: 20px;
-        }
-        
         /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 5%;
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            position: sticky;
+            padding: 1.5rem 5%;
+            background: var(--primary-teal);
+            color: white;
+            position: absolute;
+            width: 100%;
             top: 0;
             z-index: 100;
         }
 
         .logo {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-main);
             letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .nav-links { display: flex; gap: 2rem; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
         .nav-links a { 
             font-size: 0.9rem; 
             font-weight: 500; 
-            color: var(--text-muted); 
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #cbd5e1; 
         }
-        .nav-links a:hover { color: var(--accent-color); text-shadow: 0 0 8px rgba(56, 189, 248, 0.5); }
+        .nav-links a:hover { color: white; }
+        
+        .btn-nav {
+            background: var(--accent-orange);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600 !important;
+        }
+        .btn-nav:hover { background: #d97706; transform: translateY(-2px); }
 
         /* --- HERO SECTION --- */
         .hero {
             position: relative;
-            padding: 6rem 5% 8rem 5%;
+            background: var(--primary-teal);
+            color: white;
+            padding: 10rem 5% 8rem 5%;
             display: flex;
-            flex-direction: column-reverse;
+            flex-direction: column;
             align-items: center;
-            text-align: center;
-            min-height: 90vh;
-            justify-content: center;
         }
 
-        .hero-content {
-            margin-top: 3rem;
-            max-width: 800px;
+        .hero-container {
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            position: relative;
             z-index: 2;
-            padding: 3rem;
+        }
+
+        .hero-content { flex: 1; }
+        
+        .rating {
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .hero h1 {
-            font-family: var(--font-display);
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            font-size: 3.5rem;
+            line-height: 1.2;
             margin-bottom: 1.5rem;
-            display: block;
-            font-weight: 600;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-        }
-
-        /* --- PROFILE IMAGE --- */
-        .profile-container {
-            position: relative;
-            width: 280px;
-            height: 280px;
-            margin-bottom: 1rem;
-            border-radius: 50%;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border-light);
-            box-shadow: 0 0 40px rgba(0,0,0,0.5);
-        }
-
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            border-radius: 50%;
-        }
-
-        .btn-glass {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-            transition: 0.4s;
-        }
-        .btn-glass:hover { 
-            background: var(--accent-color); 
-            color: #0f172a; 
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
-            transform: translateY(-3px);
-        }
-
-        /* --- SECTIONS COMMON --- */
-        section { padding: 6rem 5%; max-width: 1000px; margin: 0 auto; position: relative; }
-
-        .section-title {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            color: var(--text-main);
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-weight: 700;
         }
         
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: var(--accent-color);
-            margin: 15px auto 0;
-            box-shadow: 0 0 10px var(--accent-color);
-        }
+        .hero h1 span { color: var(--accent-orange); }
 
-        /* --- ABOUT & SKILLS --- */
-        .about-text {
-            text-align: center;
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 4rem;
-            padding: 3rem;
-        }
-
-        .skills-container h3 {
-            text-align: center;
-            font-family: var(--font-display);
-            color: var(--text-main);
-            font-size: 2rem;
+        .hero p {
+            font-size: 1.1rem;
+            color: #94a3b8;
             margin-bottom: 2rem;
+            max-width: 500px;
+            border-left: 3px solid var(--accent-orange);
+            padding-left: 1rem;
         }
 
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding: 0.8rem 1.5rem;
+        .hero-buttons { display: flex; gap: 1rem; margin-bottom: 3rem; }
+        
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.8rem 2rem;
             border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-main);
-            transition: 0.3s;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
-        .skill-tag:hover { 
-            border-color: var(--accent-color); 
-            color: var(--accent-color);
-            background: rgba(56, 189, 248, 0.05);
-            transform: translateY(-2px); 
-        }
+        .btn-primary:hover { background: #d97706; }
 
-        /* --- EXPERIENCE TIMELINE --- */
-        .timeline {
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+        }
+        .stat-item h3 { font-size: 1.8rem; font-weight: 700; }
+        .stat-item p { font-size: 0.8rem; color: #94a3b8; border-left: none; padding-left: 0; margin-bottom: 0; }
+
+        .hero-image {
+            flex: 1;
             position: relative;
-            padding-left: 2rem;
-            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
         }
-
-        .job-card {
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
             position: relative;
-            margin-bottom: 3.5rem;
-            padding: 2.5rem;
-            transition: 0.4s;
-        }
-
-        .job-card:hover {
-            background: var(--glass-bg-hover);
-            transform: translateY(-5px);
-            border-left: 1px solid var(--accent-color);
-        }
-
-        .job-card::before {
-            content: '';
-            position: absolute;
-            left: -3.15rem;
-            top: 2rem;
-            width: 1.2rem;
-            height: 1.2rem;
-            background: #0f172a;
-            border-radius: 50%;
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 0 10px var(--accent-color);
             z-index: 2;
         }
 
-        .job-role {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-main);
-            line-height: 1.2;
-        }
-
-        .job-company {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-            margin-top: 0.5rem;
-            display: block;
-        }
-
-        .job-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-            display: block;
-            opacity: 0.7;
-        }
-
-        .job-desc li {
-            list-style: none;
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-muted);
-        }
-        .job-desc li::before {
-            content: '▹';
-            color: var(--accent-color);
+        /* The Wavy/Curved Bottom SVG */
+        .custom-shape-divider-bottom {
             position: absolute;
+            bottom: -1px; /* Prevents tiny gaps */
             left: 0;
-            font-size: 1.2rem;
-            line-height: 1.5rem;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
         }
 
-        /* --- EDUCATION --- */
-        .edu-grid {
+        .custom-shape-divider-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+
+        .custom-shape-divider-bottom .shape-fill {
+            fill: var(--bg-light);
+        }
+
+        /* --- SECTIONS COMMON --- */
+        section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-title { font-size: 2.2rem; color: var(--primary-teal); font-weight: 700; }
+
+        /* --- EXPERTISE CARDS (Matching the "3 Reasons" from image) --- */
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            /* Distinctive border style from the image */
+            border-radius: 0 30px 0 30px;
+            border-top: 3px solid var(--primary-teal);
+            border-right: 3px solid var(--primary-teal);
+            box-shadow: -5px 10px 30px rgba(0,0,0,0.04);
+            transition: 0.3s;
+        }
+        
+        .skill-card:hover { transform: translateY(-10px); }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-teal);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-card h3 { font-size: 1.2rem; color: var(--primary-teal); margin-bottom: 0.5rem; font-weight: 600; }
+        .skill-card p { font-size: 0.9rem; color: var(--text-gray); }
+
+        /* --- EXPERIENCE SECTION (List layout matching the image steps) --- */
+        .experience-container {
+            display: flex;
+            flex-direction: column;
             gap: 2rem;
         }
 
-        .edu-card {
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: 0.4s;
+        .job-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-        }
-        
-        .edu-card:hover { 
-            transform: translateY(-10px); 
-            background: var(--glass-bg-hover);
-            border-top: 1px solid var(--accent-color);
+            gap: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--accent-orange);
         }
 
-        .edu-degree {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 1rem;
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .edu-uni { font-weight: 500; color: var(--text-muted); margin-bottom: 0.5rem; }
-        .edu-year { color: var(--accent-color); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; }
-        .edu-extra { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 1rem; font-style: italic; }
-
-        /* --- CONTACT --- */
-        .contact-box {
-            padding: 5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        .job-title { font-size: 1.5rem; color: var(--primary-teal); font-weight: 700; }
+        .job-company { color: var(--text-gray); font-weight: 500; }
+        .job-date { 
+            background: #f1f5f9; 
+            padding: 0.4rem 1rem; 
+            border-radius: 50px; 
+            font-size: 0.85rem; 
+            color: var(--primary-teal); 
+            font-weight: 600;
         }
-        
-        /* Inner glow for contact box */
-        .contact-box::before {
-            content: '';
+
+        .job-desc { padding-left: 1.5rem; }
+        .job-desc li { 
+            position: relative; 
+            margin-bottom: 0.5rem; 
+            font-size: 0.95rem; 
+            color: var(--text-gray); 
+        }
+        .job-desc li::before {
+            content: '\f00c';
+            font-family: 'FontAwesome';
             position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
-            z-index: -1;
+            left: -1.5rem;
+            color: var(--light-teal);
+            font-size: 0.8rem;
+            top: 4px;
         }
 
-        .contact-box .section-title { margin-bottom: 2rem; }
+        /* --- EDUCATION SECTION --- */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .edu-card {
+            background: var(--primary-teal);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: left;
+        }
+        .edu-degree { font-size: 1.4rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 0.5rem; }
+        .edu-uni { font-size: 1rem; opacity: 0.9; margin-bottom: 1rem; }
+        .edu-year { font-size: 0.85rem; opacity: 0.7; }
+
+        /* --- CONTACT SECTION --- */
+        .contact-section {
+            background: var(--primary-teal);
+            color: white;
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 2rem;
             flex-wrap: wrap;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
         
         .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            transition: 0.3s;
-            font-weight: 500;
+            gap: 10px;
         }
-        .contact-item:hover { 
-            background: rgba(56, 189, 248, 0.1); 
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-        }
+        .contact-item i { color: var(--accent-orange); }
 
-        .social-links-container {
+        .social-links {
+            margin-top: 3rem;
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
-            margin-top: 3.5rem;
+            gap: 1.5rem;
         }
-        .social-link {
-            color: var(--text-muted);
-            font-size: 2.5rem; 
-            transition: 0.3s ease;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: white;
+            color: var(--primary-teal);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
         }
-        .social-link:hover {
-            color: var(--accent-color);
-            transform: translateY(-5px) scale(1.1); 
-            filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.6));
-        }
+        .social-links a:hover { background: var(--accent-orange); color: white; }
 
         /* --- RESPONSIVE --- */
-        @media (min-width: 768px) {
-            .hero {
-                flex-direction: row;
-                text-align: left;
-                gap: 5rem;
-            }
-            .hero-content { margin-top: 0; align-items: flex-start; }
-            .profile-container { width: 350px; height: 350px; flex-shrink: 0; }
-            .nav-links { display: flex; }
+        @media (min-width: 992px) {
+            .hero-container { flex-direction: row; align-items: center; }
+            .hero { padding: 12rem 5% 10rem 5%; }
+            .hero-content { padding-right: 2rem; }
         }
         
-        @media (max-width: 767px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.8rem; }
-            .job-card::before { left: -3.15rem; }
-            .section-title { font-size: 2.2rem; }
-            .job-card { padding: 1.5rem; }
-            .about-text { padding: 1.5rem; }
-            .skills-grid { flex-direction: column; align-items: stretch; }
-            .skill-tag { text-align: center; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Hide links on mobile for simplicity */
+            .hero h1 { font-size: 2.5rem; }
+            .hero-stats { flex-direction: column; gap: 1.5rem; }
+            .contact-section { padding: 3rem 1.5rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">PADMA NAIR</div>
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap" style="color: var(--accent-orange);"></i> 
+            Padma Nair
+        </div>
         <div class="nav-links">
-            <a href="#about">Profile</a>
+            <a href="#profile">Profile</a>
+            <a href="#expertise">Expertise</a>
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
+            <a href="#contact" class="btn-nav">Contact</a>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-content glass-panel">
-            <span class="hero-subtitle">Principal & Educational Leader</span>
-            <h1>Leading with Vision & Values</h1>
-            <p>Empowering students and faculty through 25+ years of strategic school administration, academic excellence, and visionary leadership.</p>
-            <a href="#contact" class="btn-glass">Get in Touch</a>
-        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <span>25+ Years Experience</span>
+                </div>
+                <h1>Leading with <span>Vision</span> & Values.</h1>
+                <p>Empowering students and faculty through strategic school administration, academic excellence, and visionary leadership.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">
+                        <i class="fa-solid fa-envelope"></i> Get in Touch
+                    </a>
+                </div>
 
-        <div class="profile-container">
-            <img src="profile.jpg" alt="Padma Nair" class="profile-img">
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>25+</h3>
+                        <p>Years in Education</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Years as Principal</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Commitment</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Padma Nair Profile">
+            </div>
+        </div>
+        
+        <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
         </div>
     </header>
 
-    <section id="about">
-        <h2 class="section-title">Professional Profile</h2>
-        <div class="about-text glass-panel">
-            <p>A visionary Educational Leader with over 25 years of experience shaping academic excellence and institutional growth. Currently serving as Principal at Spring Dale Public School (Firozabad), I specialize in strategic curriculum development, faculty empowerment, and operational management. My leadership philosophy centers on cultivating value-based, student-first environments—bridging rich traditional educational values with progressive modern policies to build robust, future-ready school systems.</p>
+    <section id="profile" style="padding-top: 4rem;">
+        <div class="section-header">
+            <h2 class="section-title">Professional Profile</h2>
+            <p style="max-width: 800px; margin: 0 auto; color: var(--text-gray); font-size: 1.1rem;">
+                A visionary Educational Leader with over 25 years of experience shaping academic excellence and institutional growth. Currently serving as Principal at Spring Dale Public School (Firozabad), I specialize in strategic curriculum development, faculty empowerment, and operational management. My leadership philosophy centers on cultivating value-based, student-first environments—bridging rich traditional educational values with progressive modern policies to build robust, future-ready school systems.
+            </p>
         </div>
-        
-        <div class="skills-container">
-            <h3>Core Expertise</h3>
-            <div class="skills-grid">
-                <span class="skill-tag">School Leadership</span>
-                <span class="skill-tag">Curriculum Strategy</span>
-                <span class="skill-tag">Faculty Mentorship</span>
-                <span class="skill-tag">Academic Oversight</span>
-                <span class="skill-tag">Student Welfare & Discipline</span>
-                <span class="skill-tag">Parent-Teacher Engagement</span>
-                <span class="skill-tag">Event Management</span>
-                <span class="skill-tag">Digital Literacy</span>
-                <span class="skill-tag">Process Improvement</span>
+    </section>
+
+    <section id="expertise">
+        <div class="section-header" style="margin-bottom: 2rem;">
+            <h2 class="section-title">Core Expertise</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-school"></i></div>
+                <h3>School Leadership</h3>
+                <p>Guiding institutions toward academic and operational excellence through strategic planning.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-book-open"></i></div>
+                <h3>Curriculum Strategy</h3>
+                <p>Designing modern, student-centric frameworks aligned with the latest educational standards.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-users"></i></div>
+                <h3>Faculty Mentorship</h3>
+                <p>Empowering educators through continuous professional development and support.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>Digital Literacy</h3>
+                <p>Integrating modern technology and digital safety into daily curriculum and school operations.</p>
             </div>
         </div>
     </section>
 
     <section id="experience">
-        <h2 class="section-title">Career Trajectory</h2>
-        <div class="timeline">
-            
-            <div class="job-card glass-panel">
-                <span class="job-role">Principal</span>
-                <span class="job-company">Spring Dale Public School, Firozabad, Uttar Pradesh</span>
-                <span class="job-date">Feb 2011 – Present</span>
+        <div class="section-header">
+            <h2 class="section-title">Career Trajectory</h2>
+        </div>
+        
+        <div class="experience-container">
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Principal</div>
+                        <div class="job-company">Spring Dale Public School, Firozabad, Uttar Pradesh</div>
+                    </div>
+                    <div class="job-date">Feb 2011 – Present</div>
+                </div>
                 <ul class="job-desc">
                     <li>Lead overall academic and administrative operations of the institution.</li>
                     <li>Manage recruitment, mentoring, and professional development of teachers.</li>
@@ -552,10 +485,14 @@
                 </ul>
             </div>
 
-            <div class="job-card glass-panel">
-                <span class="job-role">Principal</span>
-                <span class="job-company">Shri Saraswati Vidya Mandir High School, Gujarat</span>
-                <span class="job-date">2008 – 2011</span>
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Principal</div>
+                        <div class="job-company">Shri Saraswati Vidya Mandir High School, Gujarat</div>
+                    </div>
+                    <div class="job-date">2008 – 2011</div>
+                </div>
                 <ul class="job-desc">
                     <li>Directed school administration and academic quality during growth and transition.</li>
                     <li>Streamlined daily operations and improved internal communication efficiency.</li>
@@ -564,89 +501,103 @@
                 </ul>
             </div>
 
-            <div class="job-card glass-panel">
-                <span class="job-role">Teacher (Grades 1–8)</span>
-                <span class="job-company">Kids Corner Happy Senior Secondary School, Firozabad</span>
-                <span class="job-date">2003 – 2007</span>
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Teacher (Grades 1–8)</div>
+                        <div class="job-company">Kids Corner Happy Senior Secondary School, Firozabad</div>
+                    </div>
+                    <div class="job-date">2003 – 2007</div>
+                </div>
                 <ul class="job-desc">
                     <li>Taught multi-subject curriculum for primary and middle school learners.</li>
                     <li>Created inclusive classroom environments and guided students for competitions.</li>
                 </ul>
             </div>
 
-            <div class="job-card glass-panel">
-                <span class="job-role">Teacher</span>
-                <span class="job-company">Rajeshwar Convent Higher Secondary School, Madhya Pradesh</span>
-                <span class="job-date">2001 – 2003</span>
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Teacher</div>
+                        <div class="job-company">Rajeshwar Convent Higher Secondary School, Madhya Pradesh</div>
+                    </div>
+                    <div class="job-date">2001 – 2003</div>
+                </div>
                 <ul class="job-desc">
                     <li>Delivered lessons in Social Studies and Languages with creative planning.</li>
                     <li>Monitored student performance and provided personalized academic support.</li>
                 </ul>
             </div>
 
-            <div class="job-card glass-panel">
-                <span class="job-role">Teacher</span>
-                <span class="job-company">Shri L.G. Haria Multipurpose School, Vapi, Gujarat</span>
-                <span class="job-date">2000 – 2001</span>
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Teacher</div>
+                        <div class="job-company">Shri L.G. Haria Multipurpose School, Vapi, Gujarat</div>
+                    </div>
+                    <div class="job-date">2000 – 2001</div>
+                </div>
                 <ul class="job-desc">
                     <li>Facilitated foundational learning with focus on literacy and social development.</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
     <section id="education">
-        <h2 class="section-title">Education</h2>
+        <div class="section-header">
+            <h2 class="section-title">Education</h2>
+        </div>
+        
         <div class="edu-grid">
-            
-            <div class="edu-card glass-panel">
+            <div class="edu-card">
                 <div class="edu-degree">B.Ed.</div>
                 <div class="edu-uni">Bangalore University</div>
                 <div class="edu-year">2006 – 2007</div>
             </div>
-
-            <div class="edu-card glass-panel">
+            <div class="edu-card">
                 <div class="edu-degree">M.A. (Social Work)</div>
                 <div class="edu-uni">Barkatullah University, Bhopal</div>
                 <div class="edu-year">2001 – 2003</div>
             </div>
-
-            <div class="edu-card glass-panel">
+            <div class="edu-card">
                 <div class="edu-degree">B.A. Economics</div>
                 <div class="edu-uni">Mahatma Gandhi University (MGU), Kottayam</div>
                 <div class="edu-year">1994 – 1997</div>
-                <div class="edu-extra">Activities: NCC, NSS</div>
+                <div style="margin-top: 10px; font-size: 0.85rem;">Activities: NCC, NSS</div>
             </div>
-
         </div>
     </section>
 
     <section id="contact">
-        <div class="contact-box glass-panel">
-            <h2 class="section-title" style="margin-bottom: 1rem;">Let's Connect</h2>
+        <div class="contact-section">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Let's Connect</h2>
+            <p style="opacity: 0.8; max-width: 500px; margin: 0 auto;">Feel free to reach out for collaborations, leadership opportunities, or educational discussions.</p>
             
             <div class="contact-links">
                 <a href="mailto:padmasnair1@gmail.com" class="contact-item">
-                    <span>✉ padmasnair1@gmail.com</span>
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>padmasnair1@gmail.com</span>
                 </a>
                 <div class="contact-item">
-                    <span>📞 +91 8279839919</span>
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 8279839919</span>
                 </div>
                 <div class="contact-item">
-                    <span>📍 Palai, Kerala, India</span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Palai, Kerala, India</span>
                 </div>
             </div>
             
-            <div class="social-links-container">
-                <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/padma.nair.ms?igsh=Nm93dmw4Zjd1ZDY2" target="_blank" class="social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" class="social-link" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/padma.nair.ms" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
             </div>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 2rem; color: rgba(255,255,255,0.4); font-size: 0.9rem;">
+    <footer style="text-align: center; padding-bottom: 2rem; color: var(--text-gray); font-size: 0.9rem;">
         &copy; 2026 Padma Nair. Designed for Educational Excellence.
     </footer>
 
