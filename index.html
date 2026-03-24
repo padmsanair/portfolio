@@ -325,7 +325,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
-      align-items: center;
+      align-items: stretch; 
     }
 
     .about-photo-wrap {
@@ -381,9 +381,11 @@
     .about-email i { font-size: 0.9rem; }
 
     .about-bio {
-      font-size: 0.92rem; font-weight: 300;
-      color: var(--off-white); line-height: 1.9;
-      margin-bottom: 1.4rem;
+  font-size: 1.1rem; /* Increased from 0.92rem */
+  font-weight: 300;
+  color: var(--off-white);
+  line-height: 1.8;
+  margin-bottom: 2rem; /* Increased spacing */
     }
     .about-bio strong { color: var(--white); font-weight: 600; }
 
@@ -880,18 +882,19 @@
         </div>
       </div>
 
-      <div class="fade-up" style="transition-delay:0.1s">
-        <div class="about-email"><i class="ph ph-envelope"></i> padmasnair1@gmail.com</div>
-        <p class="about-bio">
-          A dedicated <strong>Principal and Educational Leader</strong> with over 25 years of experience transforming schools into centres of academic and personal excellence across India.
-        </p>
-        <p class="about-bio">
-          My leadership philosophy centres on cultivating <strong>value-based, student-first environments</strong> — bridging rich traditional educational values with progressive modern policies to build robust, future-ready school systems.
-        </p>
-        <div class="about-location">
-          <i class="ph ph-map-pin"></i>
-          Palai, Kerala, India &nbsp;·&nbsp; Currently at Spring Dale Public School, Firozabad, UP
-        </div>
+     <div class="fade-up" style="display: flex; flex-direction: column; justify-content: space-between; transition-delay:0.1s">
+  <div>
+    <div class="about-email"><i class="ph ph-envelope"></i> padmasnair1@gmail.com</div>
+    <p class="about-bio">
+      A dedicated <strong>Principal and Educational Leader</strong> with over 25 years of experience...
+    </p>
+    <p class="about-bio">
+      My leadership philosophy centres on cultivating <strong>value-based, student-first environments</strong>...
+    </p>
+    <div class="about-location">
+      <i class="ph ph-map-pin"></i>
+      Palai, Kerala, India &nbsp;·&nbsp; Currently at Spring Dale Public School, Firozabad, UP
+    </div>
 
         <div class="stats-row">
           <div class="stat-cell">
