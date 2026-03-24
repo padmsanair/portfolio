@@ -321,15 +321,17 @@
     #about {
       background: var(--bg2);
     }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
+   .about-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr; /* Makes the image column narrower and text column wider */
+  gap: 5rem;
+  align-items: center;
+}
 
     .about-photo-wrap {
       position: relative;
+      max-width: 400px; /* Limits how big it can get on computer */
+      margin: 0 auto;   /* Centers the image block neatly */
     }
     .about-photo {
       width: 100%;
