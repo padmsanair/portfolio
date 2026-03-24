@@ -3,238 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Padma Nair | Principal & Educational Leader</title>
+    <title>Padma Nair | Educational Leader</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --midnight: #0f172a;
-            --champagne: #d4af37;
-            --silk: #f8f9fa;
-            --ivory: #ffffff;
-            --slate: #64748b;
-            --glass: rgba(255, 255, 255, 0.8);
-            
-            --font-display: 'Cormorant Garamond', serif;
-            --font-body: 'Montserrat', sans-serif;
+            /* NEW COLOR TONE: DEEP FOREST & SILVER */
+            --bg-dark: #040d0b;           /* Deep Black-Green */
+            --accent: #a8d5ba;            /* Soft Sage/Mint */
+            --secondary: #e2e8f0;         /* Frost Silver */
+            --glass-base: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(168, 213, 186, 0.15);
+            --text-bright: #f1f5f9;
+            --text-muted: #94a3b8;
         }
 
-        /* Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        
+
         body {
-            font-family: var(--font-body);
-            background-color: var(--silk);
-            color: var(--midnight);
-            line-height: 1.7;
-            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(168, 213, 186, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(4, 13, 11, 0.8) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-bright);
+            line-height: 1.8;
         }
 
-        /* Navigation - Glassmorphism */
+        .glass-card {
+            background: var(--glass-base);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 8%;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            padding: 1.5rem 8%;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            background: rgba(4, 13, 11, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .logo {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--midnight);
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-transform: uppercase;
         }
 
-        .nav-links { display: flex; gap: 2.5rem; }
         .nav-links a {
-            font-size: 0.8rem;
+            margin-left: 2.5rem;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--slate);
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: 0.4s;
         }
-        .nav-links a:hover { color: var(--champagne); }
 
-        /* Hero Section - Refined Layout */
+        .nav-links a:hover { color: var(--accent); text-shadow: 0 0 10px rgba(168, 213, 186, 0.5); }
+
+        /* --- HERO --- */
         .hero {
-            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4rem 8%;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: var(--ivory);
-            position: relative;
-            clip-path: ellipse(150% 100% at 50% 0%);
+            padding: 8rem 8%;
+            min-height: 90vh;
+            gap: 5rem;
         }
 
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            align-items: center;
-            gap: 4rem;
-            max-width: 1200px;
-        }
-
+        .hero-content { flex: 1.2; }
         .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1;
+            margin-bottom: 2rem;
             font-style: italic;
         }
 
         .hero-subtitle {
-            font-size: 1rem;
-            color: var(--champagne);
+            color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
+            font-size: 0.85rem;
             margin-bottom: 1rem;
             display: block;
         }
 
-        .profile-wrapper {
+        .profile-container {
             position: relative;
-            display: flex;
-            justify-content: center;
+            flex: 0.8;
         }
 
         .profile-img {
-            width: 380px;
-            height: 480px;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4/5;
             object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 25px 25px 0px var(--champagne);
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             transition: 0.5s ease;
         }
 
         .profile-img:hover {
-            transform: translate(10px, 10px);
-            box-shadow: 0px 0px 0px var(--champagne);
+            transform: scale(1.02) rotate(-1deg);
+            border-color: var(--accent);
         }
 
-        /* Buttons */
-        .btn-elegant {
+        /* --- BUTTON --- */
+        .btn-silver {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            border: 1px solid var(--champagne);
-            color: var(--champagne);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            font-weight: 600;
-            transition: 0.5s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-elegant:hover {
-            color: var(--midnight);
-            background: var(--champagne);
-        }
-
-        /* Section Styling */
-        section { padding: 8rem 8%; max-width: 1200px; margin: 0 auto; }
-        
-        .section-title {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--midnight);
-        }
-
-        /* Experience Cards - Minimalist Luxury */
-        .job-card {
-            background: var(--ivory);
-            padding: 3rem;
-            margin-bottom: 2rem;
+            padding: 1.2rem 3rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
             border-radius: 4px;
-            border-left: 3px solid var(--champagne);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: 0.4s;
+            background: transparent;
+        }
+        .btn-silver:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+            box-shadow: 0 0 30px rgba(168, 213, 186, 0.3);
+        }
+
+        /* --- SECTIONS --- */
+        section { padding: 8rem 8%; max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .job-card {
+            padding: 3rem;
+            margin-bottom: 2.5rem;
             transition: 0.4s;
         }
-
         .job-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent);
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
-        .job-role { font-family: var(--font-display); font-size: 2rem; color: var(--midnight); }
-        .job-company { color: var(--champagne); font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; }
-        .job-date { font-size: 0.8rem; color: var(--slate); margin-bottom: 1.5rem; display: block; }
-
-        /* Skills Tags */
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+        .job-role { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--text-bright); }
+        .job-company { color: var(--accent); font-weight: 600; font-size: 0.9rem; letter-spacing: 1.5px; text-transform: uppercase; display: block; }
+        
         .skill-tag {
-            padding: 0.6rem 1.5rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            color: var(--slate);
+            padding: 0.7rem 1.8rem;
+            background: rgba(168, 213, 186, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
-        .skill-tag:hover { background: var(--midnight); color: var(--ivory); border-color: var(--midnight); }
+        .skill-tag:hover { background: var(--accent); color: var(--bg-dark); }
 
-        /* Contact Section */
-        .contact-box {
-            background: var(--midnight);
-            padding: 5rem;
-            border-radius: 2px;
+        footer {
             text-align: center;
-            color: var(--ivory);
+            padding: 5rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .contact-item {
-            color: var(--ivory);
-            font-size: 1.2rem;
-            margin: 1rem;
-            display: inline-block;
-            border-bottom: 1px solid transparent;
-            transition: 0.3s;
-        }
-
-        .contact-item:hover { border-color: var(--champagne); color: var(--champagne); }
-
-        /* Mobile Responsive */
+        /* MOBILE FIX */
         @media (max-width: 992px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .profile-img { width: 300px; height: 380px; box-shadow: 15px 15px 0px var(--champagne); }
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 4rem; }
             .nav-links { display: none; }
-            .section-title { font-size: 2.2rem; }
-        }
-
-        /* Simple Fade-In Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">P. NAIR</div>
+        <div class="logo">P. Nair</div>
         <div class="nav-links">
             <a href="#about">Profile</a>
             <a href="#experience">Career</a>
@@ -244,85 +213,48 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <span class="hero-subtitle">Educational Leader</span>
-                <h1>Crafting the Future of Academic Excellence.</h1>
-                <p style="margin-bottom: 2.5rem; color: rgba(255,255,255,0.7); font-weight: 300;">With over 25 years of visionary leadership, I bridge traditional values with modern innovation to empower the next generation.</p>
-                <a href="#contact" class="btn-elegant">Connect Personally</a>
-            </div>
-            <div class="profile-wrapper">
-                <img src="profile.jpg" alt="Padma Nair" class="profile-img">
-            </div>
+        <div class="hero-content">
+            <span class="hero-subtitle">Educational Excellence</span>
+            <h1>Leading Institutions with Visionary Purpose.</h1>
+            <p style="color: var(--text-muted); margin-bottom: 3rem; max-width: 600px; font-weight: 300; font-size: 1.1rem;">Bridging the gap between traditional wisdom and modern innovation in the Indian education sector.</p>
+            <a href="#contact" class="btn-silver">Inquire Personally</a>
+        </div>
+
+        <div class="profile-container">
+            <img src="profile.jpg" alt="Padma Nair" class="profile-img">
         </div>
     </header>
 
-    <section id="about" class="reveal">
-        <h2 class="section-title">Professional Profile</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 4rem auto; font-size: 1.1rem; color: var(--slate);">
-            A visionary leader serving as Principal at Spring Dale Public School. My philosophy centers on student-first environments—integrating progressive policies to build robust, future-ready institutional systems.
-        </p>
-        <div class="skills-grid">
+    <section id="experience">
+        <h2 class="section-title">Professional Journey</h2>
+        
+        <div class="glass-card job-card">
+            <span class="job-company">Spring Dale Public School</span>
+            <h3 class="job-role">Principal</h3>
+            <p style="color: var(--text-muted); margin-top: 1rem;">Spearheading institutional growth through strategic curriculum design and robust faculty empowerment programs.</p>
+        </div>
+
+        <div class="glass-card job-card">
+            <span class="job-company">Shri Saraswati Vidya Mandir</span>
+            <h3 class="job-role">Principal</h3>
+            <p style="color: var(--text-muted); margin-top: 1rem;">Managed complex transitions and modernised administrative operations for high-efficiency outcomes.</p>
+        </div>
+    </section>
+
+    <section id="about" style="text-align: center;">
+        <h2 class="section-title">Core Expertise</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
             <span class="skill-tag">School Leadership</span>
             <span class="skill-tag">Curriculum Strategy</span>
-            <span class="skill-tag">Faculty Mentorship</span>
+            <span class="skill-tag">Parent Engagement</span>
+            <span class="skill-tag">Process Innovation</span>
             <span class="skill-tag">Digital Literacy</span>
-            <span class="skill-tag">Process Improvement</span>
         </div>
     </section>
 
-    <section id="experience">
-        <h2 class="section-title">Career Trajectory</h2>
-        
-        <div class="job-card reveal">
-            <span class="job-company">Spring Dale Public School, UP</span>
-            <h3 class="job-role">Principal</h3>
-            <span class="job-date">Feb 2011 – Present</span>
-            <p>Directing academic operations, mentoring 50+ faculty members, and implementing modern netiquette guidelines for student safety.</p>
-        </div>
-
-        <div class="job-card reveal">
-            <span class="job-company">Shri Saraswati Vidya Mandir, Gujarat</span>
-            <h3 class="job-role">Principal</h3>
-            <span class="job-date">2008 – 2011</span>
-            <p>Streamlined institutional transitions and introduced structured extracurricular programs while ensuring academic compliance.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="reveal">
-        <div class="contact-box">
-            <h2 class="section-title" style="color: white;">Let's Connect</h2>
-            <div style="margin-bottom: 3rem;">
-                <a href="mailto:padmasnair1@gmail.com" class="contact-item">padmasnair1@gmail.com</a>
-                <span class="contact-item">+91 8279839919</span>
-            </div>
-            <div class="social-links">
-                <a href="#" class="contact-item"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="contact-item"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <footer style="text-align: center; padding: 4rem; color: var(--slate); font-size: 0.8rem; letter-spacing: 1px;">
-        &copy; 2026 PADMA NAIR. THE ART OF LEADERSHIP.
+    <footer>
+        &copy; 2026 Padma Nair. The Art of Leadership.
     </footer>
 
-    <script>
-        // Reveal animation on scroll
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        // Initial check
-        reveal();
-    </script>
 </body>
 </html>
