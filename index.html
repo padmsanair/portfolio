@@ -124,16 +124,16 @@
 
     /* background photo with dark overlay */
     .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        105deg,
-        rgba(10,12,16,0.96) 0%,
-        rgba(10,12,16,0.80) 45%,
-        rgba(10,12,16,0.40) 75%,
-        rgba(10,12,16,0.55) 100%
-      ), url('profile.jpg') center/cover no-repeat;
-      z-index: 0;
-    }
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(10,12,16,0.96) 0%,
+      rgba(10,12,16,0.80) 45%,
+      rgba(10,12,16,0.40) 75%,
+      rgba(10,12,16,0.55) 100%
+    ), url('profile.jpg') center 15%/cover no-repeat; /* <-- Updated */
+    z-index: 0;
+  }
     /* blue glow from bottom left */
     .hero-bg::after {
       content: '';
