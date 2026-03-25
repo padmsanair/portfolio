@@ -294,8 +294,6 @@
     @media (max-width:900px){
       section{padding:5rem 2rem}footer{padding:2rem 2rem}nav{padding:0 2rem}
       .nav-links{display:none}
-      .about-wrap{grid-template-columns:1fr;gap:2.5rem}
-      .about-photo-side{max-width:380px;margin:0 auto}
       .resume-grid{grid-template-columns:1fr;gap:2px}
       .r-col{padding:1.8rem 1.4rem}
       .exp-bento{grid-template-columns:repeat(4,1fr)}
@@ -316,10 +314,27 @@
       .hero-socials{position:fixed;bottom:2rem;left:1.2rem;flex-direction:column;z-index:10}
       .hero-scroll{position:fixed;bottom:2rem;right:1.2rem;z-index:10}
       .scroll-line{height:40px}
+
+      /* SPECIFIC MOBILE TWEAKS FOR ABOUT SECTION */
+      .about-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-photo-side { max-width: 380px; margin: 0 auto; height: auto; }
+      .about-photo-caption { padding: 2.5rem 1rem 1rem; }
+      
+      .about-panels { border-radius: 8px; }
+      .a-panel { padding: 2rem 1.5rem; }
+      .a-panel+.a-panel::before { left: 1.5rem; right: 1.5rem; }
+      
+      .about-headline { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+      .panel-contacts { flex-direction: column; gap: 0.6rem; align-items: stretch; }
+      .p-chip { justify-content: center; padding: 0.6rem 1rem; font-size: 0.65rem;}
     }
     @media (max-width:480px){
       .exp-bento{grid-template-columns:repeat(2,1fr)}
       .eb.c3,.eb.c4,.eb.c6,.eb.hero-eb{grid-column:span 2;grid-row:span 1}
+      
+      /* Extra small tweaks for phones */
+      .a-panel { padding: 1.8rem 1.2rem; }
+      .a-panel+.a-panel::before { left: 1.2rem; right: 1.2rem; }
     }
   </style>
 </head>
