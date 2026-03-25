@@ -113,7 +113,7 @@
     .nav-contact i { color: var(--blue); }
 
     /* ══════════════════════════════
-       HERO
+       HERO — DESKTOP (unchanged)
     ══════════════════════════════ */
     #home {
       position: relative;
@@ -123,7 +123,6 @@
       overflow: hidden;
     }
 
-    /* background photo with dark overlay */
     .hero-bg {
       position: absolute; inset: 0;
       background: linear-gradient(
@@ -135,7 +134,6 @@
       ), url('profile.jpg') center/cover no-repeat;
       z-index: 0;
     }
-    /* blue glow from bottom left */
     .hero-bg::after {
       content: '';
       position: absolute; bottom: -100px; left: -100px;
@@ -144,7 +142,6 @@
       pointer-events: none;
     }
 
-    /* scan line effect */
     .hero-scan {
       position: absolute; inset: 0;
       background: repeating-linear-gradient(
@@ -242,7 +239,6 @@
     }
     .btn-ghost:hover { border-color: var(--white); color: var(--white); }
 
-    /* social icons on hero */
     .hero-socials {
       position: absolute; bottom: 2.5rem; left: 3rem; z-index: 2;
       display: flex; align-items: center; gap: 0.6rem;
@@ -263,7 +259,6 @@
     }
     .hero-soc:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-dim); }
 
-    /* scroll indicator */
     .hero-scroll {
       position: absolute; bottom: 2.5rem; right: 3rem; z-index: 2;
       display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
@@ -317,22 +312,22 @@
     }
 
     /* ══════════════════════════════
-       ABOUT
+       ABOUT — GLASSY
     ══════════════════════════════ */
     #about {
       background: var(--bg2);
     }
-   .about-grid {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr; /* Makes the image column narrower and text column wider */
-  gap: 5rem;
-  align-items: center;
-}
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 5rem;
+      align-items: center;
+    }
 
     .about-photo-wrap {
       position: relative;
-      max-width: 400px; /* Limits how big it can get on computer */
-      margin: 0 auto;   /* Centers the image block neatly */
+      max-width: 400px;
+      margin: 0 auto;
     }
     .about-photo {
       width: 100%;
@@ -341,7 +336,6 @@
       object-position: top;
       filter: grayscale(30%) contrast(1.1);
     }
-    /* blue corner accent */
     .about-photo-wrap::before {
       content: '';
       position: absolute; top: -12px; left: -12px;
@@ -373,6 +367,31 @@
       font-family: var(--font-mono);
       font-size: 0.6rem; color: var(--blue);
       letter-spacing: 2px; margin-top: 0.2rem;
+    }
+
+    /* Glassy about text panel */
+    .about-text-panel {
+      background: rgba(22, 26, 35, 0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-text-panel::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,158,255,0.5), transparent);
+    }
+    .about-text-panel::after {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(59,158,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .about-email {
@@ -409,9 +428,15 @@
       margin-top: 3rem;
     }
     .stat-cell {
-      background: var(--surface);
+      background: rgba(22, 26, 35, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 1.5rem 1rem;
       text-align: center;
+      transition: background 0.22s;
+    }
+    .stat-cell:hover {
+      background: rgba(59,158,255,0.08);
     }
     .stat-num {
       font-family: var(--font-head);
@@ -438,7 +463,6 @@
       align-items: start;
     }
 
-    /* LEFT — software skills */
     .skills-col { }
     .skill-group { margin-bottom: 2.5rem; }
     .skill-group-title {
@@ -485,7 +509,6 @@
     }
     .skill-bar-fill.animate { width: var(--pct); }
 
-    /* personal skills list */
     .personal-list { display: flex; flex-direction: column; gap: 0.5rem; }
     .personal-item {
       font-size: 0.8rem; font-weight: 300;
@@ -498,7 +521,6 @@
       background: var(--blue); flex-shrink: 0;
     }
 
-    /* CENTER — experience timeline */
     .exp-col { }
     .exp-title-bar {
       font-family: var(--font-head);
@@ -554,7 +576,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* education */
     .edu-block {
       padding: 1.2rem;
       background: var(--surface);
@@ -583,7 +604,6 @@
       margin-top: 0.4rem;
     }
 
-    /* RIGHT — what can I do + hobbies */
     .what-col { }
     .what-group { margin-bottom: 2.5rem; }
     .what-title {
@@ -609,7 +629,6 @@
       content: '·'; color: var(--blue); font-size: 1.2rem; line-height: 1;
     }
 
-    /* design skills — dot grid */
     .design-skills { display: flex; flex-direction: column; gap: 0.4rem; }
     .ds-item {
       font-size: 0.78rem; font-weight: 300;
@@ -618,7 +637,6 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* hobbies icons */
     .hobbies-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 0.8rem;
@@ -676,19 +694,57 @@
     .tag:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-dim); }
 
     /* ══════════════════════════════
-       CONTACT
+       CONTACT — GLASSY
     ══════════════════════════════ */
-    #contact { background: var(--bg2); }
+    #contact {
+      background: var(--bg2);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute; bottom: -150px; right: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(59,158,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #contact::after {
+      content: '';
+      position: absolute; top: -100px; left: 30%;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,212,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
+      position: relative; z-index: 1;
     }
 
     .contact-tagline {
       font-size: 0.9rem; font-weight: 300;
       color: var(--off-white); line-height: 1.9;
       margin-bottom: 2.5rem;
+    }
+
+    /* Glassy contact panel */
+    .contact-glass-panel {
+      background: rgba(14, 17, 22, 0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 2px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-glass-panel::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,158,255,0.4), transparent);
     }
 
     .contact-items { display: flex; flex-direction: column; }
@@ -702,6 +758,7 @@
     .c-icon {
       width: 42px; height: 42px; flex-shrink: 0;
       border: 1px solid var(--border2);
+      background: rgba(59,158,255,0.05);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem; color: var(--blue);
       transition: 0.22s;
@@ -716,7 +773,24 @@
     .c-arr { margin-left: auto; color: var(--muted); transition: 0.22s; }
     .c-item:hover .c-arr { color: var(--blue); transform: translateX(4px); }
 
-    /* social right col */
+    /* Glassy social right col */
+    .soc-glass-panel {
+      background: rgba(14, 17, 22, 0.5);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 2px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .soc-glass-panel::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.35), transparent);
+    }
+
     .soc-col-title {
       font-family: var(--font-head);
       font-size: 0.78rem; font-weight: 700;
@@ -730,14 +804,14 @@
     .soc-card {
       display: flex; align-items: center; gap: 1.1rem;
       padding: 1rem 1.2rem;
-      background: var(--surface);
+      background: rgba(22, 26, 35, 0.4);
       border-left: 2px solid transparent;
       transition: all 0.22s;
     }
-    .soc-card:hover { border-left-color: var(--blue); background: var(--surface2); transform: translateX(4px); }
+    .soc-card:hover { border-left-color: var(--blue); background: rgba(59,158,255,0.07); transform: translateX(4px); }
     .soc-icon {
       width: 38px; height: 38px; flex-shrink: 0;
-      background: var(--bg3);
+      background: rgba(10,12,16,0.5);
       border: 1px solid var(--border2);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.15rem; color: var(--muted);
@@ -798,23 +872,176 @@
     .fade-left.show { opacity: 1; transform: none; }
 
     /* ══════════════════════════════
-       RESPONSIVE
+       RESPONSIVE — TABLET
     ══════════════════════════════ */
     @media (max-width: 1100px) {
       .resume-layout { grid-template-columns: 1fr 1fr; }
       .what-col { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
       .what-group { margin-bottom: 0; }
     }
+
+    /* ══════════════════════════════
+       MOBILE — everything ≤ 800px
+    ══════════════════════════════ */
     @media (max-width: 800px) {
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       section, #expertise { padding-left: 1.5rem; padding-right: 1.5rem; }
       .hero-content { padding: 0 1.5rem; }
-      #home { align-items: flex-end; padding-bottom: 5rem; }
       .about-grid, .resume-layout, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .stats-row { grid-template-columns: 1fr 1fr; }
       .what-col { grid-column: auto; display: block; }
       footer { padding: 2rem 1.5rem; }
+
+      /* ─── MOBILE HERO REDESIGN ─── */
+      #home {
+        min-height: 100vh;
+        padding-top: var(--nav-h);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      /* Replace photo-bg with pure dark on mobile */
+      .hero-bg {
+        background: var(--bg) !important;
+      }
+
+      /* Subtle ambient glow center */
+      .hero-bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 60% 40% at 50% 50%, rgba(59,158,255,0.06) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .hero-bg::after {
+        display: none;
+      }
+
+      /* Hide scan lines on mobile — cleaner */
+      .hero-scan { display: none; }
+
+      /* Center the content block */
+      .hero-content {
+        padding: 0 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      /* "I AM" label above name — like the image */
+      .hero-eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--muted);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+        justify-content: center;
+      }
+      .hero-eyebrow::before { display: none; }
+
+      /* Giant centered name */
+      .hero-name {
+        line-height: 0.88;
+        margin-bottom: 0.6rem;
+        width: 100%;
+      }
+      .hero-name-first {
+        display: block;
+        font-size: clamp(3.5rem, 18vw, 6rem);
+        font-weight: 300;
+        letter-spacing: 12px;
+        color: rgba(255,255,255,0.55);
+      }
+      .hero-name-last {
+        display: block;
+        font-size: clamp(5rem, 24vw, 9rem);
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: var(--white);
+        text-shadow: none;
+        line-height: 0.9;
+      }
+
+      /* Role label below name */
+      .hero-title-line {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        font-weight: 400;
+        letter-spacing: 5px;
+        color: var(--muted);
+        text-transform: uppercase;
+        margin: 1rem 0 0;
+      }
+
+      /* Hide CTA buttons on mobile hero */
+      .hero-btns { display: none; }
+
+      /* Social icons — bottom left, vertical stack */
+      .hero-socials {
+        position: fixed;
+        bottom: 2rem;
+        left: 1.2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        z-index: 10;
+      }
+      .hero-soc {
+        width: 32px; height: 32px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(10,12,16,0.6);
+        backdrop-filter: blur(8px);
+        font-size: 0.9rem;
+      }
+      .hero-soc:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+      }
+
+      /* Scroll indicator — bottom right */
+      .hero-scroll {
+        position: fixed;
+        bottom: 2rem;
+        right: 1.2rem;
+        z-index: 10;
+      }
+      .scroll-line { height: 40px; }
+
+      /* Thin horizontal rule below name for texture */
+      .hero-name-last::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 1px;
+        background: var(--blue);
+        margin: 1.2rem auto 0;
+        opacity: 0.6;
+      }
+
+      /* Mobile about panel — full width */
+      .about-text-panel {
+        padding: 1.8rem;
+      }
+      .stats-row { margin-top: 2rem; }
+
+      /* Mobile contact panels */
+      .contact-glass-panel,
+      .soc-glass-panel {
+        padding: 1.8rem;
+      }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 380px) {
+      .hero-name-first { font-size: 3rem; letter-spacing: 8px; }
+      .hero-name-last  { font-size: 4.5rem; }
     }
   </style>
 </head>
@@ -883,7 +1110,7 @@
         </div>
       </div>
 
-      <div class="fade-up" style="transition-delay:0.1s">
+      <div class="about-text-panel fade-up" style="transition-delay:0.1s">
         <div class="about-email"><i class="ph ph-envelope"></i> padmasnair1@gmail.com</div>
         <p class="about-bio">
           A dedicated <strong>Principal and Educational Leader</strong> with over 25 years of experience transforming schools into centres of academic and personal excellence across India.
@@ -1143,7 +1370,7 @@
     </div>
 
     <div class="contact-grid">
-      <div class="fade-left">
+      <div class="contact-glass-panel fade-left">
         <p class="contact-tagline">Open to collaborations, speaking opportunities, educational partnerships, and consultancy. Feel free to reach out — I'd love to connect.</p>
         <div class="contact-items">
           <a href="mailto:padmasnair1@gmail.com" class="c-item">
@@ -1162,7 +1389,7 @@
         </div>
       </div>
 
-      <div class="fade-up" style="transition-delay:0.1s">
+      <div class="soc-glass-panel fade-up" style="transition-delay:0.1s">
         <p class="soc-col-title">Connect on Social</p>
         <div class="soc-cards">
           <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" rel="noopener" class="soc-card">
