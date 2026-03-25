@@ -369,102 +369,215 @@
       letter-spacing: 2px; margin-top: 0.2rem;
     }
 
-    /* Glassy about text panel */
+    /* ── About text panel — redesigned ── */
     .about-text-panel {
-      background: rgba(22, 26, 35, 0.5);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 2px;
-      padding: 2.5rem;
+      background: rgba(12, 15, 22, 0.55);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 0;
+      padding: 0;
       position: relative;
       overflow: hidden;
     }
+    /* shimmer top edge */
     .about-text-panel::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(59,158,255,0.5), transparent);
+      background: linear-gradient(90deg, transparent 0%, rgba(59,158,255,0.7) 40%, rgba(0,212,255,0.5) 60%, transparent 100%);
     }
+    /* ambient glow top-right */
     .about-text-panel::after {
       content: '';
-      position: absolute; top: -60px; right: -60px;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(59,158,255,0.06) 0%, transparent 70%);
+      position: absolute; top: -80px; right: -80px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(59,158,255,0.07) 0%, transparent 70%);
       pointer-events: none;
+    }
+
+    /* headline strip at top of panel */
+    .about-panel-head {
+      padding: 1.8rem 2.2rem 1.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+    }
+    .about-panel-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 2px;
+      line-height: 1.1;
+    }
+    .about-panel-title em {
+      font-style: normal;
+      color: var(--blue);
+    }
+    .about-panel-badge {
+      flex-shrink: 0;
+      display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(59,158,255,0.1);
+      border: 1px solid rgba(59,158,255,0.25);
+      font-family: var(--font-mono);
+      font-size: 0.58rem; color: var(--blue);
+      letter-spacing: 2px; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .about-panel-badge::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    /* body of panel */
+    .about-panel-body {
+      padding: 1.8rem 2.2rem;
     }
 
     .about-email {
       font-family: var(--font-mono);
-      font-size: 0.72rem; color: var(--blue);
-      margin-bottom: 1.8rem;
-      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.68rem; color: var(--blue);
+      margin-bottom: 1.6rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid rgba(59,158,255,0.2);
+      background: rgba(59,158,255,0.05);
+      letter-spacing: 0.5px;
     }
-    .about-email i { font-size: 0.9rem; }
+    .about-email i { font-size: 0.85rem; }
 
     .about-bio {
-      font-size: 0.92rem; font-weight: 300;
+      font-size: 0.9rem; font-weight: 300;
       color: var(--off-white); line-height: 1.9;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.2rem;
     }
     .about-bio strong { color: var(--white); font-weight: 600; }
+
+    /* key facts inline chips */
+    .about-chips {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 1.4rem 0;
+    }
+    .about-chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.8rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family: var(--font-head);
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--off-white);
+      transition: 0.2s;
+    }
+    .about-chip i { color: var(--blue); font-size: 0.8rem; }
+    .about-chip:hover { border-color: rgba(59,158,255,0.3); color: var(--blue); background: rgba(59,158,255,0.06); }
 
     .about-location {
       display: flex; align-items: center; gap: 0.5rem;
       font-family: var(--font-mono);
-      font-size: 0.68rem; color: var(--muted);
-      letter-spacing: 1px;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+      font-size: 0.65rem; color: var(--muted);
+      letter-spacing: 0.5px;
+      padding: 1rem 0 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
     .about-location i { color: var(--blue); }
 
-    /* stats row */
+    /* stats row — redesigned as glassy cards */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(4,1fr);
       gap: 1px;
-      background: var(--border);
-      margin-top: 3rem;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
     .stat-cell {
-      background: rgba(22, 26, 35, 0.6);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      padding: 1.5rem 1rem;
+      background: rgba(8, 10, 16, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.6rem 0.8rem;
       text-align: center;
-      transition: background 0.22s;
+      transition: background 0.25s;
+      position: relative;
+      overflow: hidden;
     }
-    .stat-cell:hover {
-      background: rgba(59,158,255,0.08);
+    .stat-cell::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 30px; height: 1px;
+      background: var(--blue); opacity: 0;
+      transition: opacity 0.25s;
     }
+    .stat-cell:hover { background: rgba(59,158,255,0.07); }
+    .stat-cell:hover::before { opacity: 1; }
     .stat-num {
       font-family: var(--font-head);
-      font-size: 2.2rem; font-weight: 700;
+      font-size: 2rem; font-weight: 700;
       color: var(--blue); line-height: 1;
+      text-shadow: 0 0 20px rgba(59,158,255,0.3);
     }
     .stat-lbl {
       font-family: var(--font-mono);
-      font-size: 0.58rem; color: var(--muted);
+      font-size: 0.54rem; color: var(--muted);
       letter-spacing: 1.5px; text-transform: uppercase;
-      margin-top: 0.4rem;
+      margin-top: 0.35rem;
     }
 
     /* ══════════════════════════════
-       RESUME
+       RESUME — REDESIGNED GLASSY
     ══════════════════════════════ */
     #resume {
       background: var(--bg);
+      position: relative;
+      overflow: hidden;
     }
+    #resume::before {
+      content: '';
+      position: absolute; top: 20%; left: -200px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(59,158,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #resume::after {
+      content: '';
+      position: absolute; bottom: 10%; right: -150px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(0,212,255,0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
     .resume-layout {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
       align-items: start;
+      position: relative; z-index: 1;
+    }
+
+    /* Glass wrapper for each resume column */
+    .resume-glass {
+      background: rgba(12, 15, 22, 0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem 1.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .resume-glass::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,158,255,0.5), transparent);
     }
 
     .skills-col { }
-    .skill-group { margin-bottom: 2.5rem; }
+    .skill-group { margin-bottom: 2.2rem; }
     .skill-group-title {
       font-family: var(--font-head);
       font-size: 0.78rem; font-weight: 700;
@@ -496,16 +609,18 @@
       font-family: var(--font-head); font-weight: 700;
     }
     .skill-bar-wrap {
-      height: 3px;
-      background: var(--border);
+      height: 4px;
+      background: rgba(255,255,255,0.05);
       position: relative; overflow: hidden;
+      border-radius: 2px;
     }
     .skill-bar-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--blue), var(--cyan));
       border-radius: 2px;
       width: 0;
-      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+      box-shadow: 0 0 8px rgba(59,158,255,0.5);
+      transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
     }
     .skill-bar-fill.animate { width: var(--pct); }
 
@@ -534,7 +649,7 @@
 
     .exp-item {
       display: flex; gap: 1.2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       position: relative;
     }
     .exp-dot-col {
@@ -542,9 +657,11 @@
       flex-shrink: 0;
     }
     .exp-badge {
-      width: 46px; height: 46px;
-      background: var(--surface2);
-      border: 1px solid var(--border2);
+      width: 48px; height: 48px;
+      background: rgba(59,158,255,0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(59,158,255,0.25);
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-head);
       font-size: 0.55rem; font-weight: 700;
@@ -552,13 +669,27 @@
       color: var(--blue); text-transform: uppercase;
       line-height: 1.2;
       flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(59,158,255,0.1);
     }
     .exp-line {
       width: 1px; flex: 1; min-height: 20px;
-      background: var(--border);
+      background: linear-gradient(to bottom, rgba(59,158,255,0.3), transparent);
       margin: 4px 0;
     }
-    .exp-body { padding-top: 0.2rem; }
+    .exp-body {
+      padding: 1rem 1.2rem;
+      background: rgba(8,10,16,0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-left: 2px solid rgba(59,158,255,0.2);
+      flex: 1;
+      transition: all 0.22s;
+    }
+    .exp-body:hover {
+      background: rgba(59,158,255,0.05);
+      border-left-color: var(--blue);
+    }
     .exp-org {
       font-family: var(--font-head);
       font-size: 0.95rem; font-weight: 700;
@@ -577,14 +708,25 @@
     }
 
     .edu-block {
-      padding: 1.2rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      padding: 1.1rem 1.2rem;
+      background: rgba(8,10,16,0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.06);
       border-left: 2px solid var(--blue);
-      margin-bottom: 0.8rem;
-      transition: all 0.22s;
+      margin-bottom: 0.6rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
     }
-    .edu-block:hover { background: var(--surface2); border-left-color: var(--cyan); }
+    .edu-block::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, rgba(59,158,255,0.2), transparent);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .edu-block:hover { background: rgba(59,158,255,0.06); border-left-color: var(--cyan); }
+    .edu-block:hover::after { opacity: 1; }
     .edu-deg {
       font-family: var(--font-head);
       font-size: 1.1rem; font-weight: 700;
@@ -615,40 +757,57 @@
       border-bottom: 1px solid var(--border2);
       margin-bottom: 1.2rem;
     }
-    .what-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .what-list { display: flex; flex-direction: column; gap: 0.3rem; }
     .what-item {
-      font-size: 0.8rem; font-weight: 300;
+      font-size: 0.8rem; font-weight: 400;
       color: var(--off-white);
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 0.8rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-left: 2px solid transparent;
       display: flex; align-items: center; gap: 0.6rem;
-      transition: 0.2s;
+      transition: all 0.2s;
     }
-    .what-item:hover { color: var(--blue); padding-left: 0.3rem; }
+    .what-item:hover { color: var(--blue); border-left-color: var(--blue); background: rgba(59,158,255,0.05); padding-left: 1rem; }
     .what-item::before {
-      content: '·'; color: var(--blue); font-size: 1.2rem; line-height: 1;
+      content: ''; width: 4px; height: 4px; border-radius: 50%;
+      background: var(--blue); flex-shrink: 0;
+      box-shadow: 0 0 6px var(--blue);
     }
 
-    .design-skills { display: flex; flex-direction: column; gap: 0.4rem; }
+    .design-skills { display: flex; flex-direction: column; gap: 0.3rem; }
     .ds-item {
       font-size: 0.78rem; font-weight: 300;
       color: var(--off-white);
-      padding: 0.4rem 0;
-      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0.8rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      transition: all 0.2s;
     }
+    .ds-item:hover { background: rgba(59,158,255,0.04); border-color: rgba(59,158,255,0.15); }
 
     .hobbies-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 0.8rem;
+      gap: 0.6rem;
     }
     .hobby-item {
       display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      padding: 1rem 0.5rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      transition: 0.22s;
+      padding: 1.1rem 0.5rem;
+      background: rgba(8,10,16,0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.25s;
+      position: relative; overflow: hidden;
     }
-    .hobby-item:hover { border-color: var(--blue); background: var(--blue-dim); }
+    .hobby-item::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,158,255,0.4), transparent);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .hobby-item:hover { border-color: rgba(59,158,255,0.2); background: rgba(59,158,255,0.07); }
+    .hobby-item:hover::before { opacity: 1; }
     .hobby-icon {
       width: 42px; height: 42px;
       border-radius: 50%;
@@ -666,32 +825,101 @@
     }
 
     /* ══════════════════════════════
-       EXPERTISE STRIP
+       EXPERTISE — REDESIGNED GLASSY
     ══════════════════════════════ */
     #expertise {
       background: var(--bg3);
-      padding: 4rem 3rem;
+      padding: 5rem 3rem;
+      position: relative;
+      overflow: hidden;
     }
+    #expertise::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(59,158,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .expertise-header {
+      display: flex; align-items: center; gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .expertise-title-group {}
+    .exp-strip-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem; color: var(--blue);
+      letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .exp-strip-label::before { content: ''; width: 18px; height: 1px; background: var(--blue); }
     .exp-strip-title {
       font-family: var(--font-head);
-      font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 1.8rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0;
     }
-    .tags-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .tag {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      padding: 0.5rem 1.1rem;
-      border: 1px solid var(--border2);
+    .exp-strip-title span { color: var(--blue); }
+
+    /* Grid of glassy expertise cards */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .expertise-card {
+      background: rgba(10, 12, 18, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1.6rem 1.4rem;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 0.8rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .expertise-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .expertise-card::after {
+      content: '';
+      position: absolute; bottom: -40px; right: -40px;
+      width: 100px; height: 100px;
+      background: radial-gradient(circle, rgba(59,158,255,0.08) 0%, transparent 70%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .expertise-card:hover { background: rgba(59,158,255,0.06); }
+    .expertise-card:hover::before { transform: scaleX(1); }
+    .expertise-card:hover::after { opacity: 1; }
+    .expertise-card:hover .ec-icon { color: var(--white); background: rgba(59,158,255,0.2); border-color: rgba(59,158,255,0.4); }
+
+    .ec-icon {
+      width: 38px; height: 38px;
+      background: rgba(59,158,255,0.06);
+      border: 1px solid rgba(59,158,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--blue);
+      transition: all 0.25s;
+      flex-shrink: 0;
+    }
+    .ec-label {
       font-family: var(--font-head);
-      font-size: 0.78rem; font-weight: 600;
+      font-size: 0.82rem; font-weight: 700;
       letter-spacing: 1px; text-transform: uppercase;
-      color: var(--muted);
-      transition: 0.22s; cursor: default;
+      color: var(--off-white);
+      line-height: 1.2;
+      transition: color 0.2s;
     }
-    .tag i { color: var(--blue); font-size: 0.85rem; }
-    .tag:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-dim); }
+    .expertise-card:hover .ec-label { color: var(--white); }
 
     /* ══════════════════════════════
        CONTACT — GLASSY
@@ -878,6 +1106,7 @@
       .resume-layout { grid-template-columns: 1fr 1fr; }
       .what-col { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
       .what-group { margin-bottom: 0; }
+      .expertise-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     /* ══════════════════════════════
@@ -1025,17 +1254,10 @@
         opacity: 0.6;
       }
 
-      /* Mobile about panel — full width */
-      .about-text-panel {
-        padding: 1.8rem;
-      }
-      .stats-row { margin-top: 2rem; }
-
-      /* Mobile contact panels */
-      .contact-glass-panel,
-      .soc-glass-panel {
-        padding: 1.8rem;
-      }
+      .about-panel-head { padding: 1.4rem 1.6rem 1.2rem; }
+      .about-panel-body { padding: 1.4rem 1.6rem; }
+      .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+      .resume-glass { padding: 1.5rem 1.2rem; }
     }
 
     /* Extra small screens */
@@ -1106,39 +1328,43 @@
         <img src="profile.png" alt="Padma Nair" class="about-photo" />
         <div class="about-photo-name">
           <p class="about-photo-name-text">Padma Nair</p>
-          <p class="about-photo-name-sub">padmasnair1@gmail.com</p>
+          <p class="about-photo-name-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6d1d0c09000c1e030c041f5c2d0a000c0401430e0200">[email&#160;protected]</a></p>
         </div>
       </div>
 
       <div class="about-text-panel fade-up" style="transition-delay:0.1s">
-        <div class="about-email"><i class="ph ph-envelope"></i> padmasnair1@gmail.com</div>
-        <p class="about-bio">
-          A dedicated <strong>Principal and Educational Leader</strong> with over 25 years of experience transforming schools into centres of academic and personal excellence across India.
-        </p>
-        <p class="about-bio">
-          My leadership philosophy centres on cultivating <strong>value-based, student-first environments</strong> — bridging rich traditional educational values with progressive modern policies to build robust, future-ready school systems.
-        </p>
-        <div class="about-location">
-          <i class="ph ph-map-pin"></i>
-          Palai, Kerala, India &nbsp;·&nbsp; Currently at Spring Dale Public School, Firozabad, UP
+        <div class="about-panel-head">
+          <div>
+            <h3 class="about-panel-title">Principal &amp; <em>Educational</em><br>Leader</h3>
+          </div>
+          <div class="about-panel-badge">Active</div>
         </div>
+        <div class="about-panel-body">
+          <a href="mailto:padmasnair1@gmail.com" class="about-email"><i class="ph ph-envelope"></i> padmasnair1@gmail.com</a>
+          <p class="about-bio">
+            A dedicated <strong>Principal and Educational Leader</strong> with over 25 years of experience transforming schools into centres of academic and personal excellence across India.
+          </p>
+          <p class="about-bio">
+            My leadership philosophy centres on cultivating <strong>value-based, student-first environments</strong> — bridging rich traditional educational values with progressive modern policies to build robust, future-ready school systems.
+          </p>
 
-        <div class="stats-row">
-          <div class="stat-cell">
-            <div class="stat-num">25+</div>
-            <div class="stat-lbl">Years Exp.</div>
+          <div class="about-chips">
+            <span class="about-chip"><i class="ph-fill ph-buildings"></i> 25+ Yrs Experience</span>
+            <span class="about-chip"><i class="ph-fill ph-chalkboard-teacher"></i> 3 Schools Led</span>
+            <span class="about-chip"><i class="ph-fill ph-users-three"></i> 1000+ Students</span>
+            <span class="about-chip"><i class="ph-fill ph-map-pin"></i> Pan-India</span>
           </div>
-          <div class="stat-cell">
-            <div class="stat-num">3</div>
-            <div class="stat-lbl">Schools Led</div>
+
+          <div class="about-location">
+            <i class="ph ph-map-pin"></i>
+            Palai, Kerala &nbsp;·&nbsp; Spring Dale Public School, Firozabad, UP
           </div>
-          <div class="stat-cell">
-            <div class="stat-num">5</div>
-            <div class="stat-lbl">Institutions</div>
-          </div>
-          <div class="stat-cell">
-            <div class="stat-num">1K+</div>
-            <div class="stat-lbl">Students</div>
+
+          <div class="stats-row">
+            <div class="stat-cell"><div class="stat-num">25+</div><div class="stat-lbl">Years Exp.</div></div>
+            <div class="stat-cell"><div class="stat-num">3</div><div class="stat-lbl">Schools Led</div></div>
+            <div class="stat-cell"><div class="stat-num">5</div><div class="stat-lbl">Institutions</div></div>
+            <div class="stat-cell"><div class="stat-num">1K+</div><div class="stat-lbl">Students</div></div>
           </div>
         </div>
       </div>
@@ -1156,7 +1382,7 @@
     <div class="resume-layout">
 
       <!-- LEFT: Skills -->
-      <div class="skills-col fade-left">
+      <div class="resume-glass skills-col fade-left">
 
         <div class="skill-group">
           <p class="skill-group-title">Core Skills</p>
@@ -1227,7 +1453,7 @@
       </div>
 
       <!-- CENTER: Experience -->
-      <div class="exp-col fade-up" style="transition-delay:0.1s">
+      <div class="resume-glass exp-col fade-up" style="transition-delay:0.1s">
         <p class="exp-title-bar">Experience</p>
 
         <div class="exp-item">
@@ -1291,7 +1517,7 @@
       </div>
 
       <!-- RIGHT: What I Do + Hobbies -->
-      <div class="what-col fade-up" style="transition-delay:0.2s">
+      <div class="resume-glass what-col fade-up" style="transition-delay:0.2s">
 
         <div class="what-group">
           <p class="what-title">What Can I Do?</p>
@@ -1344,20 +1570,61 @@
 
   <!-- EXPERTISE -->
   <section id="expertise">
-    <p class="exp-strip-title">CORE EXPERTISE</p>
-    <div class="tags-wrap fade-up">
-      <span class="tag"><i class="ph-fill ph-buildings"></i>School Leadership</span>
-      <span class="tag"><i class="ph-fill ph-book-open"></i>Curriculum Strategy</span>
-      <span class="tag"><i class="ph-fill ph-chalkboard-teacher"></i>Faculty Mentorship</span>
-      <span class="tag"><i class="ph-fill ph-chart-line-up"></i>Academic Oversight</span>
-      <span class="tag"><i class="ph-fill ph-shield-check"></i>Student Welfare</span>
-      <span class="tag"><i class="ph-fill ph-users-three"></i>Parent Engagement</span>
-      <span class="tag"><i class="ph-fill ph-calendar-star"></i>Event Management</span>
-      <span class="tag"><i class="ph-fill ph-monitor"></i>Digital Literacy</span>
-      <span class="tag"><i class="ph-fill ph-gear"></i>Process Improvement</span>
-      <span class="tag"><i class="ph-fill ph-handshake"></i>Stakeholder Relations</span>
-      <span class="tag"><i class="ph-fill ph-pencil"></i>Staff Development</span>
-      <span class="tag"><i class="ph-fill ph-trophy"></i>Institutional Growth</span>
+    <div class="expertise-header fade-up">
+      <div class="expertise-title-group">
+        <p class="exp-strip-label">What I Bring</p>
+        <h2 class="exp-strip-title">Core <span>Expertise</span></h2>
+      </div>
+    </div>
+    <div class="expertise-grid fade-up" style="transition-delay:0.1s">
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-buildings"></i></div>
+        <div class="ec-label">School Leadership</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-book-open"></i></div>
+        <div class="ec-label">Curriculum Strategy</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-chalkboard-teacher"></i></div>
+        <div class="ec-label">Faculty Mentorship</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-chart-line-up"></i></div>
+        <div class="ec-label">Academic Oversight</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-shield-check"></i></div>
+        <div class="ec-label">Student Welfare</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-users-three"></i></div>
+        <div class="ec-label">Parent Engagement</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-calendar-star"></i></div>
+        <div class="ec-label">Event Management</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-monitor"></i></div>
+        <div class="ec-label">Digital Literacy</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-gear"></i></div>
+        <div class="ec-label">Process Improvement</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-handshake"></i></div>
+        <div class="ec-label">Stakeholder Relations</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-pencil"></i></div>
+        <div class="ec-label">Staff Development</div>
+      </div>
+      <div class="expertise-card">
+        <div class="ec-icon"><i class="ph-fill ph-trophy"></i></div>
+        <div class="ec-label">Institutional Growth</div>
+      </div>
     </div>
   </section>
 
@@ -1373,9 +1640,9 @@
       <div class="contact-glass-panel fade-left">
         <p class="contact-tagline">Open to collaborations, speaking opportunities, educational partnerships, and consultancy. Feel free to reach out — I'd love to connect.</p>
         <div class="contact-items">
-          <a href="mailto:padmasnair1@gmail.com" class="c-item">
+          <a href="/cdn-cgi/l/email-protection#3b4b5a5f565a48555a52490a7b5c565a525715585456" class="c-item">
             <div class="c-icon"><i class="ph-fill ph-envelope"></i></div>
-            <div><p class="c-label">Email</p><p class="c-val">padmasnair1@gmail.com</p></div>
+            <div><p class="c-label">Email</p><p class="c-val"><span class="__cf_email__" data-cfemail="8dfdece9e0ecfee3ece4ffbccdeae0ece4e1a3eee2e0">[email&#160;protected]</span></p></div>
             <i class="ph ph-arrow-right c-arr"></i>
           </a>
           <div class="c-item">
@@ -1421,7 +1688,7 @@
     <a href="#home" class="footer-top"><i class="ph ph-arrow-up"></i> Back to Top</a>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll reveal
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -1450,18 +1717,4 @@
     });
 
     // Active nav on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const spy = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (en.isIntersecting) {
-          navLinks.forEach(n => n.classList.remove('active'));
-          const a = document.querySelector(`.nav-link[href="#${en.target.id}"]`);
-          if (a) a.classList.add('active');
-        }
-      });
-    }, { threshold: 0.4 });
-    sections.forEach(s => spy.observe(s));
-  </script>
-</body>
-</html>
+    const sections = document.querySelectorAll('sectio
