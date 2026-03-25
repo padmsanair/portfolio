@@ -282,7 +282,12 @@
       padding: 6rem 3rem;
       position: relative;
     }
-    section:nth-child(even) { background: var(--bg2); }
+    /* Explicit backgrounds — avoids nth-child misfiring when nav is counted */
+    #home      { background: var(--bg) !important; }
+    #about     { background: var(--bg2) !important; }
+    #resume    { background: var(--bg) !important; }
+    #expertise { background: var(--bg3) !important; }
+    #contact   { background: var(--bg2) !important; }
 
     .sec-header {
       margin-bottom: 4rem;
@@ -1340,7 +1345,7 @@
           <div class="about-panel-badge">Active</div>
         </div>
         <div class="about-panel-body">
-          <a href="mailto:padmasnair1@gmail.com" class="about-email"><i class="ph ph-envelope"></i> padmasnair1@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#e09081848d81938e818992d1a0878d81898cce838f8d" class="about-email"><i class="ph ph-envelope"></i> <span class="__cf_email__" data-cfemail="fe8e9f9a939f8d909f978ccfbe99939f9792d09d9193">[email&#160;protected]</span></a>
           <p class="about-bio">
             A dedicated <strong>Principal and Educational Leader</strong> with over 25 years of experience transforming schools into centres of academic and personal excellence across India.
           </p>
@@ -1688,7 +1693,7 @@
     <a href="#home" class="footer-top"><i class="ph ph-arrow-up"></i> Back to Top</a>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll reveal
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -1711,10 +1716,3 @@
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
-        const t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
-
-    // Active nav on scroll
-    const sections = document.querySelectorAll('sectio
