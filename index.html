@@ -108,7 +108,7 @@
     .reveal.d1{transition-delay:0.1s}.reveal.d2{transition-delay:0.2s}.reveal.d3{transition-delay:0.3s}
     .reveal.d4{transition-delay:0.4s}.reveal.d5{transition-delay:0.5s}
 
-    /* ═══ ABOUT (Redesigned Glassy UI) ═══ */
+    /* ═══ ABOUT ═══ */
     #about{overflow:hidden}
     #about::before{content:'';position:absolute;top:-300px;right:-200px;width:800px;height:800px;background:radial-gradient(circle,rgba(201,168,76,0.03) 0%,transparent 60%);pointer-events:none}
 
@@ -124,7 +124,6 @@
     .caption-name{font-family:var(--F-display);font-size:1.3rem;font-weight:600;letter-spacing:1px;color:var(--cream)}
     .caption-role{font-family:var(--F-mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:0.3rem}
 
-    /* New Ultra-Glassy Panel Wrapper */
     .about-panels{
       display:flex;
       flex-direction:column;
@@ -190,11 +189,6 @@
     .edu-school{font-family:var(--F-mono);font-size:0.56rem;color:var(--muted)}
     .edu-yr{font-family:var(--F-mono);font-size:0.52rem;color:var(--gold);margin-top:0.28rem}
 
-    .soft-list{display:flex;flex-direction:column;gap:3px}
-    .soft-item{font-family:var(--F-body);font-size:0.77rem;font-weight:300;color:var(--cream);padding:0.44rem 0.7rem;border:1px solid var(--border);background:var(--glass);display:flex;align-items:center;gap:0.55rem;transition:all 0.2s}
-    .soft-item::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0;box-shadow:0 0 5px rgba(201,168,76,0.45)}
-    .soft-item:hover{color:var(--gold);background:var(--gold-dim);border-color:rgba(201,168,76,0.18)}
-
     .timeline{display:flex;flex-direction:column}
     .tl-row{display:flex;gap:1rem}
     .tl-spine{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:54px}
@@ -216,14 +210,6 @@
     .lead-list{display:flex;flex-direction:column;gap:2px}
     .lead-item{font-family:var(--F-body);font-size:0.74rem;font-weight:300;color:var(--cream);padding:0.48rem 0.8rem;border:1px solid var(--border);background:var(--glass);transition:all 0.2s}
     .lead-item:hover{background:var(--glass2);color:var(--white)}
-    .hobbies-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-    .hob-tile{display:flex;flex-direction:column;align-items:center;gap:0.55rem;padding:1.1rem 0.5rem;background:rgba(7,9,14,0.5);border:1px solid var(--border);transition:all 0.25s;position:relative;overflow:hidden}
-    .hob-tile::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.38),transparent);opacity:0;transition:opacity 0.25s}
-    .hob-tile:hover{border-color:rgba(201,168,76,0.18);background:var(--gold-dim)}
-    .hob-tile:hover::after{opacity:1}
-    .hob-ico{width:38px;height:38px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--gold);transition:0.22s}
-    .hob-tile:hover .hob-ico{background:var(--gold);color:var(--bg);border-color:var(--gold)}
-    .hob-txt{font-family:var(--F-mono);font-size:0.49rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;text-align:center}
 
     /* ═══ EXPERTISE ═══ */
     #expertise{overflow:hidden;padding-bottom:6rem}
@@ -233,11 +219,10 @@
     .exp-pill{display:flex;align-items:center;gap:0.7rem;font-family:var(--F-mono);font-size:0.57rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
     .exp-pill strong{font-family:var(--F-display);font-size:2rem;font-weight:700;color:var(--gold);font-style:normal;letter-spacing:0;line-height:1}
 
-    /* Fixed uneven rows */
     .exp-bento{
       display:grid;
       grid-template-columns:repeat(12,1fr);
-      grid-auto-rows:1fr; /* This enforces perfect equal lengths for all rows */
+      grid-auto-rows:1fr;
       gap:2px;
       background:rgba(255,255,255,0.025);
       border:1px solid var(--border);
@@ -253,9 +238,6 @@
     .eb.c3{grid-column:span 3}.eb.c4{grid-column:span 4}.eb.c6{grid-column:span 6}
     .eb.hero-eb{grid-column:span 6;grid-row:span 2;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.09);padding:2.2rem;justify-content:flex-end}
     .eb.hero-eb::before{opacity:1;transform:scaleY(1)}
-    .eb-num{font-family:var(--F-display);font-size:5rem;font-weight:700;font-style:italic;color:rgba(201,168,76,0.06);line-height:1;position:absolute;bottom:0.5rem;right:1rem;pointer-events:none;transition:color 0.3s}
-    .eb:hover .eb-num{color:rgba(201,168,76,0.11)}
-    .eb.hero-eb .eb-num{font-size:9rem;color:rgba(201,168,76,0.045)}
     .eb-ico{width:36px;height:36px;flex-shrink:0;background:var(--gold-dim);border:1px solid rgba(201,168,76,0.14);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--gold);transition:all 0.25s;position:relative;z-index:1}
     .eb.hero-eb .eb-ico{width:48px;height:48px;font-size:1.3rem;margin-bottom:1.2rem}
     .eb-cnt{position:relative;z-index:1}
@@ -445,15 +427,6 @@
           <div class="edu-card"><div class="edu-deg">M.A.</div><div class="edu-field">History</div><div class="edu-school">Barkatullah University, Bhopal</div><div class="edu-yr"><i class="ph ph-calendar-blank"></i> 2001 – 2003</div></div>
           <div class="edu-card"><div class="edu-deg">B.A.</div><div class="edu-field">Economics · NCC &amp; NSS</div><div class="edu-school">Mahatma Gandhi University, Kottayam</div><div class="edu-yr"><i class="ph ph-calendar-blank"></i> 1994 – 1997</div></div>
         </div>
-        <div class="r-sec">
-          <p class="r-sec-title">Personal Skills</p>
-          <div class="soft-list">
-            <div class="soft-item">Creativity &amp; Innovation</div>
-            <div class="soft-item">Team Work &amp; Collaboration</div>
-            <div class="soft-item">Strategic Planning</div>
-            <div class="soft-item">Crisis Management</div>
-          </div>
-        </div>
       </div>
 
       <div class="r-col reveal d1">
@@ -490,15 +463,6 @@
             <div class="lead-item">Process Improvement</div>
           </div>
         </div>
-        <div class="r-sec">
-          <p class="r-sec-title">Interests &amp; Values</p>
-          <div class="hobbies-grid">
-            <div class="hob-tile"><div class="hob-ico"><i class="ph-fill ph-books"></i></div><div class="hob-txt">Reading</div></div>
-            <div class="hob-tile"><div class="hob-ico"><i class="ph-fill ph-globe"></i></div><div class="hob-txt">Travel</div></div>
-            <div class="hob-tile"><div class="hob-ico"><i class="ph-fill ph-music-notes"></i></div><div class="hob-txt">Arts &amp; Culture</div></div>
-            <div class="hob-tile"><div class="hob-ico"><i class="ph-fill ph-plant"></i></div><div class="hob-txt">Nature</div></div>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -514,18 +478,18 @@
     </div>
 
     <div class="exp-bento" id="expBento">
-      <div class="eb hero-eb c6"><div class="eb-ico"><i class="ph-fill ph-buildings"></i></div><div class="eb-cnt"><div class="eb-lbl">School Leadership</div><div class="eb-desc">25+ years steering schools toward academic excellence and institutional growth across India. Building cultures of accountability, care, and continuous improvement.</div></div><div class="eb-num">01</div></div>
-      <div class="eb hero-eb c6"><div class="eb-ico"><i class="ph-fill ph-book-open"></i></div><div class="eb-cnt"><div class="eb-lbl">Curriculum Strategy</div><div class="eb-desc">Designing future-ready syllabi that blend tradition with progressive pedagogical approaches — aligned to national standards while honouring each learner.</div></div><div class="eb-num">02</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-chalkboard-teacher"></i></div><div class="eb-cnt"><div class="eb-lbl">Faculty Mentorship</div></div><div class="eb-num">03</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-chart-line-up"></i></div><div class="eb-cnt"><div class="eb-lbl">Academic Oversight</div></div><div class="eb-num">04</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-shield-check"></i></div><div class="eb-cnt"><div class="eb-lbl">Student Welfare</div></div><div class="eb-num">05</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-users-three"></i></div><div class="eb-cnt"><div class="eb-lbl">Parent Engagement</div></div><div class="eb-num">06</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-calendar-star"></i></div><div class="eb-cnt"><div class="eb-lbl">Event Management</div></div><div class="eb-num">07</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-monitor"></i></div><div class="eb-cnt"><div class="eb-lbl">Digital Literacy</div></div><div class="eb-num">08</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-gear"></i></div><div class="eb-cnt"><div class="eb-lbl">Process Improvement</div></div><div class="eb-num">09</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-handshake"></i></div><div class="eb-cnt"><div class="eb-lbl">Stakeholder Relations</div></div><div class="eb-num">10</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-pencil"></i></div><div class="eb-cnt"><div class="eb-lbl">Staff Development</div></div><div class="eb-num">11</div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-trophy"></i></div><div class="eb-cnt"><div class="eb-lbl">Institutional Growth</div></div><div class="eb-num">12</div></div>
+      <div class="eb hero-eb c6"><div class="eb-ico"><i class="ph-fill ph-buildings"></i></div><div class="eb-cnt"><div class="eb-lbl">School Leadership</div><div class="eb-desc">25+ years steering schools toward academic excellence and institutional growth across India. Building cultures of accountability, care, and continuous improvement.</div></div></div>
+      <div class="eb hero-eb c6"><div class="eb-ico"><i class="ph-fill ph-book-open"></i></div><div class="eb-cnt"><div class="eb-lbl">Curriculum Strategy</div><div class="eb-desc">Designing future-ready syllabi that blend tradition with progressive pedagogical approaches — aligned to national standards while honouring each learner.</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-chalkboard-teacher"></i></div><div class="eb-cnt"><div class="eb-lbl">Faculty Mentorship</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-chart-line-up"></i></div><div class="eb-cnt"><div class="eb-lbl">Academic Oversight</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-shield-check"></i></div><div class="eb-cnt"><div class="eb-lbl">Student Welfare</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-users-three"></i></div><div class="eb-cnt"><div class="eb-lbl">Parent Engagement</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-calendar-star"></i></div><div class="eb-cnt"><div class="eb-lbl">Event Management</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-monitor"></i></div><div class="eb-cnt"><div class="eb-lbl">Digital Literacy</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-gear"></i></div><div class="eb-cnt"><div class="eb-lbl">Process Improvement</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-handshake"></i></div><div class="eb-cnt"><div class="eb-lbl">Stakeholder Relations</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-pencil"></i></div><div class="eb-cnt"><div class="eb-lbl">Staff Development</div></div></div>
+      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-trophy"></i></div><div class="eb-cnt"><div class="eb-lbl">Institutional Growth</div></div></div>
     </div>
   </section>
 
