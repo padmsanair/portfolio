@@ -4,6 +4,30 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Padma Nair — Principal & Educational Leader</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Padma Nair is a Principal and Educational Leader with 25+ years of experience in school administration, curriculum strategy, faculty mentorship, and student-centred learning across India."/>
+  <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://padmsanair.github.io/portfolio/" />
+  <meta property="og:title" content="Padma Nair — Principal & Educational Leader" />
+  <meta property="og:description" content="Padma Nair is a Principal and Educational Leader with 25+ years of experience in school administration, curriculum strategy, faculty mentorship, and student-centred learning across India." />
+  <meta property="og:image" content="https://padmsanair.github.io/portfolio/thumbnail.jpg" />
+  <meta property="og:site_name" content="Padma Nair" />
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://padmsanair.github.io/portfolio/" />
+  <meta name="twitter:title" content="Padma Nair — Principal & Educational Leader" />
+  <meta name="twitter:description" content="Padma Nair is a Principal and Educational Leader with 25+ years of experience in school administration..." />
+  <meta name="twitter:image" content="https://padmsanair.github.io/portfolio/thumbnail.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Padma Nair",
+    "url": "https://padmsanair.github.io/portfolio/"
+  }
+  </script>
+  <link rel="canonical" href="https://padmsanair.github.io/portfolio/"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -170,9 +194,8 @@
     .hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.2s ease-in-out infinite}
     @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.6)}}
     .hero-name{font-family:var(--F-display);line-height:0.9;margin-bottom:0.6rem}
-    .hero-name-first{display:block;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:var(--text2);letter-spacing:10px}
-    .hero-name-last{display:block;font-size:clamp(4rem,9vw,7.5rem);font-weight:700;color:var(--text);letter-spacing:3px}
-    .hero-title-line{
+    .hero-name-first{display:block;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:300;color:#5a524a;letter-spacing:10px}
+    .hero-name-last{display:block;font-size:clamp(4rem,9vw,7.5rem);font-weight:700;color:#2a2420;letter-spacing:3px}    .hero-title-line{
       font-family:var(--F-display);font-size:1.05rem;font-weight:300;font-style:italic;
       color:var(--text2);letter-spacing:3px;margin:1.4rem 0 2.8rem;
     }
@@ -249,10 +272,11 @@
     .sec-hd{margin-bottom:4rem}
 
     /* ═══ REVEAL ═══ */
-    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s var(--ease),transform 0.9s var(--ease)}
-    .reveal.from-left{transform:translateX(-28px)}
-    .reveal.from-right{transform:translateX(28px)}
-    .reveal.visible{opacity:1;transform:none}
+    .reveal{opacity:1;transform:none}
+    .js-ready .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s var(--ease),transform 0.9s var(--ease)}
+    .js-ready .reveal.from-left{transform:translateX(-28px)}
+    .js-ready .reveal.from-right{transform:translateX(28px)}
+    .js-ready .reveal.visible{opacity:1;transform:none}
     .reveal.d1{transition-delay:0.1s}.reveal.d2{transition-delay:0.2s}.reveal.d3{transition-delay:0.3s}
 
     /* ═══ ABOUT ═══ */
@@ -754,6 +778,7 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     /* ── Scroll reveal ── */
+    document.body.classList.add('js-ready');
     const ro = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
     }, { threshold: 0.07 });
@@ -770,7 +795,9 @@
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.querySelectorAll('.eb').forEach((c, i) => {
-            c.style.cssText += `opacity:0;transform:translateY(18px);transition:opacity .55s cubic-bezier(.16,1,.3,1) ${i*0.06}s,transform .55s cubic-bezier(.16,1,.3,1) ${i*0.06}s`;
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(18px)';
+            c.style.transition = `opacity .55s cubic-bezier(.16,1,.3,1) ${i*0.06}s,transform .55s cubic-bezier(.16,1,.3,1) ${i*0.06}s`;
             requestAnimationFrame(() => requestAnimationFrame(() => { c.style.opacity='1'; c.style.transform='none'; }));
           });
           xo.unobserve(e.target);
