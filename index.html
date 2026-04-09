@@ -6,19 +6,34 @@
   <title>Padma Nair | Principal & Educational Leader</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <meta name="description" content="Padma Nair is a Principal and Educational Leader with 25+ years of experience in school administration, curriculum strategy, faculty mentorship, and student-centred learning across India."/>
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en-IN">
+
+  <!-- Geo targeting -->
+  <meta name="geo.region" content="IN-UP">
+
   <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://padmsanair.github.io/portfolio/" />
   <meta property="og:title" content="Padma Nair — Principal & Educational Leader" />
   <meta property="og:description" content="Padma Nair is a Principal and Educational Leader with 25+ years of experience in school administration, curriculum strategy, faculty mentorship, and student-centred learning across India." />
   <meta property="og:image" content="https://padmsanair.github.io/portfolio/thumbnail.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Padma Nair" />
+  <meta property="og:locale" content="en_IN" />
+
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://padmsanair.github.io/portfolio/" />
   <meta name="twitter:title" content="Padma Nair — Principal & Educational Leader" />
   <meta name="twitter:description" content="Padma Nair is a Principal and Educational Leader with 25+ years of experience in school administration..." />
   <meta name="twitter:image" content="https://padmsanair.github.io/portfolio/thumbnail.jpg" />
+
   <script type="application/ld+json">
   [
     {
@@ -33,7 +48,53 @@
       "@type": "Person",
       "name": "Padma Nair",
       "jobTitle": "Principal & Educational Leader",
-      "url": "https://padmsanair.github.io/portfolio/"
+      "url": "https://padmsanair.github.io/portfolio/",
+      "email": "padmasnair@gmail.com",
+      "telephone": "+918279839919",
+      "image": "https://padmsanair.github.io/portfolio/profile.png",
+      "description": "Principal and Educational Leader with 25+ years of experience in school administration, curriculum strategy, faculty mentorship, and student-centred learning across India.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
+      },
+      "worksFor": {
+        "@type": "EducationalOrganization",
+        "name": "Spring Dale Public School",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Firozabad",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "IN"
+        }
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Bangalore University"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Barkatullah University"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Mahatma Gandhi University"
+        }
+      ],
+      "knowsAbout": [
+        "School Administration",
+        "Curriculum Development",
+        "Educational Leadership",
+        "Faculty Mentorship",
+        "Student Welfare",
+        "Academic Oversight"
+      ],
+      "sameAs": [
+        "https://linkedin.com/in/padma-nair-6529212b7/",
+        "https://www.instagram.com/padma.nair.ms",
+        "https://www.facebook.com/share/14DZ6U2zyuN/"
+      ]
     },
     {
       "@context": "https://schema.org",
@@ -55,15 +116,14 @@
     }
   ]
   </script>
+
   <link rel="canonical" href="https://padmsanair.github.io/portfolio/"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <!-- FIX 1: Phosphor Icons loaded with defer to avoid render-blocking -->
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
 
   <style>
-    /* ═══ SKIP LINK — FIX 2: Accessibility for keyboard/screen-reader users ═══ */
     .skip-link {
       position: absolute;
       top: -100px;
@@ -114,7 +174,6 @@
     img{display:block;max-width:100%}
     body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.38}
 
-    /* ═══ NAVBAR ═══ */
     nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(7,9,14,0.82);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border-bottom:1px solid var(--border);z-index:500;display:flex;align-items:center;padding:0 4rem;transition:background 0.3s}
     nav.scrolled{background:rgba(7,9,14,0.96)}
     .nav-logo{font-family:var(--F-display);font-size:1.5rem;font-weight:600;font-style:italic;color:var(--cream);margin-right:auto}
@@ -127,7 +186,6 @@
     .nav-cta{margin-left:2rem;font-family:var(--F-mono);font-size:0.62rem;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.45rem;padding:0.45rem 1rem;border:1px solid rgba(201,168,76,0.28);background:rgba(201,168,76,0.05);transition:all 0.22s}
     .nav-cta:hover{background:rgba(201,168,76,0.12);border-color:rgba(201,168,76,0.5)}
 
-    /* ═══ BURGER MENU — FIX 3: Mobile navigation ═══ */
     .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:pointer;padding:4px;border:1px solid var(--border2);background:transparent;margin-left:1rem;flex-shrink:0}
     .nav-burger span{display:block;height:1px;background:var(--cream);transition:all 0.3s var(--ease-out);transform-origin:center}
     .nav-burger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
@@ -142,7 +200,6 @@
     .mob-nav-link:hover::after{transform:scaleX(1)}
     .mob-nav-link em{font-style:normal;color:var(--gold)}
 
-    /* ═══ HERO ═══ */
     #home{position:relative;min-height:100vh;padding-top:var(--nav-h);display:flex;align-items:center;overflow:hidden}
     .hero-bg{position:absolute;inset:0;background:linear-gradient(105deg,rgba(7,9,14,0.97) 0%,rgba(7,9,14,0.80) 45%,rgba(7,9,14,0.40) 75%,rgba(7,9,14,0.55) 100%),url('profile.jpg') center/cover no-repeat;z-index:0}
     .hero-bg::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(74,158,255,0.1) 0%,transparent 70%);pointer-events:none}
@@ -166,8 +223,14 @@
     .hero-scroll{position:absolute;bottom:2.5rem;right:4rem;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.6rem;font-family:var(--F-mono);font-size:0.58rem;color:var(--muted2);letter-spacing:2px;text-transform:uppercase}
     .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--blue),transparent);animation:scrollDrop 1.8s ease-in-out infinite}
     @keyframes scrollDrop{0%,100%{opacity:0.3;transform:scaleY(0.5) translateY(-10px)}50%{opacity:1;transform:scaleY(1) translateY(0)}}
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-line { animation: none; opacity: 0.5; }
+      .reveal { transition: none !important; }
+      .sk-bar { transition: none !important; }
+      .eb, .mob-exp-feature, .mob-exp-cell { transition: none !important; }
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
 
-    /* ═══ SECTIONS ═══ */
     section{padding:7rem 4rem;position:relative}
     #home{background:var(--bg) !important;padding:0}
     #about{background:var(--bg2) !important}
@@ -182,7 +245,6 @@
     .s-rule{width:48px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:1.2rem}
     .sec-hd{margin-bottom:4.5rem}
 
-    /* ═══ REVEAL SYSTEM ═══ */
     .reveal{opacity:0;transform:translateY(32px);transition:opacity 0.85s var(--ease-out),transform 0.85s var(--ease-out)}
     .reveal.from-left{transform:translateX(-32px)}
     .reveal.from-right{transform:translateX(32px)}
@@ -191,7 +253,6 @@
     .reveal.d1{transition-delay:0.1s}.reveal.d2{transition-delay:0.2s}.reveal.d3{transition-delay:0.3s}
     .reveal.d4{transition-delay:0.4s}.reveal.d5{transition-delay:0.5s}
 
-    /* ═══ ABOUT ═══ */
     #about{overflow:hidden}
     #about::before{content:'';position:absolute;top:-300px;right:-200px;width:800px;height:800px;background:radial-gradient(circle,rgba(201,168,76,0.03) 0%,transparent 60%);pointer-events:none}
 
@@ -221,12 +282,12 @@
     .panel-contacts{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:1.5rem}
     .p-chip{display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--F-mono);font-size:0.6rem;letter-spacing:0.5px;color:var(--blue);padding:0.4rem 1rem;border:1px solid rgba(74,158,255,0.18);background:rgba(74,158,255,0.05);transition:all 0.2s}
     .p-chip:hover{background:rgba(74,158,255,0.1);border-color:rgba(74,158,255,0.35)}
+    .p-chip:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 
     .panel-bio{font-family:var(--F-body);font-size:0.95rem;font-weight:300;color:var(--cream);line-height:1.95}
     .panel-bio+.panel-bio{margin-top:1.2rem}
     .panel-bio strong{font-weight:500;color:var(--white)}
 
-    /* ═══ RESUME ═══ */
     #resume{overflow:hidden}
     #resume::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.08),transparent);pointer-events:none}
 
@@ -279,7 +340,6 @@
     .lead-item{font-family:var(--F-body);font-size:0.74rem;font-weight:300;color:var(--cream);padding:0.48rem 0.8rem;border:1px solid var(--border);background:var(--glass);transition:all 0.2s}
     .lead-item:hover{background:var(--glass2);color:var(--white)}
 
-    /* ═══ EXPERTISE ═══ */
     #expertise{overflow:hidden;padding-bottom:6rem}
     #expertise::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:900px;height:500px;background:radial-gradient(ellipse,rgba(201,168,76,0.03) 0%,transparent 65%);pointer-events:none}
 
@@ -306,7 +366,6 @@
     .eb.hero-eb .eb-lbl{font-size:1.3rem;margin-bottom:0.4rem}
     .eb-desc{font-family:var(--F-body);font-size:0.74rem;font-weight:300;color:var(--muted);line-height:1.7;position:relative;z-index:1}
 
-    /* ═══ CONTACT ═══ */
     #contact{overflow:hidden}
     #contact::before{content:'';position:absolute;bottom:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.035) 0%,transparent 65%);pointer-events:none}
     .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;position:relative;z-index:1}
@@ -335,7 +394,13 @@
     .soc-arr{margin-left:auto;color:var(--muted2);transition:0.22s}
     .soc-row:hover .soc-arr{color:var(--gold);transform:translate(2px,-2px)}
 
-    /* ═══ FOOTER ═══ */
+    /* Focus visible styles */
+    a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+    .nav-link:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
+    .hero-soc:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+    .soc-row:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+    .c-row:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
     footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
     .f-brand{font-family:var(--F-display);font-size:1.8rem;font-weight:300;font-style:italic;color:var(--cream)}
     .f-brand strong{font-weight:700;font-style:normal;color:var(--gold)}
@@ -343,7 +408,6 @@
     .f-back{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--F-mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.28);padding:0.65rem 1.5rem;transition:all 0.22s}
     .f-back:hover{background:var(--gold);color:var(--bg);border-color:var(--gold)}
 
-    /* ═══ RESPONSIVE — TABLET ═══ */
     @media (max-width:1100px){
       section{padding:6rem 3rem}footer{padding:2.5rem 3rem}nav{padding:0 3rem}
       .about-wrap{grid-template-columns:300px 1fr;gap:3rem}
@@ -353,10 +417,8 @@
       .eb.hero-eb{grid-column:span 3;grid-row:span 2}
     }
 
-    /* ═══ RESPONSIVE — MOBILE ═══ */
     @media (max-width:900px){
       section{padding:5rem 2rem}footer{padding:2rem 2rem}nav{padding:0 1.5rem}
-      /* FIX 3: Show burger, hide desktop nav links and CTA */
       .nav-links{display:none}
       .nav-cta{display:none}
       .nav-burger{display:flex}
@@ -376,7 +438,6 @@
       .hero-scroll{position:fixed;bottom:2rem;right:1.2rem;z-index:10}
       .scroll-line{height:40px}
 
-      /* ABOUT */
       .about-wrap{grid-template-columns:1fr;gap:2.5rem}
       .about-photo-side{max-width:380px;margin:0 auto;height:auto}
       .about-photo-caption{padding:2.5rem 1rem 1rem}
@@ -387,16 +448,15 @@
       .panel-contacts{flex-direction:column;gap:0.6rem;align-items:stretch}
       .p-chip{justify-content:center;padding:0.6rem 1rem;font-size:0.65rem}
 
-      /* FIX 4 (media query): Hide desktop resume grid on mobile — no JS needed */
       .resume-grid{display:none}
       .mob-resume{display:flex;flex-direction:column}
 
-      /* Tab strip */
       .mob-tabs{display:flex;gap:2px;margin-bottom:2px;background:rgba(255,255,255,0.025)}
       .mob-tab{flex:1;padding:0.75rem 0.5rem;font-family:var(--F-mono);font-size:0.52rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-align:center;background:rgba(9,12,18,0.76);border:none;cursor:pointer;position:relative;transition:color 0.2s,background 0.2s;outline:none;-webkit-tap-highlight-color:transparent}
       .mob-tab::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s var(--ease-out)}
       .mob-tab.active{color:var(--gold);background:rgba(201,168,76,0.05)}
       .mob-tab.active::after{transform:scaleX(1)}
+      .mob-tab:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
 
       .mob-panels{position:relative}
       .mob-panel{display:none;background:rgba(9,12,18,0.76);backdrop-filter:blur(24px);padding:1.8rem 1.4rem 2rem;position:relative;overflow:hidden}
@@ -414,7 +474,6 @@
       .mob-panel .edu-deg{font-size:1rem}
       .mob-panel .edu-field{font-size:0.72rem}
 
-      /* Mobile timeline */
       .mob-tl{display:flex;flex-direction:column;gap:0}
       .mob-tl-item{display:flex;gap:0;position:relative}
       .mob-tl-axis{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0;padding-top:0.2rem}
@@ -428,7 +487,6 @@
       .mob-tl-role{font-family:var(--F-body);font-size:0.74rem;color:var(--gold);margin-bottom:0.15rem}
       .mob-tl-loc{font-family:var(--F-mono);font-size:0.53rem;color:var(--muted);display:flex;align-items:center;gap:0.3rem}
 
-      /* Mobile capabilities */
       .mob-cap-grid{display:flex;flex-direction:column;gap:2px}
       .mob-cap-item{font-family:var(--F-body);font-size:0.77rem;font-weight:300;color:var(--cream);padding:0.65rem 0.9rem;border:1px solid var(--border);border-left:2px solid rgba(201,168,76,0.3);background:var(--glass);display:flex;align-items:center;gap:0.55rem;transition:all 0.2s}
       .mob-cap-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;box-shadow:0 0 5px rgba(201,168,76,0.5)}
@@ -437,7 +495,6 @@
       .mob-lead-section-title{font-family:var(--F-mono);font-size:0.52rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:1.5rem 0 0.7rem}
       .mob-lead-grid{display:flex;flex-direction:column;gap:2px}
 
-      /* FIX 4 (media query): Hide desktop expertise on mobile */
       .exp-bento{display:none}
       .mob-expertise{display:flex;flex-direction:column;gap:2px}
 
@@ -466,14 +523,12 @@
       .a-panel+.a-panel::before{left:1.2rem;right:1.2rem}
     }
 
-    /* FIX 4 (default — desktop): Ensure mobile-only elements are hidden by default */
     .mob-resume{display:none}
     .mob-expertise{display:none}
   </style>
 </head>
 <body>
 
-  <!-- FIX 2: Skip-to-content link -->
   <a class="skip-link" href="#about">Skip to content</a>
 
   <nav id="navbar" role="navigation" aria-label="Main navigation">
@@ -486,13 +541,11 @@
       <a href="#contact"   class="nav-link" role="listitem">Contact</a>
     </div>
     <a href="tel:+918279839919" class="nav-cta"><i class="ph ph-phone"></i> +91 82798 39919</a>
-    <!-- FIX 3: Burger menu button -->
     <button class="nav-burger" id="navBurger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobNavOverlay">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- FIX 3: Mobile nav overlay -->
   <div class="mob-nav-overlay" id="mobNavOverlay" role="dialog" aria-label="Navigation menu" aria-modal="true">
     <a href="#home"      class="mob-nav-link"><em>01.</em> Home</a>
     <a href="#about"     class="mob-nav-link"><em>02.</em> About</a>
@@ -534,7 +587,7 @@
     <div class="about-wrap">
       <div class="about-photo-side reveal from-left">
         <div class="about-img-frame">
-          <img src="profile.png" alt="Padma Nair — Principal and Educational Leader" class="about-photo"/>
+          <img src="profile.png" alt="Padma Nair — Principal and Educational Leader" class="about-photo" width="360" height="480" loading="lazy"/>
           <div class="about-photo-caption" aria-hidden="true">
             <div class="caption-name">Padma Nair</div>
             <div class="caption-role">Principal · Educational Leader</div>
@@ -552,7 +605,6 @@
             <div class="about-badge">Active</div>
           </div>
           <div class="panel-contacts">
-            <!-- FIX 1: Unified email across entire page -->
             <a href="mailto:padmasnair@gmail.com" class="p-chip"><i class="ph ph-envelope"></i> padmasnair@gmail.com</a>
             <a href="tel:+918279839919" class="p-chip"><i class="ph ph-phone"></i> +91 82798 39919</a>
           </div>
@@ -573,7 +625,6 @@
       <div class="s-rule"></div>
     </div>
 
-    <!-- Desktop resume (hidden on mobile via CSS media query — no JS needed) -->
     <div class="resume-grid">
       <div class="r-col reveal from-left">
         <p class="r-col-lbl">Skills &amp; Education</p>
@@ -628,7 +679,6 @@
       </div>
     </div>
 
-    <!-- Mobile resume (visible on mobile via CSS media query only) -->
     <div class="mob-resume" id="mobResume">
       <div class="mob-tabs" role="tablist" aria-label="Resume sections">
         <button class="mob-tab active" role="tab" aria-selected="true" aria-controls="mob-panel-skills" data-panel="skills"><i class="ph ph-chart-bar"></i>&nbsp; Skills</button>
@@ -643,7 +693,7 @@
             <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">SL</span>School Leadership</span><span class="sk-pct">95%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:95%"></div></div></div>
             <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">CS</span>Curriculum Strategy</span><span class="sk-pct">90%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:90%"></div></div></div>
             <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">FM</span>Faculty Mentorship</span><span class="sk-pct">92%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:92%"></div></div></div>
-            <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">CE</span>Community Engagement</span><span class="sk-pct">88%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:88%"></div></div></div>
+            <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">CE</span>Community Engagement</span><span class="sk-pct">88%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:92%"></div></div></div>
             <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">SW</span>Student Welfare</span><span class="sk-pct">96%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:96%"></div></div></div>
           </div>
           <div class="mob-panel-lbl" style="margin-top:1.5rem">Education</div>
@@ -695,7 +745,6 @@
       <div class="exp-pill"><strong>12</strong> areas of mastery</div>
     </div>
 
-    <!-- Desktop bento -->
     <div class="exp-bento" id="expBento">
       <div class="eb hero-eb c6"><div class="eb-ico"><i class="ph-fill ph-buildings"></i></div><div class="eb-cnt"><div class="eb-lbl">School Leadership</div><div class="eb-desc">25+ years steering schools toward academic excellence and institutional growth across India. Building cultures of accountability, care, and continuous improvement.</div></div></div>
       <div class="eb hero-eb c6"><div class="eb-ico"><i class="ph-fill ph-book-open"></i></div><div class="eb-cnt"><div class="eb-lbl">Curriculum Strategy</div><div class="eb-desc">Designing future-ready syllabi that blend tradition with progressive pedagogical approaches — aligned to national standards while honouring each learner.</div></div></div>
@@ -711,7 +760,6 @@
       <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-trophy"></i></div><div class="eb-cnt"><div class="eb-lbl">Institutional Growth</div></div></div>
     </div>
 
-    <!-- Mobile expertise -->
     <div class="mob-expertise" id="mobExpertise">
       <div class="mob-exp-feature">
         <div class="mob-exp-feature-ico"><i class="ph-fill ph-buildings"></i></div>
@@ -752,7 +800,6 @@
       <div class="c-glass reveal from-left">
         <p class="c-intro">Have a question about my work or a project I'm managing? Drop me a message! I'll get back to you as soon as I can.</p>
         <div class="c-items">
-          <!-- FIX 1: Consistent email everywhere -->
           <a href="mailto:padmasnair@gmail.com" class="c-row"><div class="c-ico"><i class="ph-fill ph-envelope"></i></div><div><p class="c-lbl">Email</p><p class="c-val">padmasnair@gmail.com</p></div><i class="ph ph-arrow-right c-arr"></i></a>
           <div class="c-row"><div class="c-ico"><i class="ph-fill ph-phone"></i></div><div><p class="c-lbl">Phone</p><p class="c-val">+91 82798 39919</p></div></div>
           <div class="c-row"><div class="c-ico"><i class="ph-fill ph-map-pin"></i></div><div><p class="c-lbl">Location</p><p class="c-val">Palai, Kerala, India</p></div></div>
@@ -778,7 +825,6 @@
   </footer>
 
   <script>
-    /* ── FIX 3: Burger menu ── */
     const burger       = document.getElementById('navBurger');
     const mobOverlay   = document.getElementById('mobNavOverlay');
     const mobNavLinks  = mobOverlay.querySelectorAll('.mob-nav-link');
@@ -789,34 +835,30 @@
       mobOverlay.classList.toggle('open', open);
       burger.setAttribute('aria-expanded', String(open));
       document.body.style.overflow = open ? 'hidden' : '';
+      if (open) { mobNavLinks[0] && mobNavLinks[0].focus(); }
     }
 
     burger.addEventListener('click', () => toggleMenu());
-
-    mobNavLinks.forEach(link => {
-      link.addEventListener('click', () => toggleMenu(false));
-    });
-
-    /* Close on Escape */
+    mobNavLinks.forEach(link => { link.addEventListener('click', () => toggleMenu(false)); });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && mobOverlay.classList.contains('open')) toggleMenu(false);
     });
 
-    /* ── Tab switcher ── */
+    /* Fix: restore overflow on resize to desktop */
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && mobOverlay.classList.contains('open')) toggleMenu(false);
+    }, { passive: true });
+
     document.querySelectorAll('.mob-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         const panel = tab.dataset.panel;
-        document.querySelectorAll('.mob-tab').forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
+        document.querySelectorAll('.mob-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
         document.querySelectorAll('.mob-panel').forEach(p => p.classList.remove('active'));
         tab.classList.add('active');
         tab.setAttribute('aria-selected', 'true');
         const target = document.getElementById('mob-panel-' + panel);
         if (target) {
           target.classList.add('active');
-          /* FIX 5: Reliable skill bar animation on tab switch */
           if (panel === 'skills') {
             const bars = target.querySelectorAll('.sk-bar');
             bars.forEach(b => b.classList.remove('go'));
@@ -826,19 +868,16 @@
       });
     });
 
-    /* ── Scroll reveal ── */
     const ro = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
     }, { threshold: 0.07 });
     document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-    /* ── Skill bars (desktop) ── */
     const bo = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.querySelectorAll('.sk-bar').forEach(b => b.classList.add('go')); bo.unobserve(e.target); } });
     }, { threshold: 0.2 });
     document.querySelectorAll('.r-sec').forEach(g => bo.observe(g));
 
-    /* ── FIX 5: Skill bars (mobile) — trigger when the panel section scrolls into view ── */
     const mobSkillsSec = document.getElementById('mobSkillsSec');
     if (mobSkillsSec) {
       const mbo = new IntersectionObserver(entries => {
@@ -854,7 +893,6 @@
       mbo.observe(mobSkillsSec);
     }
 
-    /* ── Bento stagger ── */
     const xo = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -869,7 +907,6 @@
     }, { threshold: 0.05 });
     document.querySelectorAll('.exp-bento, .mob-expertise').forEach(b => xo.observe(b));
 
-    /* ── FIX 6: Nav scroll spy — lower threshold for short sections ── */
     const nl = document.querySelectorAll('.nav-link');
     const so = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -882,7 +919,6 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -20% 0px' });
     document.querySelectorAll('section[id]').forEach(s => so.observe(s));
 
-    /* ── Smooth scroll ── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));
@@ -890,7 +926,6 @@
       });
     });
 
-    /* ── Nav opacity on scroll ── */
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
   </script>
