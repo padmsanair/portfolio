@@ -389,7 +389,6 @@
 
       /* FIX 4 (media query): Hide desktop resume grid on mobile — no JS needed */
       .resume-grid{display:none}
-      .mob-resume{display:flex;flex-direction:column}
 
       /* Tab strip */
       .mob-tabs{display:flex;gap:2px;margin-bottom:2px;background:rgba(255,255,255,0.025)}
@@ -399,9 +398,8 @@
       .mob-tab.active::after{transform:scaleX(1)}
 
       .mob-panels{position:relative}
-      .mob-panel{display:none;background:rgba(9,12,18,0.76);backdrop-filter:blur(24px);padding:1.8rem 1.4rem 2rem;position:relative;overflow:hidden}
+      .mob-panel{background:rgba(9,12,18,0.76);backdrop-filter:blur(24px);padding:1.8rem 1.4rem 2rem;position:relative;overflow:hidden}
       .mob-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,0.12),transparent 70%)}
-      .mob-panel.active{display:block}
 
       .mob-panel-lbl{font-family:var(--F-mono);font-size:0.53rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.5rem;padding-bottom:1rem;margin-bottom:1.5rem;border-bottom:1px solid rgba(201,168,76,0.13)}
       .mob-panel-lbl::before{content:'';width:10px;height:1px;background:var(--gold)}
@@ -439,7 +437,6 @@
 
       /* FIX 4 (media query): Hide desktop expertise on mobile */
       .exp-bento{display:none}
-      .mob-expertise{display:flex;flex-direction:column;gap:2px}
 
       .mob-exp-feature{display:flex;align-items:flex-start;gap:1rem;padding:1.4rem 1.3rem;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);position:relative;overflow:hidden;transition:background 0.25s}
       .mob-exp-feature::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),transparent)}
@@ -466,9 +463,20 @@
       .a-panel+.a-panel::before{left:1.2rem;right:1.2rem}
     }
 
-    /* FIX 4 (default — desktop): Ensure mobile-only elements are hidden by default */
-    .mob-resume{display:none}
-    .mob-expertise{display:none}
+  </style>
+  <style>
+    /* Default (desktop): hide mobile-only elements */
+    .mob-resume { display: none !important; }
+    .mob-expertise { display: none !important; }
+
+    /* Mobile: show them — !important ensures this beats the default above */
+    @media (max-width: 900px) {
+      .mob-resume { display: flex !important; flex-direction: column; }
+      .mob-expertise { display: flex !important; flex-direction: column; gap: 2px; }
+      /* Journey tabs: only the active panel is shown */
+      .mob-panel { display: none !important; }
+      .mob-panel.active { display: block !important; }
+    }
   </style>
 </head>
 <body>
