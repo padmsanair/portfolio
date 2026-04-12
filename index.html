@@ -169,7 +169,8 @@
     .about-img-frame::after{content:'';position:absolute;bottom:-1px;right:-1px;width:46px;height:46px;border-bottom:1px solid var(--gold);border-right:1px solid var(--gold);z-index:2;pointer-events:none}
     .about-photo{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(0%) contrast(1.03) brightness(1);display:block;transition:filter 0.5s}
     .about-img-frame:hover .about-photo{filter:grayscale(0%) contrast(1.03) brightness(1)}
-    .about-photo-caption{position:absolute;bottom:0;left:0;right:0;padding:3.5rem 1.4rem 1.5rem;background:linear-gradient(to top,rgba(7,9,14,0.98) 0%,rgba(7,9,14,0.6) 50%,transparent 100%); backdrop-filter: blur(4px);}
+    /* ── FIXED: removed backdrop-filter:blur(4px) that was blurring the photo ── */
+    .about-photo-caption{position:absolute;bottom:0;left:0;right:0;padding:3.5rem 1.4rem 1.5rem;background:linear-gradient(to top,rgba(7,9,14,0.98) 0%,rgba(7,9,14,0.6) 50%,transparent 100%);}
     .caption-name{font-family:var(--F-display);font-size:1.3rem;font-weight:600;letter-spacing:1px;color:var(--cream)}
     .caption-role{font-family:var(--F-mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:0.3rem}
 
