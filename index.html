@@ -286,17 +286,38 @@
       .nav-cta{margin-left:0;font-size:0.7rem;padding:0.5rem 0.9rem}
       .nav-logo{font-size:1.2rem}
 
-      /* Hero mobile */
-      .hero-content{padding:0 1.8rem;max-width:100%}
-      .hero-name-first{font-size:clamp(2.8rem,14vw,4.5rem);letter-spacing:8px}
-      .hero-name-last{font-size:clamp(4rem,20vw,7rem);letter-spacing:2px}
-      .hero-title-line{font-size:0.75rem;letter-spacing:2px}
-      .hero-btns{flex-direction:column;max-width:260px}
+      /* Hero mobile — no bg image, light emerald gradient */
+      #home{background:linear-gradient(150deg,#ecfdf5 0%,#d1fae5 45%,#a7f3d0 100%)!important;min-height:100svh;justify-content:center;align-items:center}
+      .hero-bg{display:none}
+      .hero-scan{display:none}
+      #home::before{width:260px;height:260px;top:-70px;right:-70px;background:radial-gradient(circle,rgba(52,211,153,0.42) 0%,transparent 70%)}
+      #home::after{width:200px;height:200px;bottom:-50px;left:-40px;background:radial-gradient(circle,rgba(5,150,105,0.22) 0%,transparent 70%)}
+      .hero-content{padding:0 2rem;max-width:100%;text-align:center;display:flex;flex-direction:column;align-items:center}
+      /* mobile hero avatar */
+      .m-hero-avatar{display:flex!important;width:96px;height:96px;border-radius:50%;border:3px solid var(--emerald);overflow:hidden;margin:0 auto 1.4rem;box-shadow:0 0 0 6px rgba(5,150,105,0.14),var(--shadow2)}
+      .m-hero-avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
+      .hero-eyebrow{color:var(--emerald);background:rgba(5,150,105,0.1);border:1.5px solid rgba(5,150,105,0.28)}
+      .hero-name-first{font-size:clamp(3rem,15vw,4.8rem);letter-spacing:10px;color:var(--emerald-d)}
+      .hero-name-last{font-size:clamp(4.2rem,21vw,7rem);letter-spacing:2px;color:var(--ink);text-shadow:none}
+      .hero-title-line{font-size:0.75rem;letter-spacing:2px;color:var(--muted)}
+      .hero-btns{flex-direction:column;max-width:270px;margin:0 auto}
       .btn-primary,.btn-outline-hero{justify-content:center;font-size:0.82rem;padding:0.85rem 1.5rem}
-      .hero-socials{position:static;margin-top:2rem;justify-content:flex-start}
+      .btn-outline-hero{border-color:var(--border2);color:var(--ink);background:rgba(255,255,255,0.7)}
+      .btn-outline-hero:hover{border-color:var(--emerald);color:var(--emerald)}
+      .hero-socials{position:static;margin-top:2rem;justify-content:center}
+      .hero-soc{border-color:var(--border2);background:rgba(255,255,255,0.7);color:var(--emerald)}
+      .hero-soc:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
       .hero-scroll{display:none}
-      #home::before{width:220px;height:220px;top:-50px;right:-50px}
-      #home::after{width:160px;height:160px}
+
+      /* About mobile photo card */
+      .mob-about-photo-card{display:flex!important;align-items:center;gap:1rem;background:#fff;border:1.5px solid var(--border2);border-radius:20px;padding:1.2rem 1.4rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+      .mob-about-photo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--emerald),var(--emerald3));border-radius:20px 20px 0 0}
+      .mob-about-photo-wrap{width:80px;height:80px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid var(--emerald);box-shadow:0 0 0 4px rgba(5,150,105,0.14)}
+      .mob-about-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top}
+      .mob-about-name{font-family:var(--F-display);font-size:1.2rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:0.3rem}
+      .mob-about-role{font-family:var(--F-body);font-size:0.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--emerald)}
+      /* show mobile hero avatar */
+      .m-hero-avatar{display:flex!important}
 
       /* About mobile */
       .about-wrap{grid-template-columns:1fr}
@@ -373,6 +394,10 @@
     <div class="hero-bg"></div>
     <div class="hero-scan"></div>
     <div class="hero-content">
+      <!-- Mobile avatar (shown only on mobile via CSS) -->
+      <div class="m-hero-avatar" style="display:none">
+        <img src="thumbnail.jpg" alt="Padma Nair"/>
+      </div>
       <p class="hero-eyebrow">Principal &amp; Educational Leader</p>
       <h1 class="hero-name">
         <span class="hero-name-first">PADMA</span>
@@ -412,7 +437,16 @@
       </div>
 
       <div class="about-panels reveal from-right">
-        <!-- Identity card -->
+        <!-- Mobile-only photo card -->
+        <div class="mob-about-photo-card" style="display:none">
+          <div class="mob-about-photo-wrap">
+            <img src="thumbnail.jpg" alt="Padma Nair"/>
+          </div>
+          <div class="mob-about-photo-info">
+            <div class="mob-about-name">Padma Nair</div>
+            <div class="mob-about-role">Principal · Educational Leader</div>
+          </div>
+        </div>
         <div class="a-panel">
           <div class="panel-head-row">
             <div>
@@ -526,12 +560,12 @@
     <!-- Mobile tabbed resume -->
     <div id="mobResume" style="display:none">
       <div class="mob-resume-tabs">
-        <button class="mob-tab active" data-panel="skills"><i class="ph ph-chart-bar"></i> Skills</button>
-        <button class="mob-tab" data-panel="journey"><i class="ph ph-path"></i> Journey</button>
+        <button class="mob-tab" data-panel="skills"><i class="ph ph-chart-bar"></i> Skills</button>
+        <button class="mob-tab active" data-panel="journey"><i class="ph ph-path"></i> Journey</button>
         <button class="mob-tab" data-panel="brings"><i class="ph ph-star"></i> I Bring</button>
       </div>
 
-      <div class="mob-panel active" id="mob-panel-skills">
+      <div class="mob-panel" id="mob-panel-skills">
         <div class="r-sec">
           <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">SL</span>School Leadership</span><span class="sk-pct">95%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:95%"></div></div></div>
           <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">CS</span>Curriculum Strategy</span><span class="sk-pct">90%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:90%"></div></div></div>
@@ -546,7 +580,7 @@
         </div>
       </div>
 
-      <div class="mob-panel" id="mob-panel-journey">
+      <div class="mob-panel active" id="mob-panel-journey">
         <div class="mob-tl">
           <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">Feb 2011 – Present</div><div class="mob-tl-org">Spring Dale Public School</div><div class="mob-tl-role">Principal</div><div class="mob-tl-loc"><i class="ph ph-map-pin"></i> Firozabad, Uttar Pradesh</div></div></div>
           <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">2008 – 2011</div><div class="mob-tl-org">Shri Saraswati Vidya Mandir</div><div class="mob-tl-role">Principal</div><div class="mob-tl-loc"><i class="ph ph-map-pin"></i> Gujarat</div></div></div>
@@ -669,6 +703,12 @@
       if (desktopResume) desktopResume.style.display = mob ? 'none' : 'grid';
       if (mobExp) mobExp.style.display = mob ? 'flex' : 'none';
       if (expBento) expBento.style.display = mob ? 'none' : 'grid';
+      // mobile hero avatar
+      const mHeroAvatar = document.querySelector('.m-hero-avatar');
+      if (mHeroAvatar) mHeroAvatar.style.display = mob ? 'flex' : 'none';
+      // mobile about photo card
+      const mAboutPhoto = document.querySelector('.mob-about-photo-card');
+      if (mAboutPhoto) mAboutPhoto.style.display = mob ? 'flex' : 'none';
     }
     applyLayout();
     window.addEventListener('resize', applyLayout, { passive: true });
