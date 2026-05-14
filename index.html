@@ -88,7 +88,7 @@
     .btn-primary:hover{background:var(--emerald-d);border-color:var(--emerald-d);transform:translateY(-1px);box-shadow:0 6px 28px rgba(5,150,105,0.45)}
     .btn-outline-hero{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 2.2rem;border:2px solid rgba(255,255,255,0.55);color:#fff;font-family:var(--F-body);font-size:0.82rem;font-weight:700;border-radius:50px;backdrop-filter:blur(8px);background:rgba(255,255,255,0.08);transition:all 0.25s}
     .btn-outline-hero:hover{border-color:#fff;background:rgba(255,255,255,0.18)}
-    .hero-socials{display:flex;align-items:center;gap:0.7rem;margin-top:2rem;position:relative;z-index:2}
+    .hero-socials{display:flex;align-items:center;gap:0.7rem;margin-top:2rem;margin-bottom:1.2rem;position:relative;z-index:2}
     .hero-soc{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#fff;transition:all 0.22s}
     .hero-soc:hover{border-color:var(--emerald3);background:rgba(52,211,153,0.22);color:var(--emerald3)}
     .hero-scroll{position:absolute;bottom:2.8rem;right:5rem;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.6rem;font-family:var(--F-body);font-size:0.58rem;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:2px;text-transform:uppercase}
@@ -292,7 +292,6 @@
       #home::before{width:260px;height:260px;top:-70px;right:-70px;background:radial-gradient(circle,rgba(52,211,153,0.42) 0%,transparent 70%)}
       #home::after{width:200px;height:200px;bottom:-50px;left:-40px;background:radial-gradient(circle,rgba(5,150,105,0.22) 0%,transparent 70%)}
       .hero-content{padding:0 2rem;max-width:100%;text-align:center;display:flex;flex-direction:column;align-items:center}
-      /* mobile hero avatar */
       .m-hero-avatar{display:flex!important;width:96px;height:96px;border-radius:50%;border:3px solid var(--emerald);overflow:hidden;margin:0 auto 1.4rem;box-shadow:0 0 0 6px rgba(5,150,105,0.14),var(--shadow2)}
       .m-hero-avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
       .hero-eyebrow{color:var(--emerald);background:rgba(5,150,105,0.1);border:1.5px solid rgba(5,150,105,0.28)}
@@ -303,7 +302,8 @@
       .btn-primary,.btn-outline-hero{justify-content:center;font-size:0.82rem;padding:0.85rem 1.5rem}
       .btn-outline-hero{border-color:var(--border2);color:var(--ink);background:rgba(255,255,255,0.7)}
       .btn-outline-hero:hover{border-color:var(--emerald);color:var(--emerald)}
-      .hero-socials{margin-top:1.8rem;justify-content:center}
+      .hero-socials{margin-top:0;margin-bottom:0;justify-content:center;order:3;padding-top:1.5rem}
+      .hero-btns{order:2;margin-bottom:0}
       .hero-soc{border-color:var(--border2);background:rgba(255,255,255,0.7);color:var(--emerald)}
       .hero-soc:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
       .hero-scroll{display:none}
@@ -403,14 +403,14 @@
         <span class="hero-name-last">NAIR</span>
       </h1>
       <p class="hero-title-line">Principal · Educator · Leader</p>
-      <div class="hero-btns">
-        <a href="#resume"  class="btn-primary"><i class="ph ph-path"></i> My Journey</a>
-        <a href="#about"   class="btn-outline-hero"><i class="ph ph-user"></i> About Me</a>
-      </div>
       <div class="hero-socials">
         <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" rel="noopener" class="hero-soc"><i class="ph-fill ph-linkedin-logo"></i></a>
         <a href="https://www.instagram.com/padma.nair.ms" target="_blank" rel="noopener" class="hero-soc"><i class="ph-fill ph-instagram-logo"></i></a>
         <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" rel="noopener" class="hero-soc"><i class="ph-fill ph-facebook-logo"></i></a>
+      </div>
+      <div class="hero-btns">
+        <a href="#resume"  class="btn-primary"><i class="ph ph-path"></i> My Journey</a>
+        <a href="#about"   class="btn-outline-hero"><i class="ph ph-user"></i> About Me</a>
       </div>
     </div>
     <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
@@ -785,3 +785,4 @@
   </script>
 </body>
 </html>
+  
