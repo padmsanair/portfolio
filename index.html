@@ -73,14 +73,14 @@
     .nav-cta:hover{background:var(--emerald-d);border-color:var(--emerald-d);box-shadow:0 4px 18px rgba(5,150,105,0.35)}
 
     /* ═══ HERO ═══ */
-    #home{position:relative;min-height:100vh;padding-top:var(--nav-h);display:flex;align-items:center;overflow:hidden;padding-bottom:4rem}
+    #home{position:relative;min-height:100vh;padding-top:calc(var(--nav-h) + 3rem);display:flex;align-items:center;overflow:hidden;padding-bottom:4rem}
     .hero-bg{position:absolute;inset:0;background:linear-gradient(105deg,rgba(6,78,59,0.92) 0%,rgba(6,78,59,0.72) 38%,rgba(5,150,105,0.38) 68%,rgba(52,211,153,0.25) 100%),url('profile.jpg') center/cover no-repeat;z-index:0}
     .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(6,78,59,0.6) 0%,transparent 60%);pointer-events:none}
     #home::before{content:'';position:absolute;top:-80px;right:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(52,211,153,0.22) 0%,transparent 70%);border-radius:50%;animation:blobFloat 7s ease-in-out infinite;pointer-events:none;z-index:1}
     #home::after{content:'';position:absolute;bottom:-60px;left:30%;width:260px;height:260px;background:radial-gradient(circle,rgba(16,185,129,0.18) 0%,transparent 70%);border-radius:50%;animation:blobFloat 9s ease-in-out infinite reverse;pointer-events:none;z-index:1}
     @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(18px,-22px) scale(1.06)}66%{transform:translate(-12px,12px) scale(0.95)}}
     .hero-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.012) 3px,rgba(255,255,255,0.012) 4px);pointer-events:none;z-index:1}
-    .hero-content{position:relative;z-index:2;padding:0 5rem;max-width:780px}
+    .hero-content{position:relative;z-index:2;padding:0 5rem;max-width:780px;margin-top:auto;margin-bottom:auto}
     
     /* Layout controls handled via pure CSS instead of JavaScript */
     .m-hero-avatar, .mob-about-photo-card, #mobResume, #mobExpertise { display: none; }
@@ -104,8 +104,8 @@
     @keyframes scrollDrop{0%,100%{opacity:0.3;transform:scaleY(0.5) translateY(-10px)}50%{opacity:1;transform:scaleY(1) translateY(0)}}
 
     /* ═══ SECTIONS BASE ═══ */
-    section{padding:7rem 5rem;position:relative}
-    #home{background:none!important;padding:0}
+    section{padding:7rem 5rem;position:relative;scroll-margin-top:var(--nav-h)}
+    #home{background:none!important;padding-top:calc(var(--nav-h) + 3rem);padding-bottom:4rem}
     #about{background:var(--bg2)!important}
     #resume{background:var(--bg)!important}
     #expertise{background:var(--bg2)!important}
@@ -223,6 +223,11 @@
     .eb:hover .eb-ico{background:var(--emerald);color:#fff;border-color:var(--emerald)}
     .eb:hover .eb-lbl{color:var(--emerald)}
     .eb.c3{grid-column:span 3}.eb.c4{grid-column:span 4}.eb.c6{grid-column:span 6}
+    
+    /* Desktop specific classes to perfectly center the final two cards */
+    .eb.bottom-center-1 { grid-column: 4 / span 3; }
+    .eb.bottom-center-2 { grid-column: 7 / span 3; }
+
     .eb.hero-eb{grid-column:span 6;grid-row:span 2;padding:2.2rem;justify-content:flex-end;background:var(--emerald-xs);border-color:var(--border2)}
     .eb.hero-eb::before{transform:scaleX(1)}
     .eb-ico{width:40px;height:40px;flex-shrink:0;background:var(--emerald-xl);border:1.5px solid var(--border2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--emerald);transition:all 0.25s}
@@ -260,14 +265,6 @@
     .soc-arr{margin-left:auto;color:var(--muted);transition:all 0.22s;font-size:1rem}
     .soc-row:hover .soc-arr{color:var(--emerald);transform:translate(2px,-2px)}
 
-    /* ═══ FOOTER ═══ */
-    footer{background:var(--emerald-d);border-top:none;padding:3rem 5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-    .f-brand{font-family:var(--F-display);font-size:2rem;font-weight:300;font-style:italic;color:#fff}
-    .f-brand strong{font-weight:700;font-style:normal;color:var(--emerald3)}
-    .f-copy{font-family:var(--F-body);font-size:0.62rem;font-weight:500;letter-spacing:0.5px;color:rgba(255,255,255,0.5);margin-top:0.3rem}
-    .f-back{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--F-body);font-size:0.75rem;font-weight:700;letter-spacing:0.3px;color:var(--ink);background:var(--emerald3);border:none;border-radius:50px;padding:0.7rem 1.5rem;transition:all 0.22s}
-    .f-back:hover{background:var(--emerald2);color:#fff}
-
     /* ═══ TABLET ═══ */
     @media (max-width:1100px){
       section{padding:6rem 3rem}
@@ -276,7 +273,10 @@
       .about-wrap{grid-template-columns:320px 1fr;gap:3rem}
       .resume-grid{grid-template-columns:240px 1fr 220px}
       .exp-bento{grid-template-columns:repeat(6,1fr)}
-      .eb.c3{grid-column:span 3}.eb.c4{grid-column:span 3}.eb.c6{grid-column:span 3}
+      /* Revert custom centering on tablet where it breaks down into two columns perfectly */
+      .eb.c3, .eb.bottom-center-1, .eb.bottom-center-2 {grid-column:span 3}
+      .eb.c4{grid-column:span 3}
+      .eb.c6{grid-column:span 3}
       .eb.hero-eb{grid-column:span 3;grid-row:span 2}
       .hero-content{padding:0 3rem}
       .hero-scroll{right:3rem}
@@ -305,7 +305,7 @@
       .about-photo-side { display: none; }
 
       /* Hero mobile */
-      #home{background:linear-gradient(150deg,#ecfdf5 0%,#d1fae5 45%,#a7f3d0 100%)!important;min-height:100svh;justify-content:center;align-items:center}
+      #home{background:linear-gradient(150deg,#ecfdf5 0%,#d1fae5 45%,#a7f3d0 100%)!important;min-height:100svh;justify-content:center;align-items:center;padding-top:calc(var(--nav-h) + 1rem)}
       .hero-bg{display:none}
       .hero-scan{display:none}
       #home::before{width:260px;height:260px;top:-70px;right:-70px;background:radial-gradient(circle,rgba(52,211,153,0.42) 0%,transparent 70%)}
@@ -623,8 +623,10 @@
       <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-monitor"></i></div><div class="eb-cnt"><div class="eb-lbl">Digital Literacy</div></div></div>
       <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-gear"></i></div><div class="eb-cnt"><div class="eb-lbl">Process Improvement</div></div></div>
       <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-handshake"></i></div><div class="eb-cnt"><div class="eb-lbl">Stakeholder Relations</div></div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-pencil"></i></div><div class="eb-cnt"><div class="eb-lbl">Staff Development</div></div></div>
-      <div class="eb c3"><div class="eb-ico"><i class="ph-fill ph-trophy"></i></div><div class="eb-cnt"><div class="eb-lbl">Institutional Growth</div></div></div>
+      
+      <!-- Modified these two classes to perfectly center the final row on desktop -->
+      <div class="eb bottom-center-1"><div class="eb-ico"><i class="ph-fill ph-pencil"></i></div><div class="eb-cnt"><div class="eb-lbl">Staff Development</div></div></div>
+      <div class="eb bottom-center-2"><div class="eb-ico"><i class="ph-fill ph-trophy"></i></div><div class="eb-cnt"><div class="eb-lbl">Institutional Growth</div></div></div>
     </div>
 
     <!-- Mobile expertise -->
