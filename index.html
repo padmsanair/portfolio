@@ -7,6 +7,7 @@
   <title>Padma Nair | Principal & Educational Leader</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <meta name="description" content="Padma Nair is a Principal and Educational Leader with 25+ years of experience in school administration, curriculum strategy, faculty mentorship, and student-centred learning across India."/>
+  
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://padmsanair.github.io/portfolio/" />
   <meta property="og:title" content="Padma Nair — Principal & Educational Leader" />
@@ -15,10 +16,13 @@
   <meta property="og:site_name" content="Padma Nair" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://padmsanair.github.io/portfolio/"/>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
-  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+  
+  <!-- Official Phosphor Icons Script -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <style>
     /* ═══════════════════════════════════════════════
@@ -47,6 +51,7 @@
       --F-body:      'Plus Jakarta Sans', 'DM Sans', system-ui, sans-serif;
       --ease-out:    cubic-bezier(0.16,1,0.3,1);
     }
+    
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{font-family:var(--F-body);background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -69,15 +74,18 @@
 
     /* ═══ HERO ═══ */
     #home{position:relative;min-height:100vh;padding-top:var(--nav-h);display:flex;align-items:center;overflow:hidden;padding-bottom:4rem}
-    /* Keep original hero background image */
     .hero-bg{position:absolute;inset:0;background:linear-gradient(105deg,rgba(6,78,59,0.92) 0%,rgba(6,78,59,0.72) 38%,rgba(5,150,105,0.38) 68%,rgba(52,211,153,0.25) 100%),url('profile.jpg') center/cover no-repeat;z-index:0}
     .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(6,78,59,0.6) 0%,transparent 60%);pointer-events:none}
-    /* Animated blobs over hero */
     #home::before{content:'';position:absolute;top:-80px;right:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(52,211,153,0.22) 0%,transparent 70%);border-radius:50%;animation:blobFloat 7s ease-in-out infinite;pointer-events:none;z-index:1}
     #home::after{content:'';position:absolute;bottom:-60px;left:30%;width:260px;height:260px;background:radial-gradient(circle,rgba(16,185,129,0.18) 0%,transparent 70%);border-radius:50%;animation:blobFloat 9s ease-in-out infinite reverse;pointer-events:none;z-index:1}
     @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(18px,-22px) scale(1.06)}66%{transform:translate(-12px,12px) scale(0.95)}}
     .hero-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.012) 3px,rgba(255,255,255,0.012) 4px);pointer-events:none;z-index:1}
     .hero-content{position:relative;z-index:2;padding:0 5rem;max-width:780px}
+    
+    /* Layout controls handled via pure CSS instead of JavaScript */
+    .m-hero-avatar, .mob-about-photo-card, #mobResume, #mobExpertise { display: none; }
+    #desktopResume, #expBento { display: grid; }
+
     .hero-eyebrow{display:inline-flex;align-items:center;gap:0;font-family:var(--F-body);font-size:0.72rem;font-weight:600;color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.6rem;background:rgba(52,211,153,0.2);border:1.5px solid rgba(52,211,153,0.45);padding:0.4rem 1.2rem;border-radius:50px;backdrop-filter:blur(8px)}
     .hero-name{font-family:var(--F-display);line-height:0.88;margin-bottom:0.5rem}
     .hero-name-first{display:block;font-size:clamp(3rem,6vw,5rem);font-weight:300;color:rgba(255,255,255,0.88);letter-spacing:12px}
@@ -103,7 +111,6 @@
     #expertise{background:var(--bg2)!important}
     #contact{background:var(--bg)!important}
 
-    /* Section headers */
     .s-kicker{display:inline-flex;align-items:center;gap:0;font-family:var(--F-body);font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--emerald);margin-bottom:0.8rem;background:var(--emerald-xl);border:1.5px solid var(--border2);padding:0.3rem 0.9rem;border-radius:50px}
     .s-title{font-family:var(--F-display);font-size:clamp(2.8rem,5vw,4rem);font-weight:300;font-style:italic;line-height:1;letter-spacing:-0.5px;color:var(--ink)}
     .s-title strong{font-weight:700;font-style:normal;color:var(--emerald)}
@@ -128,7 +135,6 @@
     .caption-name{font-family:var(--F-display);font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:1px}
     .caption-role{font-family:var(--F-body);font-size:0.62rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--emerald3);margin-top:0.3rem}
 
-    /* About right panels */
     .about-panels{display:flex;flex-direction:column;gap:1.5rem}
     .a-panel{padding:2rem 2.5rem;background:#fff;border:1.5px solid var(--border);border-radius:20px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:box-shadow 0.25s}
     .a-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--emerald),var(--emerald3));border-radius:20px 20px 0 0}
@@ -156,7 +162,7 @@
     .stat-label{font-family:var(--F-body);font-size:0.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-top:0.3rem}
 
     /* ═══ RESUME ═══ */
-    .resume-grid{display:grid;grid-template-columns:280px 1fr 250px;gap:1.5rem}
+    .resume-grid{gap:1.5rem; grid-template-columns:280px 1fr 250px;}
     .r-col{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:2rem 1.8rem;position:relative;overflow:hidden;box-shadow:var(--shadow)}
     .r-col::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--emerald),var(--emerald3));border-radius:20px 20px 0 0}
     .r-col-lbl{font-family:var(--F-body);font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--emerald);padding-bottom:1rem;margin-bottom:1.8rem;border-bottom:2px solid var(--border2);display:flex;align-items:center;gap:0.5rem}
@@ -192,7 +198,7 @@
     .tl-card:hover{background:var(--emerald-xl);border-left-color:var(--emerald2);box-shadow:var(--shadow)}
     .tl-org{font-family:var(--F-display);font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.15rem}
     .tl-role{font-family:var(--F-body);font-size:0.76rem;font-weight:600;color:var(--emerald);margin-bottom:0.15rem}
-    .tl-loc{font-family:var(--F-body);font-size:0.64px;color:var(--muted);display:flex;align-items:center;gap:0.35rem;font-size:0.64rem}
+    .tl-loc{font-family:var(--F-body);color:var(--muted);display:flex;align-items:center;gap:0.35rem;font-size:0.64rem}
 
     /* Capabilities */
     .cap-list{display:flex;flex-direction:column;gap:0.4rem}
@@ -209,7 +215,7 @@
     .exp-pill strong{font-family:var(--F-display);font-size:2.2rem;font-weight:700;color:var(--emerald);letter-spacing:0;line-height:1;font-style:normal}
 
     /* Bento grid */
-    .exp-bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .exp-bento{grid-template-columns:repeat(12,1fr);gap:1rem}
     .eb{background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;transition:all 0.3s var(--ease-out);position:relative;overflow:hidden;cursor:default;box-shadow:0 1px 6px rgba(5,150,105,0.07)}
     .eb::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--emerald),var(--emerald3));border-radius:18px 18px 0 0;transform:scaleX(0);transform-origin:left;transition:transform 0.4s var(--ease-out)}
     .eb:hover{border-color:var(--border2);box-shadow:var(--shadow2);transform:translateY(-2px);background:var(--emerald-xs)}
@@ -285,14 +291,26 @@
       .nav-cta{margin-left:0;font-size:0.7rem;padding:0.5rem 0.9rem}
       .nav-logo{font-size:1.2rem}
 
-      /* Hero mobile — no bg image, light emerald gradient */
+      /* Layout visibility overrides */
+      .m-hero-avatar {
+        display:flex; width:96px; height:96px; border-radius:50%; border:3px solid var(--emerald); overflow:hidden; margin:0 auto 1.4rem; box-shadow:0 0 0 6px rgba(5,150,105,0.14),var(--shadow2);
+      }
+      .mob-about-photo-card {
+        display:flex; align-items:center; gap:1rem; background:#fff; border:1.5px solid var(--border2); border-radius:20px; padding:1.2rem 1.4rem; box-shadow:var(--shadow); position:relative; overflow:hidden;
+      }
+      #mobResume { display: block; }
+      #desktopResume { display: none; }
+      #mobExpertise { display: flex; }
+      #expBento { display: none; }
+      .about-photo-side { display: none; }
+
+      /* Hero mobile */
       #home{background:linear-gradient(150deg,#ecfdf5 0%,#d1fae5 45%,#a7f3d0 100%)!important;min-height:100svh;justify-content:center;align-items:center}
       .hero-bg{display:none}
       .hero-scan{display:none}
       #home::before{width:260px;height:260px;top:-70px;right:-70px;background:radial-gradient(circle,rgba(52,211,153,0.42) 0%,transparent 70%)}
       #home::after{width:200px;height:200px;bottom:-50px;left:-40px;background:radial-gradient(circle,rgba(5,150,105,0.22) 0%,transparent 70%)}
       .hero-content{padding:0 2rem;max-width:100%;text-align:center;display:flex;flex-direction:column;align-items:center}
-      .m-hero-avatar{display:flex!important;width:96px;height:96px;border-radius:50%;border:3px solid var(--emerald);overflow:hidden;margin:0 auto 1.4rem;box-shadow:0 0 0 6px rgba(5,150,105,0.14),var(--shadow2)}
       .m-hero-avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
       .hero-eyebrow{color:var(--emerald);background:rgba(5,150,105,0.1);border:1.5px solid rgba(5,150,105,0.28)}
       .hero-name-first{font-size:clamp(3rem,15vw,4.8rem);letter-spacing:10px;color:var(--emerald-d)}
@@ -308,19 +326,14 @@
       .hero-soc:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
       .hero-scroll{display:none}
 
-      /* About mobile photo card */
-      .mob-about-photo-card{display:flex!important;align-items:center;gap:1rem;background:#fff;border:1.5px solid var(--border2);border-radius:20px;padding:1.2rem 1.4rem;box-shadow:var(--shadow);position:relative;overflow:hidden}
+      /* About mobile */
       .mob-about-photo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--emerald),var(--emerald3));border-radius:20px 20px 0 0}
       .mob-about-photo-wrap{width:80px;height:80px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid var(--emerald);box-shadow:0 0 0 4px rgba(5,150,105,0.14)}
       .mob-about-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top}
       .mob-about-name{font-family:var(--F-display);font-size:1.2rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:0.3rem}
       .mob-about-role{font-family:var(--F-body);font-size:0.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--emerald)}
-      /* show mobile hero avatar */
-      .m-hero-avatar{display:flex!important}
 
-      /* About mobile */
       .about-wrap{grid-template-columns:1fr}
-      .about-photo-side{display:none}
       .about-panels{gap:1rem}
       .a-panel{padding:1.4rem}
       .panel-head-row{flex-direction:column;gap:0.8rem}
@@ -352,9 +365,8 @@
       .mob-tl-loc{font-family:var(--F-body);font-size:0.68rem;color:var(--muted);display:flex;align-items:center;gap:0.3rem}
 
       /* Expertise mobile */
-      .exp-bento{display:none}
       .exp-top{flex-direction:column;align-items:flex-start;gap:0.8rem;padding-bottom:1.5rem;margin-bottom:2rem}
-      .mob-expertise{display:flex;flex-direction:column;gap:0.8rem}
+      .mob-expertise{flex-direction:column;gap:0.8rem}
       .mob-exp-feature{display:flex;align-items:flex-start;gap:1rem;padding:1.3rem;background:#fff;border:1.5px solid var(--border2);border-radius:18px;position:relative;overflow:hidden;transition:all 0.25s;box-shadow:var(--shadow)}
       .mob-exp-feature::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--emerald),var(--emerald3));border-radius:18px 18px 0 0}
       .mob-exp-feature-ico{width:48px;height:48px;flex-shrink:0;background:var(--emerald-xl);border:1.5px solid var(--border2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--emerald)}
@@ -385,16 +397,15 @@
       <a href="#expertise" class="nav-link">Expertise</a>
       <a href="#contact"   class="nav-link">Contact</a>
     </div>
-    <a href="tel:+918279839919" class="nav-cta"><i class="ph ph-phone"></i> +91 82798 39919</a>
+    <a href="tel:+918279839919" class="nav-cta"><i class="ph-fill ph-phone"></i> +91 82798 39919</a>
   </nav>
 
-  <!-- ═══ HERO ═══ (keeps background image, emerald overlay) -->
+  <!-- ═══ HERO ═══ -->
   <section id="home">
     <div class="hero-bg"></div>
     <div class="hero-scan"></div>
     <div class="hero-content">
-      <!-- Mobile avatar (shown only on mobile via CSS) -->
-      <div class="m-hero-avatar" style="display:none">
+      <div class="m-hero-avatar">
         <img src="thumbnail.jpg" alt="Padma Nair"/>
       </div>
       <p class="hero-eyebrow">Principal &amp; Educational Leader</p>
@@ -409,8 +420,8 @@
         <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" rel="noopener" class="hero-soc"><i class="ph-fill ph-facebook-logo"></i></a>
       </div>
       <div class="hero-btns">
-        <a href="#resume"  class="btn-primary"><i class="ph ph-path"></i> My Journey</a>
-        <a href="#about"   class="btn-outline-hero"><i class="ph ph-user"></i> About Me</a>
+        <a href="#resume"  class="btn-primary"><i class="ph-bold ph-path"></i> My Journey</a>
+        <a href="#about"   class="btn-outline-hero"><i class="ph-bold ph-user"></i> About Me</a>
       </div>
     </div>
     <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
@@ -436,8 +447,7 @@
       </div>
 
       <div class="about-panels reveal from-right">
-        <!-- Mobile-only photo card -->
-        <div class="mob-about-photo-card" style="display:none">
+        <div class="mob-about-photo-card">
           <div class="mob-about-photo-wrap">
             <img src="thumbnail.jpg" alt="Padma Nair"/>
           </div>
@@ -455,13 +465,12 @@
             <div class="about-badge">Active</div>
           </div>
           <div class="panel-contacts">
-            <a href="mailto:padmasnair@gmail.com" class="p-chip"><i class="ph ph-envelope"></i> padmasnair@gmail.com</a>
-            <a href="tel:+918279839919" class="p-chip"><i class="ph ph-phone"></i> +91 82798 39919</a>
-            <div class="p-chip"><i class="ph ph-map-pin"></i> Palai, Kerala, India</div>
+            <a href="mailto:padmasnair@gmail.com" class="p-chip"><i class="ph-bold ph-envelope"></i> padmasnair@gmail.com</a>
+            <a href="tel:+918279839919" class="p-chip"><i class="ph-bold ph-phone"></i> +91 82798 39919</a>
+            <div class="p-chip"><i class="ph-bold ph-map-pin"></i> Palai, Kerala, India</div>
           </div>
         </div>
 
-        <!-- Bio card -->
         <div class="a-panel">
           <p class="panel-bio">A dedicated <strong>Principal and Educational Leader</strong> with over 25 years of experience transforming schools into centres of academic and personal excellence across India.</p>
           <p class="panel-bio">My leadership philosophy centres on cultivating <strong>value-based, student-first environments</strong> — bridging rich traditional educational values with progressive modern policies to build robust, future-ready school systems.</p>
@@ -483,7 +492,7 @@
     <div class="resume-grid" id="desktopResume">
       <!-- LEFT: Skills + Education -->
       <div class="r-col reveal from-left">
-        <p class="r-col-lbl"><i class="ph ph-chart-bar"></i> Skills &amp; Education</p>
+        <p class="r-col-lbl"><i class="ph-bold ph-chart-bar"></i> Skills &amp; Education</p>
         <div class="r-sec">
           <p class="r-sec-title">Core Competencies</p>
           <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">SL</span>School Leadership</span><span class="sk-pct">95%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:95%"></div></div></div>
@@ -494,27 +503,27 @@
         </div>
         <div class="r-sec">
           <p class="r-sec-title">Education</p>
-          <div class="edu-card"><div class="edu-deg">B.Ed.</div><div class="edu-field">Bachelor of Education</div><div class="edu-school">Bangalore University</div><div class="edu-yr"><i class="ph ph-calendar-blank"></i> 2006 – 2007</div></div>
-          <div class="edu-card"><div class="edu-deg">M.A.</div><div class="edu-field">History</div><div class="edu-school">Barkatullah University, Bhopal</div><div class="edu-yr"><i class="ph ph-calendar-blank"></i> 2001 – 2003</div></div>
-          <div class="edu-card"><div class="edu-deg">B.A.</div><div class="edu-field">Economics · NCC &amp; NSS</div><div class="edu-school">Mahatma Gandhi University, Kottayam</div><div class="edu-yr"><i class="ph ph-calendar-blank"></i> 1994 – 1997</div></div>
+          <div class="edu-card"><div class="edu-deg">B.Ed.</div><div class="edu-field">Bachelor of Education</div><div class="edu-school">Bangalore University</div><div class="edu-yr"><i class="ph-bold ph-calendar-blank"></i> 2006 – 2007</div></div>
+          <div class="edu-card"><div class="edu-deg">M.A.</div><div class="edu-field">History</div><div class="edu-school">Barkatullah University, Bhopal</div><div class="edu-yr"><i class="ph-bold ph-calendar-blank"></i> 2001 – 2003</div></div>
+          <div class="edu-card"><div class="edu-deg">B.A.</div><div class="edu-field">Economics · NCC &amp; NSS</div><div class="edu-school">Mahatma Gandhi University, Kottayam</div><div class="edu-yr"><i class="ph-bold ph-calendar-blank"></i> 1994 – 1997</div></div>
         </div>
       </div>
 
       <!-- MIDDLE: Timeline -->
       <div class="r-col reveal d1">
-        <p class="r-col-lbl"><i class="ph ph-path"></i> Experience</p>
+        <p class="r-col-lbl"><i class="ph-bold ph-path"></i> Experience</p>
         <div class="timeline">
-          <div class="tl-row"><div class="tl-spine"><div class="tl-node">Feb<br>2011<br>–<br>Now</div><div class="tl-wire"></div></div><div class="tl-card"><div class="tl-org">Spring Dale Public School</div><div class="tl-role">Principal</div><div class="tl-loc"><i class="ph ph-map-pin"></i> Firozabad, Uttar Pradesh</div></div></div>
-          <div class="tl-row"><div class="tl-spine"><div class="tl-node">2008<br>–<br>2011</div><div class="tl-wire"></div></div><div class="tl-card"><div class="tl-org">Shri Saraswati Vidya Mandir</div><div class="tl-role">Principal</div><div class="tl-loc"><i class="ph ph-map-pin"></i> Gujarat</div></div></div>
-          <div class="tl-row"><div class="tl-spine"><div class="tl-node">2003<br>–<br>2007</div><div class="tl-wire"></div></div><div class="tl-card"><div class="tl-org">Kids Corner Happy Sr. Sec. School</div><div class="tl-role">Teacher — Grades 1–8</div><div class="tl-loc"><i class="ph ph-map-pin"></i> Firozabad, UP</div></div></div>
-          <div class="tl-row"><div class="tl-spine"><div class="tl-node">2001<br>–<br>2003</div><div class="tl-wire"></div></div><div class="tl-card"><div class="tl-org">Rajeshwar Convent H.S. School</div><div class="tl-role">Teacher — Social Studies &amp; Languages</div><div class="tl-loc"><i class="ph ph-map-pin"></i> Madhya Pradesh</div></div></div>
-          <div class="tl-row"><div class="tl-spine"><div class="tl-node">2000<br>–<br>2001</div></div><div class="tl-card"><div class="tl-org">Shri L.G. Haria Multipurpose School</div><div class="tl-role">Teacher</div><div class="tl-loc"><i class="ph ph-map-pin"></i> Gujarat</div></div></div>
+          <div class="tl-row"><div class="tl-spine"><div class="tl-node">Feb<br>2011<br>–<br>Now</div><div class="tl-wire"></div></div><div class="tl-card"><div class="tl-org">Spring Dale Public School</div><div class="tl-role">Principal</div><div class="tl-loc"><i class="ph-fill ph-map-pin"></i> Firozabad, Uttar Pradesh</div></div></div>
+          <div class="tl-row"><div class="tl-spine"><div class="tl-node">2008<br>–<br>2011</div><div class="tl-wire"></div></div><div class="tl-card"><div class="tl-org">Shri Saraswati Vidya Mandir</div><div class="tl-role">Principal</div><div class="tl-loc"><i class="ph-fill ph-map-pin"></i> Gujarat</div></div></div>
+          <div class="tl-row"><div class="tl-spine"><div class="tl-node">2003<br>–<br>2007</div><div class="tl-wire"></div></div><div class="tl-card"><div class="tl-org">Kids Corner Happy Sr. Sec. School</div><div class="tl-role">Teacher — Grades 1–8</div><div class="tl-loc"><i class="ph-fill ph-map-pin"></i> Firozabad, UP</div></div></div>
+          <div class="tl-row"><div class="tl-spine"><div class="tl-node">2001<br>–<br>2003</div><div class="tl-wire"></div></div><div class="tl-card"><div class="tl-org">Rajeshwar Convent H.S. School</div><div class="tl-role">Teacher — Social Studies &amp; Languages</div><div class="tl-loc"><i class="ph-fill ph-map-pin"></i> Madhya Pradesh</div></div></div>
+          <div class="tl-row"><div class="tl-spine"><div class="tl-node">2000<br>–<br>2001</div></div><div class="tl-card"><div class="tl-org">Shri L.G. Haria Multipurpose School</div><div class="tl-role">Teacher</div><div class="tl-loc"><i class="ph-fill ph-map-pin"></i> Gujarat</div></div></div>
         </div>
       </div>
 
       <!-- RIGHT: Capabilities -->
       <div class="r-col reveal d2">
-        <p class="r-col-lbl"><i class="ph ph-star"></i> What I Bring</p>
+        <p class="r-col-lbl"><i class="ph-fill ph-star"></i> What I Bring</p>
         <div class="r-sec">
           <p class="r-sec-title">Capabilities</p>
           <div class="cap-list">
@@ -540,11 +549,11 @@
     </div>
 
     <!-- Mobile tabbed resume -->
-    <div id="mobResume" style="display:none">
+    <div id="mobResume">
       <div class="mob-resume-tabs">
-        <button class="mob-tab" data-panel="skills"><i class="ph ph-chart-bar"></i> Skills</button>
-        <button class="mob-tab active" data-panel="journey"><i class="ph ph-path"></i> Journey</button>
-        <button class="mob-tab" data-panel="brings"><i class="ph ph-star"></i> I Bring</button>
+        <button class="mob-tab" data-panel="skills"><i class="ph-bold ph-chart-bar"></i> Skills</button>
+        <button class="mob-tab active" data-panel="journey"><i class="ph-bold ph-path"></i> Journey</button>
+        <button class="mob-tab" data-panel="brings"><i class="ph-fill ph-star"></i> I Bring</button>
       </div>
 
       <div class="mob-panel" id="mob-panel-skills">
@@ -556,19 +565,19 @@
           <div class="sk-row"><div class="sk-head"><span class="sk-name"><span class="sk-abbr">SW</span>Student Welfare</span><span class="sk-pct">96%</span></div><div class="sk-track"><div class="sk-bar" style="--pct:96%"></div></div></div>
         </div>
         <div style="margin-top:1.5rem">
-          <div class="edu-card"><div class="edu-deg">B.Ed.</div><div class="edu-field">Bachelor of Education</div><div class="edu-school">Bangalore University</div><div class="edu-yr"><i class="ph ph-calendar-blank"></i> 2006 – 2007</div></div>
-          <div class="edu-card"><div class="edu-deg">M.A.</div><div class="edu-field">History</div><div class="edu-school">Barkatullah University, Bhopal</div><div class="edu-yr"><i class="ph ph-calendar-blank"></i> 2001 – 2003</div></div>
-          <div class="edu-card"><div class="edu-deg">B.A.</div><div class="edu-field">Economics · NCC &amp; NSS</div><div class="edu-school">Mahatma Gandhi University, Kottayam</div><div class="edu-yr"><i class="ph ph-calendar-blank"></i> 1994 – 1997</div></div>
+          <div class="edu-card"><div class="edu-deg">B.Ed.</div><div class="edu-field">Bachelor of Education</div><div class="edu-school">Bangalore University</div><div class="edu-yr"><i class="ph-bold ph-calendar-blank"></i> 2006 – 2007</div></div>
+          <div class="edu-card"><div class="edu-deg">M.A.</div><div class="edu-field">History</div><div class="edu-school">Barkatullah University, Bhopal</div><div class="edu-yr"><i class="ph-bold ph-calendar-blank"></i> 2001 – 2003</div></div>
+          <div class="edu-card"><div class="edu-deg">B.A.</div><div class="edu-field">Economics · NCC &amp; NSS</div><div class="edu-school">Mahatma Gandhi University, Kottayam</div><div class="edu-yr"><i class="ph-bold ph-calendar-blank"></i> 1994 – 1997</div></div>
         </div>
       </div>
 
       <div class="mob-panel active" id="mob-panel-journey">
         <div class="mob-tl">
-          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">Feb 2011 – Present</div><div class="mob-tl-org">Spring Dale Public School</div><div class="mob-tl-role">Principal</div><div class="mob-tl-loc"><i class="ph ph-map-pin"></i> Firozabad, Uttar Pradesh</div></div></div>
-          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">2008 – 2011</div><div class="mob-tl-org">Shri Saraswati Vidya Mandir</div><div class="mob-tl-role">Principal</div><div class="mob-tl-loc"><i class="ph ph-map-pin"></i> Gujarat</div></div></div>
-          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">2003 – 2007</div><div class="mob-tl-org">Kids Corner Happy Sr. Sec. School</div><div class="mob-tl-role">Teacher — Grades 1–8</div><div class="mob-tl-loc"><i class="ph ph-map-pin"></i> Firozabad, UP</div></div></div>
-          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">2001 – 2003</div><div class="mob-tl-org">Rajeshwar Convent H.S. School</div><div class="mob-tl-role">Teacher — Social Studies &amp; Languages</div><div class="mob-tl-loc"><i class="ph ph-map-pin"></i> Madhya Pradesh</div></div></div>
-          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div></div><div class="mob-tl-body"><div class="mob-tl-date">2000 – 2001</div><div class="mob-tl-org">Shri L.G. Haria Multipurpose School</div><div class="mob-tl-role">Teacher</div><div class="mob-tl-loc"><i class="ph ph-map-pin"></i> Gujarat</div></div></div>
+          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">Feb 2011 – Present</div><div class="mob-tl-org">Spring Dale Public School</div><div class="mob-tl-role">Principal</div><div class="mob-tl-loc"><i class="ph-fill ph-map-pin"></i> Firozabad, Uttar Pradesh</div></div></div>
+          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">2008 – 2011</div><div class="mob-tl-org">Shri Saraswati Vidya Mandir</div><div class="mob-tl-role">Principal</div><div class="mob-tl-loc"><i class="ph-fill ph-map-pin"></i> Gujarat</div></div></div>
+          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">2003 – 2007</div><div class="mob-tl-org">Kids Corner Happy Sr. Sec. School</div><div class="mob-tl-role">Teacher — Grades 1–8</div><div class="mob-tl-loc"><i class="ph-fill ph-map-pin"></i> Firozabad, UP</div></div></div>
+          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div><div class="mob-tl-line"></div></div><div class="mob-tl-body"><div class="mob-tl-date">2001 – 2003</div><div class="mob-tl-org">Rajeshwar Convent H.S. School</div><div class="mob-tl-role">Teacher — Social Studies &amp; Languages</div><div class="mob-tl-loc"><i class="ph-fill ph-map-pin"></i> Madhya Pradesh</div></div></div>
+          <div class="mob-tl-item"><div class="mob-tl-axis"><div class="mob-tl-dot"></div></div><div class="mob-tl-body"><div class="mob-tl-date">2000 – 2001</div><div class="mob-tl-org">Shri L.G. Haria Multipurpose School</div><div class="mob-tl-role">Teacher</div><div class="mob-tl-loc"><i class="ph-fill ph-map-pin"></i> Gujarat</div></div></div>
         </div>
       </div>
 
@@ -619,7 +628,7 @@
     </div>
 
     <!-- Mobile expertise -->
-    <div class="mob-expertise" id="mobExpertise" style="display:none">
+    <div class="mob-expertise" id="mobExpertise">
       <div class="mob-exp-feature"><div class="mob-exp-feature-ico"><i class="ph-fill ph-buildings"></i></div><div><div class="mob-exp-feature-lbl">School Leadership</div><div class="mob-exp-feature-desc">25+ years steering schools toward academic excellence and institutional growth across India. Building cultures of accountability, care, and continuous improvement.</div></div></div>
       <div class="mob-exp-feature"><div class="mob-exp-feature-ico"><i class="ph-fill ph-book-open"></i></div><div><div class="mob-exp-feature-lbl">Curriculum Strategy</div><div class="mob-exp-feature-desc">Designing future-ready syllabi that blend tradition with progressive pedagogical approaches — aligned to national standards while honouring each learner.</div></div></div>
       <div class="mob-exp-grid">
@@ -648,7 +657,7 @@
       <div class="c-glass reveal from-left">
         <p class="c-intro">Have a question about my work or a project I'm managing? Drop me a message — I'll get back to you as soon as I can.</p>
         <div class="c-items">
-          <a href="mailto:padmasnair@gmail.com" class="c-row"><div class="c-ico"><i class="ph-fill ph-envelope"></i></div><div><p class="c-lbl">Email</p><p class="c-val">padmasnair@gmail.com</p></div><i class="ph ph-arrow-right c-arr"></i></a>
+          <a href="mailto:padmasnair@gmail.com" class="c-row"><div class="c-ico"><i class="ph-fill ph-envelope"></i></div><div><p class="c-lbl">Email</p><p class="c-val">padmasnair@gmail.com</p></div><i class="ph-bold ph-arrow-right c-arr"></i></a>
           <div class="c-row"><div class="c-ico"><i class="ph-fill ph-phone"></i></div><div><p class="c-lbl">Phone</p><p class="c-val">+91 82798 39919</p></div></div>
           <div class="c-row"><div class="c-ico"><i class="ph-fill ph-map-pin"></i></div><div><p class="c-lbl">Location</p><p class="c-val">Palai, Kerala, India</p></div></div>
         </div>
@@ -656,9 +665,9 @@
       <div class="soc-glass reveal d1">
         <p class="soc-heading">Connect on Social</p>
         <div class="soc-rows">
-          <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" rel="noopener" class="soc-row"><div class="soc-ico"><i class="ph-fill ph-linkedin-logo"></i></div><div><p class="soc-name">LinkedIn</p><p class="soc-handle">padma-nair-6529212b7</p></div><i class="ph ph-arrow-up-right soc-arr"></i></a>
-          <a href="https://www.instagram.com/padma.nair.ms" target="_blank" rel="noopener" class="soc-row"><div class="soc-ico"><i class="ph-fill ph-instagram-logo"></i></div><div><p class="soc-name">Instagram</p><p class="soc-handle">@padma.nair.ms</p></div><i class="ph ph-arrow-up-right soc-arr"></i></a>
-          <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" rel="noopener" class="soc-row"><div class="soc-ico"><i class="ph-fill ph-facebook-logo"></i></div><div><p class="soc-name">Facebook</p><p class="soc-handle">Padma Nair</p></div><i class="ph ph-arrow-up-right soc-arr"></i></a>
+          <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" rel="noopener" class="soc-row"><div class="soc-ico"><i class="ph-fill ph-linkedin-logo"></i></div><div><p class="soc-name">LinkedIn</p><p class="soc-handle">padma-nair-6529212b7</p></div><i class="ph-bold ph-arrow-up-right soc-arr"></i></a>
+          <a href="https://www.instagram.com/padma.nair.ms" target="_blank" rel="noopener" class="soc-row"><div class="soc-ico"><i class="ph-fill ph-instagram-logo"></i></div><div><p class="soc-name">Instagram</p><p class="soc-handle">@padma.nair.ms</p></div><i class="ph-bold ph-arrow-up-right soc-arr"></i></a>
+          <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" rel="noopener" class="soc-row"><div class="soc-ico"><i class="ph-fill ph-facebook-logo"></i></div><div><p class="soc-name">Facebook</p><p class="soc-handle">Padma Nair</p></div><i class="ph-bold ph-arrow-up-right soc-arr"></i></a>
         </div>
       </div>
     </div>
@@ -669,32 +678,10 @@
       <div class="f-brand">Padma <strong>Nair</strong></div>
       <div class="f-copy">&copy; 2026 · Principal &amp; Educational Leader · All rights reserved</div>
     </div>
-    <a href="#home" class="f-back"><i class="ph ph-arrow-up"></i> Back to Top</a>
+    <a href="#home" class="f-back"><i class="ph-bold ph-arrow-up"></i> Back to Top</a>
   </footer>
 
   <script>
-    const isMobile = () => window.innerWidth <= 900;
-
-    function applyLayout() {
-      const mob = isMobile();
-      const mobResume = document.getElementById('mobResume');
-      const desktopResume = document.getElementById('desktopResume');
-      const mobExp = document.getElementById('mobExpertise');
-      const expBento = document.getElementById('expBento');
-      if (mobResume) mobResume.style.display = mob ? 'block' : 'none';
-      if (desktopResume) desktopResume.style.display = mob ? 'none' : 'grid';
-      if (mobExp) mobExp.style.display = mob ? 'flex' : 'none';
-      if (expBento) expBento.style.display = mob ? 'none' : 'grid';
-      // mobile hero avatar
-      const mHeroAvatar = document.querySelector('.m-hero-avatar');
-      if (mHeroAvatar) mHeroAvatar.style.display = mob ? 'flex' : 'none';
-      // mobile about photo card
-      const mAboutPhoto = document.querySelector('.mob-about-photo-card');
-      if (mAboutPhoto) mAboutPhoto.style.display = mob ? 'flex' : 'none';
-    }
-    applyLayout();
-    window.addEventListener('resize', applyLayout, { passive: true });
-
     /* Mobile tab switcher */
     document.querySelectorAll('.mob-tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -785,4 +772,3 @@
   </script>
 </body>
 </html>
-  
