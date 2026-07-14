@@ -111,7 +111,6 @@ nav.scrolled{background:rgba(15,26,22,0.97);box-shadow:0 4px 30px rgba(0,0,0,0.3
 
 /* ═══════ SECTION BASE ═══════ */
 section{padding:8rem 3.5rem;position:relative;scroll-margin-top:var(--nav-h)}
-#home{background:var(--bg)}
 #about{background:var(--paper);color:var(--ink)}
 #resume{background:var(--bg-panel)}
 #expertise{background:var(--paper);color:var(--ink)}
@@ -142,35 +141,274 @@ section{padding:8rem 3.5rem;position:relative;scroll-margin-top:var(--nav-h)}
 .btn-line.on-paper{border-color:var(--line-paper);color:var(--ink)}
 .btn-line.on-paper:hover{border-color:var(--oxblood);color:var(--oxblood)}
 
-/* ═══════ HERO ═══════ */
-#home{min-height:100vh;padding-top:calc(var(--nav-h) + 2rem);display:flex;align-items:center;background:
-  radial-gradient(ellipse 900px 500px at 85% -10%, rgba(200,163,92,0.09), transparent 60%),
-  var(--bg)}
-#home::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(180deg, transparent 0 3px, rgba(239,233,217,0.012) 3px 4px);pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:center;width:100%;max-width:1440px;margin:0 auto}
-.hero-eyebrow{font-family:var(--type);font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--brass);margin-bottom:1.6rem;display:flex;align-items:center;gap:.7rem}
-.hero-eyebrow::before{content:'';width:26px;height:1px;background:var(--brass)}
-.hero-name{font-family:var(--serif);line-height:.92;margin-bottom:1.5rem}
-.hero-name .first{display:block;font-size:clamp(2.4rem,4.6vw,3.6rem);font-weight:300;font-style:italic;color:var(--chalk-dim);letter-spacing:1px}
-.hero-name .last{display:block;font-size:clamp(4rem,8.5vw,7.2rem);font-weight:700;color:var(--chalk);letter-spacing:-1px}
-.hero-role{font-family:var(--type);font-size:.85rem;letter-spacing:1.5px;color:var(--brass-hi);text-transform:uppercase;margin-bottom:1.8rem}
-.hero-lede{font-family:var(--sans);font-size:1rem;font-weight:400;color:var(--chalk-dim);max-width:480px;line-height:1.85;margin-bottom:2.4rem}
-.hero-tally{display:flex;gap:0;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);margin-bottom:2.4rem}
-.tally-item{flex:1;padding:1.1rem 1.4rem 1.1rem 0;border-right:1px solid var(--line-dark)}
-.tally-item:last-child{border-right:none;padding-right:0}
-.tally-num{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--brass-hi);line-height:1}
-.tally-lbl{font-family:var(--type);font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--chalk-faint);margin-top:.4rem}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.4rem}
-.hero-socials{display:flex;gap:.7rem}
-.soc-circ{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line-dark);display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:var(--chalk-dim);transition:all .22s}
-.soc-circ:hover{border-color:var(--brass);color:var(--brass-hi);background:rgba(200,163,92,0.08)}
+/* ═══════ REDESIGNED HERO ═══════ */
+#home {
+  position: relative;
+  min-height: 100vh;
+  padding-top: calc(var(--nav-h) + 4rem);
+  padding-bottom: 4rem;
+  background: radial-gradient(ellipse 900px 500px at 50% 0%, rgba(200,163,92,0.06), transparent 70%), var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+#home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(180deg, transparent 0 3px, rgba(239,233,217,0.012) 3px 4px);
+  pointer-events: none;
+  z-index: 0;
+}
+.home-bg-type {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--serif);
+  font-size: 19vw;
+  font-weight: 700;
+  color: rgba(239, 233, 217, 0.015);
+  white-space: nowrap;
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: -2px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
 
-.hero-seal-wrap{display:flex;align-items:center;justify-content:center;position:relative}
-.hero-seal-mat{position:relative;width:min(100%,420px);aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 35% 30%, rgba(200,163,92,0.08), transparent 65%);display:flex;align-items:center;justify-content:center}
-.hero-seal-mat::before{content:'';position:absolute;inset:0;border-radius:50%;border:1px dashed var(--line-dark)}
-.hero-seal-svg{width:78%;animation:sealSpin 60s linear infinite}
-@keyframes sealSpin{to{transform:rotate(360deg)}}
-.hero-seal-mono{position:absolute;font-family:var(--serif);font-size:3.6rem;font-weight:700;font-style:italic;color:var(--chalk)}
+/* Left Content */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--line-dark);
+  border-radius: 99px;
+  font-family: var(--type);
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--chalk-dim);
+  margin-bottom: 2rem;
+  background: rgba(15, 26, 22, 0.5);
+  backdrop-filter: blur(8px);
+}
+.hero-badge .pulse {
+  width: 6px;
+  height: 6px;
+  background: #4caf50;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  animation: pulse-green 2s infinite;
+}
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+.hero-name {
+  font-family: var(--serif);
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+.hero-name .first {
+  display: block;
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--chalk-dim);
+  letter-spacing: 1px;
+}
+.hero-name .last {
+  display: block;
+  font-size: clamp(4.2rem, 9vw, 8rem);
+  font-weight: 700;
+  color: var(--chalk);
+  letter-spacing: -2px;
+}
+.hero-role {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--brass-hi);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.hero-role i { font-size: 1.3rem; }
+.hero-lede {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--chalk-dim);
+  max-width: 520px;
+  line-height: 1.85;
+  margin-bottom: 2.8rem;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 3.5rem;
+}
+.hero-socials p {
+  font-family: var(--type);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--chalk-faint);
+}
+.hero-socials .soc-line {
+  width: 40px;
+  height: 1px;
+  background: var(--line-dark);
+}
+.soc-circ {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  color: var(--chalk-dim);
+  transition: all .22s;
+}
+.soc-circ:hover {
+  border-color: var(--brass);
+  color: var(--brass-hi);
+  background: rgba(200,163,92,0.08);
+  transform: translateY(-2px);
+}
+
+/* Right Visual Frame */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.arch-frame {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1.35;
+  border-radius: 200px 200px 8px 8px;
+  border: 1px solid var(--line-dark);
+  background: linear-gradient(180deg, rgba(200,163,92,0.08) 0%, transparent 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  padding: 12px;
+}
+.arch-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 190px 190px 4px 4px;
+  border: 1px dashed var(--line-dark-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-deep);
+  position: relative;
+  overflow: hidden;
+}
+.arch-monogram {
+  font-family: var(--serif);
+  font-size: 6rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--brass);
+  opacity: 0.4;
+  user-select: none;
+}
+.hero-seal-floating {
+  position: absolute;
+  bottom: -25px;
+  right: -35px;
+  width: 130px;
+  height: 130px;
+  background: var(--bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+  border: 1px solid var(--line-dark);
+  padding: 8px;
+}
+.hero-seal-svg {
+  width: 100%;
+  height: 100%;
+  animation: sealSpin 40s linear infinite;
+}
+@keyframes sealSpin {
+  to { transform: rotate(360deg) }
+}
+
+/* Bottom Stats Bar */
+.hero-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-dark);
+  border: 1px solid var(--line-dark);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 5rem auto 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-dark);
+}
+.stat-box {
+  background: rgba(15,26,22,0.7);
+  backdrop-filter: blur(10px);
+  padding: 2.2rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.stat-box:first-child { border-radius: 4px 0 0 4px; }
+.stat-box:last-child { border-radius: 0 4px 4px 0; }
+.stat-box:hover { background: rgba(29,46,40,0.9); }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--brass-hi);
+  line-height: 1;
+}
+.stat-lbl {
+  font-family: var(--type);
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--chalk-dim);
+  line-height: 1.6;
+}
 
 /* ═══════ ABOUT ═══════ */
 .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:4.5rem;align-items:start}
@@ -296,9 +534,15 @@ footer{background:var(--bg-deep);padding:3rem 3.5rem;display:flex;align-items:ce
 @media (max-width:1180px){
   section{padding:6rem 2.5rem}
   nav{padding:0 2.5rem}
-  .hero-grid{grid-template-columns:1fr;gap:3rem}
-  .hero-seal-wrap{order:-1}
-  .hero-seal-mat{width:min(60%,300px);margin:0 auto}
+  .hero-grid{grid-template-columns:1fr; gap:3.5rem; text-align:center;}
+  .home-bg-type{font-size:24vw; top:35%;}
+  .hero-role{justify-content:center;}
+  .hero-lede{margin-left:auto; margin-right:auto;}
+  .hero-actions{justify-content:center;}
+  .hero-socials{justify-content:center;}
+  .arch-frame{margin:0 auto;}
+  .hero-seal-floating{right:-10px; bottom:-10px;}
+  
   .about-grid{grid-template-columns:1fr}
   .id-card{max-width:340px;margin:0 auto}
   .journey-grid{grid-template-columns:1fr}
@@ -308,19 +552,29 @@ footer{background:var(--bg-deep);padding:3rem 3.5rem;display:flex;align-items:ce
 }
 
 /* ═══════ MOBILE ═══════ */
+@media (max-width:900px){
+  .hero-stats-bar{grid-template-columns:1fr;}
+  .stat-box{justify-content:flex-start; padding:1.6rem 2rem;}
+  .stat-box:first-child{border-radius:4px 4px 0 0;}
+  .stat-box:last-child{border-radius:0 0 4px 4px;}
+}
 @media (max-width:760px){
   section{padding:4.5rem 1.4rem}
+  #home{padding-top:calc(var(--nav-h) + 2rem);}
   footer{padding:2.2rem 1.4rem;flex-direction:column;align-items:flex-start}
   nav{padding:0 1.4rem;height:64px}
   .nav-links{display:none}
   .nav-cta{display:none}
   .nav-burger{display:flex}
   .mob-menu{display:flex}
-  .hero-tally{flex-direction:column}
-  .tally-item{border-right:none;border-bottom:1px solid var(--line-dark);padding:.9rem 0}
-  .tally-item:last-child{border-bottom:none}
+  
+  .hero-name .first{font-size:3.2rem;}
+  .hero-name .last{font-size:5rem;}
   .hero-actions{flex-direction:column}
-  .hero-actions .btn{justify-content:center}
+  .hero-actions .btn{justify-content:center; width:100%}
+  .arch-frame{max-width:300px;}
+  .hero-seal-floating{width:110px; height:110px;}
+  
   .index-grid{grid-template-columns:repeat(2,1fr)}
   .idx-card.feature{grid-column:span 2;grid-row:span 1}
   .reg-row{grid-template-columns:64px 1fr;gap:.8rem}
@@ -357,46 +611,71 @@ footer{background:var(--bg-deep);padding:3rem 3.5rem;display:flex;align-items:ce
   <a href="tel:+918279839919">Call · +91 82798 39919</a>
 </div>
 
-<!-- ═══ HERO ═══ -->
+<!-- ═══ REDESIGNED HERO ═══ -->
 <section id="home">
+  <div class="home-bg-type">PRINCIPAL</div>
+  
   <div class="hero-grid">
     <div class="hero-text reveal from-left">
-      <p class="hero-eyebrow">Principal &amp; Educational Leader</p>
+      <div class="hero-badge"><span class="pulse"></span> Available for Leadership Roles</div>
+      
       <h1 class="hero-name">
         <span class="first">Padma</span>
         <span class="last">Nair</span>
       </h1>
-      <p class="hero-role">Principal, Spring Dale Public School — Firozabad, U.P.</p>
+      
+      <p class="hero-role"><i class="ph-fill ph-graduation-cap"></i> Principal, Spring Dale Public School &mdash; Firozabad, U.P.</p>
+      
       <p class="hero-lede">Twenty-five years spent building school cultures where tradition and progress sit at the same table — steady leadership, considered curriculum, and a classroom-first instinct that never left, even from the Principal's office.</p>
-      <div class="hero-tally">
-        <div class="tally-item"><div class="tally-num">25+</div><div class="tally-lbl">Years in Education</div></div>
-        <div class="tally-item"><div class="tally-num">05</div><div class="tally-lbl">Institutions Led &amp; Taught</div></div>
-        <div class="tally-item"><div class="tally-num">03</div><div class="tally-lbl">States Across India</div></div>
-      </div>
+      
       <div class="hero-actions">
-        <a href="#resume" class="btn btn-fill"><i class="ph-bold ph-book-open-text"></i> My Journey</a>
-        <a href="#about" class="btn btn-line"><i class="ph-bold ph-user"></i> About Me</a>
+        <a href="#resume" class="btn btn-fill"><i class="ph-bold ph-book-open-text"></i> Explore Journey</a>
+        <a href="#contact" class="btn btn-line"><i class="ph-bold ph-envelope"></i> Get in Touch</a>
       </div>
+      
       <div class="hero-socials">
+        <p>Connect</p>
+        <div class="soc-line"></div>
         <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" rel="noopener" class="soc-circ" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
         <a href="https://www.instagram.com/padma.nair.ms" target="_blank" rel="noopener" class="soc-circ" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
         <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" rel="noopener" class="soc-circ" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
       </div>
     </div>
 
-    <div class="hero-seal-wrap reveal from-right d1">
-      <div class="hero-seal-mat">
-        <svg class="hero-seal-svg seal" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-          <circle class="ring-outer" cx="120" cy="120" r="110"/>
-          <circle class="ring-inner" cx="120" cy="120" r="94"/>
-          <path id="ringPath" d="M 120,120 m -102,0 a102,102 0 1,1 204,0 a102,102 0 1,1 -204,0" fill="none"/>
-          <text class="ring-text ring-text-dark" font-size="10.5">
-            <textPath href="#ringPath" startOffset="2%">PRINCIPAL &#8226; EDUCATOR &#8226; MENTOR &#8226; PRINCIPAL &#8226; EDUCATOR &#8226; MENTOR &#8226;</textPath>
-          </text>
-          <circle class="tick" cx="120" cy="18" r="2"/>
-          <circle class="tick" cx="120" cy="222" r="2"/>
-        </svg>
+    <div class="hero-visual reveal from-right d1">
+      <div class="arch-frame">
+        <div class="arch-inner">
+          <div class="arch-monogram">PN</div>
+        </div>
+        
+        <div class="hero-seal-floating">
+          <svg class="hero-seal-svg seal" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+            <circle class="ring-outer" cx="120" cy="120" r="110"/>
+            <circle class="ring-inner" cx="120" cy="120" r="94"/>
+            <path id="ringPath" d="M 120,120 m -102,0 a102,102 0 1,1 204,0 a102,102 0 1,1 -204,0" fill="none"/>
+            <text class="ring-text ring-text-dark" font-size="10.5">
+              <textPath href="#ringPath" startOffset="2%">PRINCIPAL &#8226; EDUCATOR &#8226; MENTOR &#8226; PRINCIPAL &#8226; EDUCATOR &#8226; MENTOR &#8226;</textPath>
+            </text>
+            <circle class="tick" cx="120" cy="18" r="2"/>
+            <circle class="tick" cx="120" cy="222" r="2"/>
+          </svg>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <div class="hero-stats-bar reveal d2">
+    <div class="stat-box">
+      <span class="stat-num">25+</span>
+      <span class="stat-lbl">Years in<br>Education</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">05</span>
+      <span class="stat-lbl">Institutions<br>Led &amp; Taught</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">03</span>
+      <span class="stat-lbl">States Across<br>India</span>
     </div>
   </div>
 </section>
