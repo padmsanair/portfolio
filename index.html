@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="cobalt">
 <head>
 <meta name="google-site-verification" content="53L8I_778aIcxi-C3Ubf0l0R8cFq57xw2kTN-K0zzNg" />
 <meta charset="UTF-8"/>
@@ -17,334 +17,225 @@
 <link rel="canonical" href="https://padmsanair.github.io/portfolio/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet"/>
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
 <style>
-:root{
-  --amber-1:#ff5a0a; --amber-2:#ff8a00; --amber-3:#ffb800;
-  --card-1:#d9680f; --card-2:#a6480a; --card-3:#7d3406;
-  --white:#fff; --text:#fff3e6; --text-dim:rgba(255,243,230,.78);
-  --glass:rgba(255,255,255,.12); --glass-line:rgba(255,255,255,.22);
-  --head:'Montserrat',system-ui,sans-serif; --body:'DM Sans',system-ui,sans-serif;
-  --ease:cubic-bezier(.16,1,.3,1);
-}
+:root{--bg:#2438ff;--deep:#0d1a9e;--pop:#ffd23f;--pink:#ff7a9c;--dark:#0b1240;
+  --h:'Bricolage Grotesque',system-ui,sans-serif;--b:'Figtree',system-ui,sans-serif;
+  --spring:cubic-bezier(.34,1.56,.64,1);--ease:cubic-bezier(.16,1,.3,1)}
+[data-theme=sunset]{--bg:#ff5a36;--deep:#a8250f;--pop:#ffe9a0;--pink:#ffb3c7;--dark:#3a0d03}
+[data-theme=mint]{--bg:#0f8f74;--deep:#06503f;--pop:#e9ff70;--pink:#ffb0d9;--dark:#04251d}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--text);line-height:1.65;min-height:100vh;
-  background:linear-gradient(160deg,var(--amber-1) 0%,var(--amber-2) 55%,var(--amber-3) 100%) fixed;
-  padding:clamp(.8rem,3vw,2.5rem);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration:none}ul{list-style:none}img{display:block;max-width:100%}button{font:inherit;cursor:pointer;border:0}
-a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px;border-radius:999px}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+body{font-family:var(--b);background:var(--bg);color:#fff;line-height:1.6;overflow-x:hidden;transition:background .6s;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+[hidden]{display:none!important}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--pop);outline-offset:3px}
+h1,h2,h3{font-family:var(--h);line-height:.95;letter-spacing:-.03em}
+.bar{position:fixed;top:0;left:0;height:5px;width:0;background:var(--pop);z-index:1000}
+.cur{position:fixed;left:0;top:0;width:18px;height:18px;border-radius:50%;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:1200;transition:width .25s,height .25s;display:none}
+.cur.big{width:64px;height:64px}
+@media (hover:hover) and (pointer:fine){.cur{display:block}}
 
-/* ── card shell ── */
-.card{position:relative;border-radius:32px;max-width:1280px;margin:0 auto 2rem;
-  background:radial-gradient(120% 120% at 50% 35%,var(--card-1) 0%,var(--card-2) 60%,var(--card-3) 100%);
-  box-shadow:0 40px 80px -30px rgba(90,25,0,.55),inset 0 1px 0 rgba(255,255,255,.2);overflow:hidden}
-section{scroll-margin-top:1rem}
+/* nav + menu */
+.nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1rem,4vw,3rem);z-index:900;mix-blend-mode:normal}
+.logo{font-family:var(--h);font-weight:800;font-size:1.2rem;background:var(--pop);color:var(--dark);padding:.5rem 1rem;border-radius:99px;transition:transform .3s var(--spring)}
+.logo:hover{transform:rotate(-4deg) scale(1.06)}
+.menu-btn{display:flex;gap:.6rem;align-items:center;background:#fff;color:var(--dark);font-weight:700;padding:.55rem .6rem .55rem 1.1rem;border-radius:99px;transition:transform .3s var(--spring)}
+.menu-btn:hover{transform:scale(1.06)}
+.menu-btn span.d{width:30px;height:30px;border-radius:50%;background:var(--dark);display:grid;place-items:center;color:#fff;transition:transform .5s var(--spring)}
+.menu-btn.open span.d{transform:rotate(135deg)}
+.menu{position:fixed;inset:0;background:var(--pop);color:var(--dark);z-index:850;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(1.5rem,8vw,7rem);
+  clip-path:circle(0 at calc(100% - 3.2rem) 2.4rem);transition:clip-path .8s var(--ease);visibility:hidden}
+.menu.open{clip-path:circle(150% at calc(100% - 3.2rem) 2.4rem);visibility:visible}
+.menu a{font-family:var(--h);font-weight:800;font-size:clamp(2.6rem,10vw,6.5rem);line-height:1.05;letter-spacing:-.04em;display:block;width:max-content;transform:translateY(60px);opacity:0;transition:transform .7s var(--ease),opacity .5s,letter-spacing .4s,color .3s}
+.menu.open a{transform:none;opacity:1;transition-delay:calc(var(--i)*70ms + 200ms)}
+.menu a:hover{letter-spacing:.01em;color:var(--bg)}
+.menu a sup{font-size:.22em;font-family:var(--b);font-weight:700;vertical-align:top;margin-left:.4rem}
 
-/* ── nav (inside hero card) ── */
-.top{position:absolute;top:0;left:0;right:0;display:flex;align-items:flex-start;justify-content:space-between;padding:2rem 2.5rem;z-index:5}
-.logo{font-family:var(--head);font-weight:600;font-size:.95rem;letter-spacing:.5px;display:flex;align-items:center;gap:.5rem;padding-top:.7rem}
-.logo b{background:#fff;color:var(--card-2);width:24px;height:24px;border-radius:5px;display:grid;place-items:center;font-size:.7rem}
-.pill-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.2rem;max-width:300px;background:rgba(80,30,5,.45);backdrop-filter:blur(10px);padding:.5rem;border-radius:26px}
-.pill-nav a{font-family:var(--head);font-size:.72rem;font-weight:500;padding:.55rem 1rem;border-radius:999px;transition:background .25s,color .25s}
-.pill-nav a:hover{background:rgba(255,255,255,.18)}
-.pill-nav a.active{background:#fff;color:#3b1700}
-.round-ico{width:34px;height:34px;border-radius:50%;background:rgba(80,30,5,.45);display:grid;place-items:center;font-size:1rem;transition:background .25s,color .25s}
-.round-ico:hover{background:#fff;color:var(--card-2)}
-.top-icons{display:flex;gap:.6rem;padding-top:.3rem}
-.burger{display:none}
+/* sections as stacked sheets */
+.sheet{position:relative;padding:clamp(4.5rem,9vw,8rem) clamp(1.2rem,5vw,5rem);border-radius:48px 48px 0 0;margin-top:-48px}
+#about{background:var(--bg)}#journey{background:var(--deep)}#expertise{background:var(--pop);color:var(--dark)}#report{background:var(--bg)}#contact{background:var(--deep)}
+h2{font-weight:800;font-size:clamp(2.6rem,7vw,5.5rem);margin-bottom:2.5rem}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
 
-/* ── hero ── */
-#home{min-height:min(88vh,700px);display:grid;grid-template-columns:1fr 1.05fr 1fr;align-items:center;gap:1rem;padding:8rem 2.5rem 6.5rem}
-.arrows{display:flex;gap:.5rem;margin-bottom:1.6rem}
-.arrows a{width:30px;height:30px;border-radius:50%;background:rgba(80,30,5,.45);display:grid;place-items:center;font-size:.8rem}
-.arrows a:hover{background:#fff;color:var(--card-2)}
-h1{font-family:var(--head);font-weight:600;font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.05;letter-spacing:-1px;margin-bottom:1.2rem}
-.lede{font-size:.88rem;color:var(--text-dim);max-width:340px;margin-bottom:1.6rem}
-.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--head);font-weight:600;font-size:.78rem;padding:.8rem 1.5rem;border-radius:999px;transition:transform .25s var(--ease),background .25s}
-.btn-w{background:#fff;color:#2b1100}.btn-w:hover{transform:translateY(-2px)}
-.btn-g{background:var(--glass);border:1px solid var(--glass-line)}.btn-g:hover{background:rgba(255,255,255,.22)}
-.hero-btns{display:flex;gap:.7rem;flex-wrap:wrap}
-.hero-mid{position:relative;display:grid;place-items:center}
-.arch{width:min(100%,340px);aspect-ratio:3/4;border-radius:170px 170px 28px 28px;overflow:hidden;
-  background:linear-gradient(180deg,#f58a2a,#8c3a07);box-shadow:0 40px 50px -20px rgba(40,10,0,.6);position:relative}
-.arch img{width:100%;height:100%;object-fit:cover}
-.arch::after{content:'PN';position:absolute;inset:0;display:grid;place-items:center;font:700 5rem var(--head);color:rgba(255,255,255,.25);z-index:-0}
-.arch img{position:relative;z-index:1}
-.hero-right{text-align:center;justify-self:end;min-width:200px}
-.big{font-family:var(--head);font-weight:500;font-size:clamp(2.6rem,4.5vw,3.6rem);line-height:1}
-.big-sub{font-size:.8rem;color:var(--text-dim);margin:.4rem 0 1.8rem}
-.choose{font-size:.82rem;margin-bottom:.9rem}
-.circles{display:flex;gap:.8rem;justify-content:center}
-.circle{width:50px;height:50px;border-radius:50%;background:rgba(80,30,5,.5);display:grid;place-items:center;font-family:var(--head);font-weight:600;font-size:.8rem;transition:all .25s var(--ease)}
-.circle:hover,.circle.on{background:#fff;color:#2b1100;transform:scale(1.08)}
-.socials{position:absolute;left:2.5rem;bottom:2rem;display:flex;gap:1.2rem;font-size:1.05rem}
-.socials a{opacity:.9;transition:opacity .2s,transform .2s}.socials a:hover{opacity:1;transform:translateY(-2px)}
-.tagline{position:absolute;left:50%;bottom:2rem;transform:translateX(-50%);text-align:center;font-family:var(--head);font-size:1rem;line-height:1.3;width:max-content}
-.mini{position:absolute;right:2.5rem;bottom:1.6rem;width:64px;height:64px;border-radius:18px;overflow:hidden;border:2px solid rgba(255,255,255,.4);background:var(--card-3)}
-.mini img{width:100%;height:100%;object-fit:cover}
+/* hero */
+.hero{position:relative;min-height:100svh;padding:7rem clamp(1.2rem,5vw,5rem) 7.5rem;display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:1rem;overflow:hidden}
+.name{font-weight:800;font-size:clamp(4.2rem,15.5vw,15rem);line-height:.82;letter-spacing:-.05em;position:relative;z-index:3;user-select:none;touch-action:pan-y}
+.row{display:block;white-space:nowrap}
+.row:nth-child(2){color:var(--pop);margin-left:.35em}
+.L{display:inline-block;will-change:transform;transition:transform .7s var(--spring);animation:drop .9s var(--spring) both;animation-delay:calc(var(--i)*70ms + .2s)}
+.L.mv{transition:transform .12s linear}
+@keyframes drop{from{transform:translateY(-120%) rotate(-25deg);opacity:0}}
+.sub{position:relative;z-index:3;max-width:34ch;font-size:clamp(1.05rem,2vw,1.3rem);margin:1.6rem 0 1.6rem .2rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;position:relative;z-index:3}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;padding:1rem 1.6rem;border-radius:99px;background:var(--pop);color:var(--dark);transition:transform .3s var(--spring),box-shadow .3s}
+.btn:hover{transform:translateY(-4px) rotate(-1.5deg);box-shadow:0 10px 0 var(--dark)}
+.btn.o{background:transparent;border:2px solid #fff;color:#fff}.btn.o:hover{box-shadow:0 10px 0 rgba(255,255,255,.35)}
+.photo{position:relative;justify-self:center;width:min(100%,440px);aspect-ratio:1;z-index:2}
+.blob{position:absolute;inset:0;overflow:hidden;background:var(--pink);animation:morph 9s ease-in-out infinite;box-shadow:14px 14px 0 var(--dark)}
+.blob img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.photo:hover .blob img{transform:scale(1.08)}
+@keyframes morph{0%,100%{border-radius:58% 42% 55% 45%/48% 55% 45% 52%}33%{border-radius:42% 58% 38% 62%/58% 42% 58% 42%}66%{border-radius:50% 50% 62% 38%/40% 62% 38% 60%}}
+.spin{position:absolute;right:-6%;bottom:-4%;width:34%;aspect-ratio:1;z-index:4;animation:rot 14s linear infinite}
+.spin text{font:800 12.2px var(--h);fill:var(--dark);letter-spacing:2.6px}
+@keyframes rot{to{transform:rotate(360deg)}}
+.spin .disc{fill:var(--pop)}
+.stk{position:absolute;z-index:5;touch-action:none;cursor:grab;user-select:none;left:var(--x);top:var(--y)}
+.stk:active{cursor:grabbing}
+.stk .in2{display:block;font-family:var(--h);font-weight:800;line-height:1;padding:.7rem 1.1rem;border-radius:20px;color:var(--dark);box-shadow:5px 5px 0 var(--dark);transform:rotate(var(--r));animation:bob 4s ease-in-out infinite;animation-delay:var(--d)}
+.stk b{display:block;font-size:2.2rem}.stk small{font:700 .8rem var(--b)}
+.stk.drag .in2{animation-play-state:paused;transform:rotate(0) scale(1.1)}
+@keyframes bob{50%{transform:rotate(var(--r)) translateY(-10px)}}
+.hint{position:absolute;left:clamp(1.2rem,5vw,5rem);bottom:5.6rem;font-size:.85rem;opacity:.8;z-index:3;display:flex;gap:.5rem;align-items:center}
+.hint i{animation:bob2 1.5s ease-in-out infinite}@keyframes bob2{50%{transform:translateY(5px)}}
 
-/* ── content sections ── */
-.pad{padding:clamp(2rem,5vw,4.5rem)}
-.sec-head{margin-bottom:2.5rem}
-h2{font-family:var(--head);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.8rem);letter-spacing:-.8px;line-height:1.1}
-.sec-head p{color:var(--text-dim);margin-top:.6rem;font-size:.92rem}
-.glass{background:var(--glass);border:1px solid var(--glass-line);border-radius:24px;padding:1.6rem;backdrop-filter:blur(6px)}
-h3{font-family:var(--head);font-weight:600;font-size:1.05rem;margin-bottom:.9rem}
+/* marquee */
+.strip{background:var(--pop);color:var(--dark);padding:1rem 0;overflow:hidden;position:relative;z-index:6;transform:rotate(-1.6deg) scale(1.04);margin:-2.2rem 0 1.5rem}
+.mq{display:flex;width:max-content;font-family:var(--h);font-weight:800;font-size:clamp(1.5rem,3.5vw,2.6rem);animation:mq 26s linear infinite;transform:skewX(var(--sk,0deg));white-space:nowrap}
+.strip:hover .mq{animation-play-state:paused}
+.mq span{padding:0 1.4rem;display:inline-flex;align-items:center;gap:2.8rem}.mq span::after{content:'✺';color:var(--bg);font-size:.8em}
+@keyframes mq{to{transform:translateX(-50%) skewX(var(--sk,0deg))}}
 
-.about-grid{display:grid;grid-template-columns:320px 1fr;gap:3rem;align-items:center}
-.portrait{aspect-ratio:4/5;border-radius:160px 160px 24px 24px;overflow:hidden;background:linear-gradient(180deg,#f58a2a,#8c3a07);box-shadow:0 30px 40px -20px rgba(40,10,0,.6)}
-.portrait img{width:100%;height:100%;object-fit:cover}
-.badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;background:var(--glass);border:1px solid var(--glass-line);padding:.4rem 1rem;border-radius:999px;margin-bottom:1.2rem}
-.badge i{width:8px;height:8px;border-radius:50%;background:#7dff9b;box-shadow:0 0 0 4px rgba(125,255,155,.25)}
-.about-head{font-family:var(--head);font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.25;margin-bottom:1.2rem}
-.about-text p{color:var(--text-dim);margin-bottom:1rem;max-width:62ch}
-.about-text strong{color:#fff}
-.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
-.chip{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;padding:.55rem 1rem;border-radius:999px;background:rgba(80,30,5,.45)}
-a.chip:hover{background:#fff;color:#2b1100}
+/* about */
+.about{display:grid;grid-template-columns:minmax(220px,360px) 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.pf{position:relative;aspect-ratio:4/5;border-radius:200px 200px 28px 28px;background:var(--pink);overflow:hidden;box-shadow:12px 12px 0 var(--dark);transition:transform .4s var(--spring)}
+.pf:hover{transform:rotate(-3deg) scale(1.03)}.pf img{width:100%;height:100%;object-fit:cover}
+.stmt{font-family:var(--h);font-weight:700;font-size:clamp(1.7rem,3.6vw,3.1rem);line-height:1.12;letter-spacing:-.02em}
+.stmt .w{opacity:.22;transition:opacity .3s,color .3s}.stmt .w.on{opacity:1}.stmt .w.hl.on{color:var(--pop)}
+.about p.s{margin-top:1.6rem;max-width:56ch;opacity:.9}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.chip{display:inline-flex;gap:.5rem;align-items:center;background:rgba(255,255,255,.14);padding:.6rem 1.1rem;border-radius:99px;font-weight:500;transition:transform .3s var(--spring),background .3s,color .3s}
+a.chip:hover{background:var(--pop);color:var(--dark);transform:translateY(-3px) rotate(-2deg)}
 
-.journey-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem}
-.timeline{display:flex;flex-direction:column;gap:.9rem}
-.job{display:grid;grid-template-columns:92px 1fr;gap:1rem;align-items:center;padding:1.1rem 1.3rem;border-radius:22px;background:var(--glass);border:1px solid var(--glass-line)}
-.job.now{background:#fff;color:#2b1100;border-color:#fff}
-.job.now .when,.job.now .where{color:#7d3406}
-.when{font-family:var(--head);font-weight:600;font-size:.72rem;color:var(--text-dim);line-height:1.4}
-.org{font-family:var(--head);font-weight:600;font-size:.95rem}
-.role{font-size:.88rem}
-.where{font-size:.78rem;color:var(--text-dim);display:flex;align-items:center;gap:.3rem;margin-top:.1rem}
-.flag{font-size:.65rem;font-weight:700;font-family:var(--head);background:var(--card-2);color:#fff;padding:.15rem .6rem;border-radius:999px;margin-left:.5rem;vertical-align:middle}
-.side{display:flex;flex-direction:column;gap:1.2rem}
-.skill{margin-bottom:1rem}.skill:last-child{margin-bottom:0}
-.skill-top{display:flex;justify-content:space-between;font-size:.85rem;margin-bottom:.35rem}
-.skill-top b{font-family:var(--head)}
-.track{height:8px;border-radius:99px;background:rgba(80,30,5,.5);overflow:hidden}
-.fill{height:100%;width:0;border-radius:99px;background:#fff;transition:width 1.2s var(--ease)}
-.fill.go{width:var(--pct)}
-.edu{display:flex;gap:1rem;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--glass-line)}
-.edu:last-child{border:0;padding-bottom:0}.edu:first-of-type{padding-top:0}
-.edu-deg{flex:0 0 54px;height:54px;border-radius:50%;background:#fff;color:#2b1100;display:grid;place-items:center;font-family:var(--head);font-weight:700;font-size:.78rem}
-.edu b{font-family:var(--head);font-size:.9rem;display:block}
-.edu span{font-size:.78rem;color:var(--text-dim);display:block;line-height:1.4}
+/* journey */
+.jgrid{display:grid;grid-template-columns:minmax(200px,1fr) 2fr;gap:3rem}
+.yr{position:sticky;top:6rem;align-self:start}
+.yr .big{font-family:var(--h);font-weight:800;font-size:clamp(3.4rem,9vw,8rem);line-height:.9;color:var(--pop);letter-spacing:-.05em;transition:transform .4s var(--spring)}
+.yr .big.pulse{transform:scale(1.08) rotate(-2deg)}
+.yr p{margin-top:1rem;opacity:.85}
+.list{position:relative;padding-left:2.2rem}
+.rail{position:absolute;left:.55rem;top:.5rem;bottom:.5rem;width:4px;background:rgba(255,255,255,.18);border-radius:4px}
+.rail i{display:block;width:100%;height:0;background:var(--pop);border-radius:4px}
+.job{position:relative;background:#fff;color:var(--dark);border-radius:26px;padding:1.4rem 1.6rem;margin-bottom:1.2rem;cursor:pointer;transition:transform .4s var(--spring),background .35s,box-shadow .35s;box-shadow:6px 6px 0 rgba(0,0,0,.25)}
+.job::before{content:'';position:absolute;left:-2.05rem;top:1.8rem;width:18px;height:18px;border-radius:50%;background:var(--deep);border:4px solid #fff;transition:all .35s var(--spring)}
+.job.act{background:var(--pop);transform:translateX(10px) rotate(-.6deg);box-shadow:10px 10px 0 var(--dark)}
+.job.act::before{background:var(--pop);transform:scale(1.5);border-color:#fff}
+.job .t{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.job h3{font-size:clamp(1.2rem,2.4vw,1.7rem);line-height:1.1}
+.job .when{font-weight:700;font-size:.85rem;opacity:.7;white-space:nowrap}
+.job .role{font-weight:500;margin-top:.3rem}
+.job .loc{font-size:.85rem;opacity:.7;display:flex;gap:.3rem;align-items:center;margin-top:.2rem}
+.job .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease);}
+.job .more>div{overflow:hidden;font-size:.92rem}
+.job.open .more{grid-template-rows:1fr}.job.open .more>div{padding-top:.8rem}
+.cur-flag{background:var(--dark);color:var(--pop);font-size:.7rem;font-weight:700;padding:.15rem .6rem;border-radius:99px;margin-left:.5rem;vertical-align:middle}
 
-.exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.exp{padding:1.4rem;border-radius:24px;background:var(--glass);border:1px solid var(--glass-line);transition:transform .3s var(--ease),background .3s}
-.exp:hover{transform:translateY(-4px);background:rgba(255,255,255,.2)}
-.exp i{width:44px;height:44px;border-radius:50%;background:rgba(80,30,5,.5);display:grid;place-items:center;font-size:1.2rem;margin-bottom:.9rem}
-.exp b{font-family:var(--head);font-size:.95rem;line-height:1.3;display:block}
-.exp.big-card{grid-column:span 2;grid-row:span 2;background:#fff;color:#2b1100;border-color:#fff}
-.exp.big-card i{background:var(--card-2);color:#fff;width:56px;height:56px;font-size:1.5rem}
-.exp.big-card b{font-size:1.4rem;margin-bottom:.6rem}
-.exp.big-card p{font-size:.9rem;color:#6b3512}
+/* expertise */
+#expertise h2{color:var(--dark)}
+.fl{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem}
+.fl button{border:2.5px solid var(--dark);font-weight:700;padding:.65rem 1.3rem;border-radius:99px;transition:all .3s var(--spring)}
+.fl button:hover{transform:translateY(-3px) rotate(-2deg)}.fl button.on{background:var(--dark);color:var(--pop)}
+.eg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem}
+.ex{background:var(--dark);color:#fff;border-radius:28px;padding:1.4rem;min-height:170px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s var(--spring),background .3s,color .3s;cursor:default}
+.ex:nth-child(3n+2){background:var(--bg)}.ex:nth-child(3n){background:var(--pink);color:var(--dark)}
+.ex i{font-size:2rem;transition:transform .5s var(--spring)}
+.ex:hover,.ex.tap{transform:translateY(-8px) rotate(-2deg) scale(1.03)}.ex:hover i,.ex.tap i{transform:rotate(360deg) scale(1.2)}
+.ex b{font-family:var(--h);font-size:1.35rem;line-height:1.05;letter-spacing:-.02em}
+.ex.feat{grid-column:span 2;background:#fff!important;color:var(--dark)}
+.ex.feat p{font-size:.95rem;margin-top:.6rem;opacity:.85}
+@media (max-width:520px){.ex.feat{grid-column:auto}}
 
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.c-row{display:flex;align-items:center;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--glass-line)}
-.c-row:last-child{border:0}
-.c-ico{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--card-2);display:grid;place-items:center;font-size:1.1rem;flex:none}
-.c-row small{display:block;font-size:.72rem;color:var(--text-dim)}
-.c-row b{font-family:var(--head);font-weight:600;font-size:.92rem;word-break:break-word}
-.c-arr{margin-left:auto;transition:transform .25s}
-a.c-row:hover .c-arr{transform:translateX(4px)}
-.intro{color:var(--text-dim);margin-bottom:1rem;font-size:.92rem}
+/* report card + education */
+.rings{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;margin-bottom:4.5rem}
+.ring{text-align:center;cursor:pointer;transition:transform .3s var(--spring)}.ring:hover{transform:scale(1.07) rotate(-2deg)}
+.ring svg{width:130px;height:130px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:12;stroke-linecap:round}
+.ring .tr{stroke:rgba(255,255,255,.18)}.ring .fg{stroke:var(--pop);stroke-dasharray:264;stroke-dashoffset:264;transition:stroke-dashoffset 1.4s var(--ease)}
+.ring .g{position:relative;margin-top:-92px;height:92px;display:grid;place-items:center;font-family:var(--h);font-weight:800;font-size:2rem}
+.ring p{margin-top:1.2rem;font-weight:500;line-height:1.25}
+.edus{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.flip{perspective:900px;height:210px;cursor:pointer}
+.fi{position:relative;width:100%;height:100%;transition:transform .8s var(--spring);transform-style:preserve-3d}
+.flip.f .fi{transform:rotateY(180deg)}
+.fc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:28px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;box-shadow:7px 7px 0 var(--dark)}
+.fc.a{background:#fff;color:var(--dark)}.fc.z{background:var(--pop);color:var(--dark);transform:rotateY(180deg)}
+.flip:nth-child(2) .fc.a{background:var(--pink)}
+.fc .dg{font-family:var(--h);font-weight:800;font-size:3.6rem;letter-spacing:-.04em;line-height:.9}
+.fc small{font-weight:700;opacity:.7}.fc b{font-family:var(--h);font-size:1.3rem;line-height:1.1}.fc span{font-size:.9rem}
 
-footer{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1rem 1.5rem 2rem;color:#fff;font-size:.8rem}
-footer b{font-family:var(--head);font-size:1rem}
-footer a{background:rgba(80,30,5,.45);padding:.6rem 1.2rem;border-radius:999px;font-family:var(--head);font-weight:600;display:inline-flex;gap:.4rem;align-items:center}
-footer a:hover{background:#fff;color:#2b1100}
+/* contact */
+.mail{display:block;font-family:var(--h);font-weight:800;font-size:clamp(1.7rem,6.4vw,5.4rem);letter-spacing:-.04em;line-height:1;word-break:break-all;color:var(--pop);transition:transform .4s var(--spring);width:max-content;max-width:100%;cursor:pointer}
+.mail:hover{transform:scale(1.03) rotate(-1.5deg)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:3rem}
+.card{background:rgba(255,255,255,.1);border-radius:30px;padding:1.8rem}
+.card h3{font-size:1.6rem;margin-bottom:1.2rem}
+.card label{display:block;font-weight:700;font-size:.85rem;margin-bottom:.9rem}
+.card input,.card textarea{width:100%;margin-top:.35rem;background:#fff;color:var(--dark);border:0;border-radius:16px;padding:.9rem 1rem;font:500 1rem var(--b)}
+.card textarea{min-height:120px;resize:vertical}
+.rowc{display:flex;gap:.9rem;align-items:center;padding:.7rem 0}
+.rowc i{width:46px;height:46px;border-radius:50%;background:var(--pop);color:var(--dark);display:grid;place-items:center;font-size:1.2rem;flex:none}
+.rowc small{display:block;opacity:.7;font-size:.8rem}
+.soc{display:flex;gap:.8rem;margin-top:1.2rem}
+.soc a{width:62px;height:62px;border-radius:50%;background:#fff;color:var(--dark);display:grid;place-items:center;font-size:1.7rem;transition:transform .35s var(--spring),background .3s}
+.soc a:hover{transform:translateY(-8px) rotate(-12deg) scale(1.1);background:var(--pop)}
+footer{background:var(--deep);padding:2rem clamp(1.2rem,5vw,5rem) 6rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.9rem}
+footer a{font-weight:700;display:inline-flex;gap:.4rem;align-items:center}
 
-/* ── responsive ── */
-@media (max-width:1000px){
-  #home{grid-template-columns:1fr;text-align:center;padding:8rem 1.5rem 7rem;gap:2rem}
-  .lede{margin-inline:auto}.hero-btns,.arrows{justify-content:center}
-  .hero-right{justify-self:center}
-  .mini{display:none}
-  .about-grid,.journey-grid,.contact-grid{grid-template-columns:1fr}
-  .portrait{max-width:300px;margin:0 auto}
-  .exp-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:700px){
-  .top{padding:1.2rem 1.2rem}
-  .pill-nav{position:absolute;top:4.4rem;left:1.2rem;right:1.2rem;max-width:none;flex-direction:column;border-radius:22px;display:none;background:rgba(60,22,3,.92)}
-  .pill-nav.open{display:flex}
-  .pill-nav a{padding:.8rem 1rem;text-align:center}
-  .burger{display:grid;width:38px;height:38px;border-radius:50%;background:rgba(80,30,5,.45);color:#fff;place-items:center;font-size:1.2rem}
-  .top-icons{display:none}
-  .socials{left:50%;transform:translateX(-50%);bottom:3.6rem}
-  .tagline{bottom:1.1rem;font-size:.85rem}
-  .job{grid-template-columns:1fr;gap:.3rem}
-  .exp-grid{grid-template-columns:1fr}.exp.big-card{grid-column:auto;grid-row:auto}
-}
-
-/* ── animation & interaction layer ── */
-.arrows button{width:34px;height:34px;border-radius:50%;background:rgba(80,30,5,.45);display:grid;place-items:center;font-size:.85rem;color:#fff;transition:all .25s var(--ease)}
-.arrows button:hover{background:#fff;color:var(--card-2);transform:scale(1.12)}
-.circle{color:#fff;cursor:pointer}.circle.on{color:#2b1100}
-.glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;left:0;top:0;
-  background:radial-gradient(circle,rgba(255,255,255,.28),transparent 65%);transform:translate(-50%,-50%);mix-blend-mode:soft-light;transition:opacity .4s}
-.bar{position:fixed;top:0;left:0;height:4px;width:0;background:#fff;z-index:999;box-shadow:0 0 12px #fff}
-.card{position:relative;z-index:1}
-.swap{transition:opacity .35s ease,transform .45s var(--ease),filter .35s}
-.swap.out{opacity:0;transform:translateY(14px);filter:blur(6px)}
-h1.swap.typing::after{content:'|';margin-left:2px;animation:blink .7s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;pointer-events:none;animation:drift 9s ease-in-out infinite alternate}
-.b1{width:220px;height:220px;background:#ffb800;top:6%;left:2%}
-.b2{width:180px;height:180px;background:#ff5a0a;bottom:4%;right:0;animation-delay:-4s}
-@keyframes drift{to{transform:translate(30px,-26px) scale(1.18)}}
-.arch{transform-style:preserve-3d;transition:transform .25s ease-out;will-change:transform;animation:float 6s ease-in-out infinite}
-.arch.tilting{animation:none}
-@keyframes float{50%{transform:translateY(-12px)}}
-.arch::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.28) 50%,transparent 65%);transform:translateX(-120%);animation:shine 5s 1.5s infinite}
-@keyframes shine{to{transform:translateX(120%)}}
-.socials a,.round-ico{display:inline-grid}
-.hero-in>*{animation:rise .9s var(--ease) both}
-.hero-in>*:nth-child(2){animation-delay:.12s}.hero-in>*:nth-child(3){animation-delay:.24s}
-@keyframes rise{from{opacity:0;transform:translateY(30px)}}
-.pill-nav a{position:relative}
-.rv{opacity:0;transform:translateY(34px) scale(.97);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.rv.in{opacity:1;transform:none}
-.exp,.job,.glass,.chip,.btn{will-change:transform}
-.exp{transform-style:preserve-3d}
-.exp:hover i{animation:wob .6s}
-@keyframes wob{30%{transform:rotate(-14deg) scale(1.15)}60%{transform:rotate(10deg) scale(1.1)}}
-.job{cursor:pointer;transition:transform .35s var(--ease),background .3s}
-.job:hover{transform:translateX(8px);background:rgba(255,255,255,.2)}
-.job.now:hover{background:#fff}
-.job .more{grid-column:1/-1;max-height:0;overflow:hidden;font-size:.82rem;opacity:0;transition:max-height .5s var(--ease),opacity .4s,margin .4s}
-.job.open .more{max-height:80px;opacity:.9;margin-top:.3rem}
-.job .chev{margin-left:auto;transition:transform .3s}
-.job.open .chev{transform:rotate(180deg)}
-.fl{display:inline-flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.6rem}
-.fl button{background:var(--glass);border:1px solid var(--glass-line);color:#fff;font-family:var(--head);font-weight:600;font-size:.76rem;padding:.55rem 1.1rem;border-radius:999px;transition:all .25s}
-.fl button:hover{background:rgba(255,255,255,.25)}
-.fl button.on{background:#fff;color:#2b1100}
-.exp{transition:transform .25s ease-out,opacity .4s,background .3s}
-.exp.hide{opacity:.15;transform:scale(.94);filter:grayscale(1)}
-.c-row[data-copy]{cursor:pointer}
-.toast{position:fixed;left:50%;bottom:1.6rem;transform:translate(-50%,120px);background:#fff;color:#2b1100;font-family:var(--head);font-weight:600;font-size:.82rem;padding:.8rem 1.4rem;border-radius:999px;box-shadow:0 12px 30px rgba(60,20,0,.35);z-index:1000;transition:transform .5s var(--ease)}
+/* theme switch + toast */
+.theme{position:fixed;left:1rem;bottom:1rem;z-index:900;display:flex;align-items:center;gap:.6rem;background:#fff;color:var(--dark);font-weight:700;padding:.5rem 1rem .5rem .5rem;border-radius:99px;box-shadow:4px 4px 0 var(--dark);transition:transform .3s var(--spring)}
+.theme:hover{transform:scale(1.06) rotate(-2deg)}
+.theme .sw{width:30px;height:30px;border-radius:50%;background:conic-gradient(var(--bg),var(--pop),var(--pink),var(--bg));transition:transform .6s var(--spring)}
+.theme.sp .sw{transform:rotate(360deg)}
+.toast{position:fixed;left:50%;bottom:5rem;transform:translate(-50%,200%);background:var(--pop);color:var(--dark);font-weight:700;padding:.8rem 1.4rem;border-radius:99px;z-index:1300;box-shadow:4px 4px 0 var(--dark);transition:transform .5s var(--spring)}
 .toast.show{transform:translate(-50%,0)}
-.to-top{position:fixed;right:1.2rem;bottom:1.2rem;width:46px;height:46px;border-radius:50%;background:#fff;color:#2b1100;display:grid;place-items:center;font-size:1.1rem;z-index:900;box-shadow:0 10px 24px rgba(60,20,0,.35);transform:scale(0);transition:transform .4s var(--ease)}
-.to-top.show{transform:scale(1)}
-@media (hover:none){.glow{display:none}}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.arch,.blob{animation:none}}
 
-/* ── MOBILE / TOUCH ONLY ── */
-.dock{display:none}
-.swipe-hint{display:none}
-.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);animation:rip .65s ease-out forwards;pointer-events:none;z-index:6}
-@keyframes rip{to{transform:scale(1);opacity:0}}
-@media (max-width:1000px), (hover:none){
-  .btn,.circle,.exp,.job,.glass,.chip,.c-row,.arrows button,.fl button{position:relative;overflow:hidden;transition:transform .2s var(--ease),background .25s;-webkit-tap-highlight-color:transparent}
-  .btn:active,.circle:active,.chip:active,.fl button:active,.arrows button:active{transform:scale(.9)}
-  .exp:active,.job:active,.glass:active,.c-row:active{transform:scale(.97)}
-  .rv:nth-child(odd){transform:translateX(-46px) scale(.95)}
-  .rv:nth-child(even){transform:translateX(46px) scale(.95)}
-  .rv.in{transform:none;transition:opacity .7s var(--ease),transform .9s cubic-bezier(.34,1.56,.64,1)}
-  .exp.rv:nth-child(n){transform:translateY(40px) scale(.8) rotate(-3deg)}
-  .exp.rv.in{transform:none}
-  .swipe-hint{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:var(--head);font-size:.74rem;font-weight:600;margin-top:1.4rem;color:var(--text-dim)}
-  .swipe-hint i{display:inline-block;animation:nudge 1.4s ease-in-out infinite}
-  .swipe-hint i:first-child{animation-direction:reverse}
-  .swipe-hint.gone{opacity:0;transition:opacity .4s}
-  @keyframes nudge{50%{transform:translateX(7px)}}
-  .arch{animation:float 5s ease-in-out infinite,pulseGlow 3s ease-in-out infinite}
-  @keyframes pulseGlow{50%{box-shadow:0 40px 60px -15px rgba(255,200,80,.55)}}
-  .hero-mid{will-change:transform}
-  .circle.on{animation:pop .45s cubic-bezier(.34,1.56,.64,1)}
-  @keyframes pop{from{transform:scale(.6)}}
-  .logo b{animation:spin 8s linear infinite}
-  @keyframes spin{to{transform:rotateY(360deg)}}
-  .sec-head h2{background:linear-gradient(90deg,#fff 0%,#ffe0a8 50%,#fff 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 4s linear infinite}
-  @keyframes sheen{to{background-position:-200% 0}}
-  .edu-deg,.c-ico{animation:ring 3s ease-in-out infinite}
-  @keyframes ring{50%{box-shadow:0 0 0 7px rgba(255,255,255,.22)}}
-  .job.open{background:rgba(255,255,255,.24)}
-  .job.now.open{background:#fff}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:6.5rem;gap:2rem}.photo{width:min(78%,360px)}
+  .about,.jgrid,.cgrid{grid-template-columns:1fr}.pf{max-width:300px}
+  .yr{position:static}.yr .big{font-size:3.4rem}.yr p{display:none}
+  .hint{position:static;margin-top:.5rem}
 }
-@media (max-width:700px){
-  body{padding-bottom:6.5rem}
-  .dock{display:flex;position:fixed;left:50%;bottom:1rem;transform:translate(-50%,160%);z-index:950;gap:.2rem;padding:.4rem;border-radius:999px;
-    background:rgba(60,22,3,.82);backdrop-filter:blur(14px);box-shadow:0 14px 34px rgba(50,15,0,.5);transition:transform .7s cubic-bezier(.34,1.56,.64,1)}
-  .dock.show{transform:translate(-50%,0)}
-  .dock a{position:relative;z-index:1;width:52px;height:46px;border-radius:999px;display:grid;place-items:center;font-size:1.25rem;color:#fff;transition:color .3s,transform .3s var(--ease)}
-  .dock a.active{color:#2b1100;transform:translateY(-4px)}
-  .dock .pill{position:absolute;top:.4rem;left:.4rem;width:52px;height:46px;border-radius:999px;background:#fff;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
-  .to-top{bottom:5.6rem}
-  .toast{bottom:5.8rem}
-  .footer-pad{height:1px}
-}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div class="glow" id="glow"></div><div class="bar" id="bar"></div><div class="toast" id="toast" role="status"></div>
+<div class="bar" id="bar"></div><div class="cur" id="cur"></div><div class="toast" id="toast" role="status"></div>
 
-<!-- ═══ HERO ═══ -->
-<section id="home" class="card" style="padding:0;display:block">
-  <header class="top">
-    <a href="#home" class="logo"><b>PN</b> Padma Nair</a>
-    <nav class="pill-nav" id="menu" aria-label="Main">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#resume">Journey</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="top-icons">
-      <a href="tel:+918279839919" class="round-ico" aria-label="Call"><i class="ph-fill ph-phone"></i></a>
-      <a href="mailto:padmasnair@gmail.com" class="round-ico" aria-label="Email"><i class="ph-fill ph-envelope"></i></a>
-    </div>
-    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i class="ph-bold ph-list"></i></button>
-  </header>
+<header class="nav">
+  <a href="#home" class="logo">P. Nair</a>
+  <button class="menu-btn" id="mb" aria-expanded="false" aria-controls="menu">Menu <span class="d"><i class="ph-bold ph-plus"></i></span></button>
+</header>
+<nav class="menu" id="menu" aria-label="Main">
+  <a href="#home" style="--i:0">Home</a><a href="#about" style="--i:1">About</a><a href="#journey" style="--i:2">Journey</a>
+  <a href="#expertise" style="--i:3">Expertise</a><a href="#report" style="--i:4">Report card</a><a href="#contact" style="--i:5">Say hello</a>
+</nav>
 
-  <div id="heroGrid" data-h="1" style="display:grid;grid-template-columns:1fr 1.05fr 1fr;align-items:center;gap:1rem;padding:8rem 2.5rem 6.5rem;min-height:min(88vh,700px)" class="hero-layout hero-in">
-    <div>
-      <div class="arrows"><button id="prev" aria-label="Previous slide"><i class="ph-bold ph-caret-left"></i></button><button id="next" aria-label="Next slide"><i class="ph-bold ph-caret-right"></i></button></div>
-      <h1 id="hTitle" class="swap">Lead with care, without trying too hard</h1>
-      <p class="lede swap" id="hLede">Twenty-five years spent building school cultures where tradition and progress sit at the same table — steady leadership, considered curriculum, and a classroom-first instinct that never left the Principal's office.</p>
-      <div class="hero-btns">
-        <a href="#resume" class="btn btn-w">Explore my journey <i class="ph-bold ph-caret-right"></i></a>
-        <a href="#contact" class="btn btn-g">Get in touch</a>
-      </div>
-    </div>
-
-    <div class="hero-mid">
-      <div class="blob b1"></div><div class="blob b2"></div><div class="arch" id="arch"><img src="thumbnail.jpg" alt="Padma Nair, Principal" onerror="this.style.display='none'"/></div>
-    </div>
-
-    <div class="hero-right">
-      <p class="swipe-hint" id="swipeHint"><i class="ph-bold ph-caret-left"></i> Swipe to explore <i class="ph-bold ph-caret-right"></i></p>
-      <div class="big swap" id="hBig" data-to="25" data-suf="+">25+</div>
-      <p class="big-sub swap" id="hSub">years in education</p>
-      <p class="choose">Pick a chapter</p>
-      <div class="circles">
-        <button class="circle on" data-i="0" aria-label="Leadership"><i class="ph-bold ph-buildings"></i></button>
-        <button class="circle" data-i="1" aria-label="Journey"><i class="ph-bold ph-path"></i></button>
-        <button class="circle" data-i="2" aria-label="Mentorship"><i class="ph-bold ph-chalkboard-teacher"></i></button>
-      </div>
-    </div>
+<section class="hero" id="home">
+  <div>
+    <h1 class="name" id="name" aria-label="Padma Nair"><span class="row" aria-hidden="true">PADMA</span><span class="row" aria-hidden="true">NAIR</span></h1>
+    <p class="sub">Principal and educational leader. Rigorous and kind, in the same room.</p>
+    <div class="cta"><a href="#journey" class="btn">See my journey <i class="ph-bold ph-arrow-down-right"></i></a><a href="#contact" class="btn o">Say hello</a></div>
+    <p class="hint"><i class="ph-bold ph-hand-grabbing"></i> Push the letters. Drag the stickers.</p>
   </div>
-
-  <div class="socials">
-    <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
-    <a href="https://www.instagram.com/padma.nair.ms" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
-    <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+  <div class="photo" id="photo">
+    <div class="blob"><img src="thumbnail.jpg" alt="Padma Nair, Principal" onerror="this.style.display='none'"/></div>
+    <svg class="spin" viewBox="0 0 120 120" aria-hidden="true"><circle class="disc" cx="60" cy="60" r="58"/><path id="cp" d="M60,60 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0" fill="none"/><text><textPath href="#cp">PRINCIPAL ✺ EDUCATOR ✺ MENTOR ✺ </textPath></text></svg>
   </div>
-  <p class="tagline swap" id="hTag">Principal &amp; Educational Leader<br>Spring Dale Public School</p>
-  <div class="mini"><img src="profile.jpg" alt="" onerror="this.style.display='none'"/></div>
+  <div class="stk" style="--x:4%;--y:70%"><span class="in2" style="--r:-6deg;--d:0s;background:var(--pop)"><b>25+</b><small>years in education</small></span></div>
+  <div class="stk" style="--x:56%;--y:14%"><span class="in2" style="--r:5deg;--d:-1s;background:#fff"><b>5</b><small>schools led &amp; taught</small></span></div>
+  <div class="stk" style="--x:70%;--y:76%"><span class="in2" style="--r:-4deg;--d:-2s;background:var(--pink)"><b>3</b><small>states across India</small></span></div>
 </section>
 
-<!-- ═══ ABOUT ═══ -->
-<section id="about" class="card pad">
-  <div class="about-grid">
-    <div class="portrait"><img src="profile.jpg" alt="Padma Nair" onerror="this.style.display='none'"/></div>
-    <div class="about-text">
-      <span class="badge"><i></i> Currently Principal at Spring Dale Public School</span>
-      <h2 class="about-head">Shaping schools, one considered decision at a time — not by accident.</h2>
-      <p>A dedicated <strong>Principal and Educational Leader</strong> with over 25 years of experience turning schools into places where academic rigor and personal growth happen in the same room.</p>
-      <p>My leadership rests on <strong>value-based, student-first environments</strong> — pairing the discipline of traditional schooling with the openness of modern policy, so the institutions I lead stay both grounded and future-ready.</p>
-      <div class="chips">
+<div class="strip" aria-hidden="true"><div class="mq" id="mq"></div></div>
+
+<section class="sheet" id="about">
+  <div class="about">
+    <div class="pf rv"><img src="profile.jpg" alt="Padma Nair" onerror="this.style.display='none'"/></div>
+    <div>
+      <p class="stmt" id="stmt" data-hl="rigorous kind twenty-five thrive">A principal who believes a school should be rigorous and kind at the same time — twenty-five years of turning that belief into classrooms, teams and communities that thrive.</p>
+      <p class="s rv">My leadership rests on value-based, student-first environments. I pair the discipline of traditional schooling with the openness of modern policy, so the schools I lead stay grounded and future-ready. Currently Principal at Spring Dale Public School.</p>
+      <div class="chips rv">
         <a href="mailto:padmasnair@gmail.com" class="chip"><i class="ph-bold ph-envelope"></i> padmasnair@gmail.com</a>
         <a href="tel:+918279839919" class="chip"><i class="ph-bold ph-phone"></i> +91 82798 39919</a>
         <span class="chip"><i class="ph-bold ph-map-pin"></i> Palai, Kerala, India</span>
@@ -353,315 +244,199 @@ h1.swap.typing::after{content:'|';margin-left:2px;animation:blink .7s steps(1) i
   </div>
 </section>
 
-<!-- ═══ JOURNEY ═══ -->
-<section id="resume" class="card pad">
-  <div class="sec-head"><h2>My journey</h2><p>Five institutions across three states, 2000 to today.</p></div>
-  <div class="journey-grid">
-    <div class="timeline">
-      <div class="job now"><div class="when">FEB 2011<br>– NOW</div><div><div class="org">Spring Dale Public School <span class="flag">Current</span></div><div class="role">Principal</div><div class="where"><i class="ph-fill ph-map-pin"></i> Firozabad, Uttar Pradesh</div></div><i class="ph-bold ph-caret-down chev"></i><div class="more">Leading the whole school: academics, staff, student welfare and parent relations.</div></div>
-      <div class="job"><div class="when">2008<br>– 2011</div><div><div class="org">Shri Saraswati Vidya Mandir</div><div class="role">Principal</div><div class="where"><i class="ph-fill ph-map-pin"></i> Gujarat</div></div><i class="ph-bold ph-caret-down chev"></i><div class="more">First principalship — set the academic direction and ran day-to-day administration.</div></div>
-      <div class="job"><div class="when">2003<br>– 2007</div><div><div class="org">Kids Corner Happy Sr. Sec. School</div><div class="role">Teacher — Grades 1–8</div><div class="where"><i class="ph-fill ph-map-pin"></i> Firozabad, Uttar Pradesh</div></div><i class="ph-bold ph-caret-down chev"></i><div class="more">Classroom teaching across primary and middle grades, Grades 1 to 8.</div></div>
-      <div class="job"><div class="when">2001<br>– 2003</div><div><div class="org">Rajeshwar Convent H.S. School</div><div class="role">Teacher — Social Studies &amp; Languages</div><div class="where"><i class="ph-fill ph-map-pin"></i> Madhya Pradesh</div></div><i class="ph-bold ph-caret-down chev"></i><div class="more">Taught Social Studies and languages at high school level.</div></div>
-      <div class="job"><div class="when">2000<br>– 2001</div><div><div class="org">Shri L.G. Haria Multipurpose School</div><div class="role">Teacher</div><div class="where"><i class="ph-fill ph-map-pin"></i> Gujarat</div></div><i class="ph-bold ph-caret-down chev"></i><div class="more">Where the teaching career began.</div></div>
+<section class="sheet" id="journey">
+  <h2 class="rv">My journey</h2>
+  <div class="jgrid">
+    <div class="yr"><div class="big" id="yr">2011–now</div><p id="yrp">Tap any card to open it.</p></div>
+    <div class="list" id="list">
+      <div class="rail"><i id="fill"></i></div>
+      <article class="job" data-y="2011–now"><div class="t"><h3>Spring Dale Public School<span class="cur-flag">Current</span></h3><span class="when">Feb 2011 – now</span></div><p class="role">Principal</p><p class="loc"><i class="ph-fill ph-map-pin"></i> Firozabad, Uttar Pradesh</p><div class="more"><div>Leading the whole school: academics, staff, student welfare and parent relations.</div></div></article>
+      <article class="job" data-y="2008–11"><div class="t"><h3>Shri Saraswati Vidya Mandir</h3><span class="when">2008 – 2011</span></div><p class="role">Principal</p><p class="loc"><i class="ph-fill ph-map-pin"></i> Gujarat</p><div class="more"><div>First principalship: set the academic direction and ran day-to-day administration.</div></div></article>
+      <article class="job" data-y="2003–07"><div class="t"><h3>Kids Corner Happy Sr. Sec. School</h3><span class="when">2003 – 2007</span></div><p class="role">Teacher, Grades 1–8</p><p class="loc"><i class="ph-fill ph-map-pin"></i> Firozabad, Uttar Pradesh</p><div class="more"><div>Classroom teaching across primary and middle grades.</div></div></article>
+      <article class="job" data-y="2001–03"><div class="t"><h3>Rajeshwar Convent H.S. School</h3><span class="when">2001 – 2003</span></div><p class="role">Teacher, Social Studies &amp; Languages</p><p class="loc"><i class="ph-fill ph-map-pin"></i> Madhya Pradesh</p><div class="more"><div>Taught Social Studies and languages at high school level.</div></div></article>
+      <article class="job" data-y="2000–01"><div class="t"><h3>Shri L.G. Haria Multipurpose School</h3><span class="when">2000 – 2001</span></div><p class="role">Teacher</p><p class="loc"><i class="ph-fill ph-map-pin"></i> Gujarat</p><div class="more"><div>Where the teaching career began.</div></div></article>
     </div>
+  </div>
+</section>
 
-    <div class="side">
-      <div class="glass" id="skills">
-        <h3>Core competencies</h3>
-        <div class="skill"><div class="skill-top"><span>School Leadership</span><b>A+</b></div><div class="track"><div class="fill" style="--pct:95%"></div></div></div>
-        <div class="skill"><div class="skill-top"><span>Curriculum Strategy</span><b>A</b></div><div class="track"><div class="fill" style="--pct:90%"></div></div></div>
-        <div class="skill"><div class="skill-top"><span>Faculty Mentorship</span><b>A+</b></div><div class="track"><div class="fill" style="--pct:92%"></div></div></div>
-        <div class="skill"><div class="skill-top"><span>Community Engagement</span><b>A−</b></div><div class="track"><div class="fill" style="--pct:88%"></div></div></div>
-        <div class="skill"><div class="skill-top"><span>Student Welfare</span><b>A+</b></div><div class="track"><div class="fill" style="--pct:96%"></div></div></div>
+<section class="sheet" id="expertise">
+  <h2 class="rv">What I do best</h2>
+  <div class="fl rv" id="fl"><button class="on" data-f="all">Everything</button><button data-f="lead">Leading</button><button data-f="teach">Teaching</button><button data-f="people">People</button></div>
+  <div class="eg" id="eg">
+    <div class="ex feat" data-t="lead"><i class="ph-fill ph-buildings"></i><div><b>School leadership</b><p>25+ years steering schools toward academic excellence and growth, building cultures of accountability, care and continuous improvement.</p></div></div>
+    <div class="ex" data-t="teach"><i class="ph-fill ph-book-open"></i><b>Curriculum strategy</b></div>
+    <div class="ex" data-t="teach people"><i class="ph-fill ph-chalkboard-teacher"></i><b>Faculty mentorship</b></div>
+    <div class="ex" data-t="lead"><i class="ph-fill ph-chart-line-up"></i><b>Academic oversight</b></div>
+    <div class="ex" data-t="people"><i class="ph-fill ph-shield-check"></i><b>Student welfare</b></div>
+    <div class="ex" data-t="people"><i class="ph-fill ph-users-three"></i><b>Parent engagement</b></div>
+    <div class="ex" data-t="lead"><i class="ph-fill ph-calendar-star"></i><b>Event management</b></div>
+    <div class="ex" data-t="teach"><i class="ph-fill ph-monitor"></i><b>Digital literacy</b></div>
+    <div class="ex" data-t="lead"><i class="ph-fill ph-gear"></i><b>Process improvement</b></div>
+    <div class="ex" data-t="people"><i class="ph-fill ph-handshake"></i><b>Stakeholder relations</b></div>
+    <div class="ex" data-t="teach people"><i class="ph-fill ph-pencil"></i><b>Staff development</b></div>
+    <div class="ex" data-t="lead"><i class="ph-fill ph-trophy"></i><b>Institutional growth</b></div>
+  </div>
+</section>
+
+<section class="sheet" id="report">
+  <h2 class="rv">Report card</h2>
+  <div class="rings" id="rings">
+    <div class="ring rv" data-p="95" data-g="A+"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42"/></svg><div class="g">A+</div><p>School leadership</p></div>
+    <div class="ring rv" data-p="90" data-g="A"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42"/></svg><div class="g">A</div><p>Curriculum strategy</p></div>
+    <div class="ring rv" data-p="92" data-g="A+"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42"/></svg><div class="g">A+</div><p>Faculty mentorship</p></div>
+    <div class="ring rv" data-p="88" data-g="A−"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42"/></svg><div class="g">A−</div><p>Community engagement</p></div>
+    <div class="ring rv" data-p="96" data-g="A+"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42"/></svg><div class="g">A+</div><p>Student welfare</p></div>
+  </div>
+  <h2 class="rv" style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1.5rem">Education <span style="font-size:.4em;font-weight:500;letter-spacing:0">(tap to flip)</span></h2>
+  <div class="edus">
+    <div class="flip rv" tabindex="0" role="button" aria-label="Flip B.Ed. card"><div class="fi"><div class="fc a"><small>1 of 3</small><div class="dg">B.Ed.</div><b>Bachelor of Education</b></div><div class="fc z"><b>Bangalore University</b><span>2006 – 2007</span></div></div></div>
+    <div class="flip rv" tabindex="0" role="button" aria-label="Flip M.A. card"><div class="fi"><div class="fc a"><small>2 of 3</small><div class="dg">M.A.</div><b>History</b></div><div class="fc z"><b>Barkatullah University, Bhopal</b><span>2001 – 2003</span></div></div></div>
+    <div class="flip rv" tabindex="0" role="button" aria-label="Flip B.A. card"><div class="fi"><div class="fc a"><small>3 of 3</small><div class="dg">B.A.</div><b>Economics, NCC &amp; NSS</b></div><div class="fc z"><b>Mahatma Gandhi University, Kottayam</b><span>1994 – 1997</span></div></div></div>
+  </div>
+</section>
+
+<section class="sheet" id="contact">
+  <h2 class="rv">Say hello</h2>
+  <a class="mail rv" id="mail" href="mailto:padmasnair@gmail.com" data-copy="padmasnair@gmail.com" title="Click to copy">padmasnair@gmail.com</a>
+  <p class="rv" style="margin-top:.8rem;opacity:.8">Click the address to copy it. I read every message and reply myself.</p>
+  <div class="cgrid">
+    <form class="card rv" id="form"><h3>Write to me</h3>
+      <label>Your name<input id="fn" required autocomplete="name"></label>
+      <label>Message<textarea id="fm" required></textarea></label>
+      <button class="btn" type="submit">Send <i class="ph-bold ph-paper-plane-tilt"></i></button>
+    </form>
+    <div class="card rv"><h3>Find me</h3>
+      <a class="rowc" href="tel:+918279839919"><i class="ph-fill ph-phone"></i><div><small>Phone</small><b>+91 82798 39919</b></div></a>
+      <div class="rowc"><i class="ph-fill ph-map-pin"></i><div><small>Location</small><b>Palai, Kerala, India</b></div></div>
+      <div class="soc">
+        <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+        <a href="https://www.instagram.com/padma.nair.ms" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+        <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" rel="noopener" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
       </div>
-      <div class="glass">
-        <h3>Education</h3>
-        <div class="edu"><div class="edu-deg">B.Ed.</div><div><b>Bachelor of Education</b><span>Bangalore University · 2006–2007</span></div></div>
-        <div class="edu"><div class="edu-deg">M.A.</div><div><b>History</b><span>Barkatullah University, Bhopal · 2001–2003</span></div></div>
-        <div class="edu"><div class="edu-deg">B.A.</div><div><b>Economics · NCC &amp; NSS</b><span>Mahatma Gandhi University, Kottayam · 1994–1997</span></div></div>
-      </div>
     </div>
   </div>
 </section>
-
-<!-- ═══ EXPERTISE ═══ -->
-<section id="expertise" class="card pad">
-  <div class="sec-head"><h2>Core expertise</h2><p>Twelve areas I bring to every school I lead.</p></div>
-  <div class="fl" id="fl"><button class="on" data-f="all">All</button><button data-f="lead">Leadership</button><button data-f="teach">Teaching</button><button data-f="people">People</button></div>
-  <div class="exp-grid" id="expGrid">
-    <div data-t="lead" class="exp big-card"><i class="ph-fill ph-buildings"></i><b>School Leadership</b><p>25+ years steering schools toward academic excellence and institutional growth across India — building cultures of accountability, care, and continuous improvement.</p></div>
-    <div data-t="teach" class="exp"><i class="ph-fill ph-book-open"></i><b>Curriculum Strategy</b></div>
-    <div data-t="teach people" class="exp"><i class="ph-fill ph-chalkboard-teacher"></i><b>Faculty Mentorship</b></div>
-    <div data-t="lead" class="exp"><i class="ph-fill ph-chart-line-up"></i><b>Academic Oversight</b></div>
-    <div data-t="people" class="exp"><i class="ph-fill ph-shield-check"></i><b>Student Welfare</b></div>
-    <div data-t="people" class="exp"><i class="ph-fill ph-users-three"></i><b>Parent Engagement</b></div>
-    <div data-t="lead" class="exp"><i class="ph-fill ph-calendar-star"></i><b>Event Management</b></div>
-    <div data-t="teach" class="exp"><i class="ph-fill ph-monitor"></i><b>Digital Literacy</b></div>
-    <div data-t="lead" class="exp"><i class="ph-fill ph-gear"></i><b>Process Improvement</b></div>
-    <div data-t="people" class="exp"><i class="ph-fill ph-handshake"></i><b>Stakeholder Relations</b></div>
-    <div data-t="teach people" class="exp"><i class="ph-fill ph-pencil"></i><b>Staff Development</b></div>
-    <div data-t="lead" class="exp"><i class="ph-fill ph-trophy"></i><b>Institutional Growth</b></div>
-  </div>
-</section>
-
-<!-- ═══ CONTACT ═══ -->
-<section id="contact" class="card pad">
-  <div class="sec-head"><h2>Contact me</h2><p>Have a question about my work, or a role to discuss? Write in — I read every message and reply myself.</p></div>
-  <div class="contact-grid">
-    <div class="glass">
-      <a href="mailto:padmasnair@gmail.com" data-copy="padmasnair@gmail.com" class="c-row"><span class="c-ico"><i class="ph-fill ph-envelope"></i></span><div><small>Email · click to copy</small><b>padmasnair@gmail.com</b></div><i class="ph-bold ph-arrow-right c-arr"></i></a>
-      <a href="tel:+918279839919" data-copy="+91 82798 39919" class="c-row"><span class="c-ico"><i class="ph-fill ph-phone"></i></span><div><small>Phone · click to copy</small><b>+91 82798 39919</b></div><i class="ph-bold ph-arrow-right c-arr"></i></a>
-      <div class="c-row"><span class="c-ico"><i class="ph-fill ph-map-pin"></i></span><div><small>Location</small><b>Palai, Kerala, India</b></div></div>
-    </div>
-    <div class="glass">
-      <h3>Connect on social</h3>
-      <a href="https://linkedin.com/in/padma-nair-6529212b7/" target="_blank" rel="noopener" class="c-row"><span class="c-ico"><i class="ph-fill ph-linkedin-logo"></i></span><div><small>LinkedIn</small><b>padma-nair-6529212b7</b></div><i class="ph-bold ph-arrow-up-right c-arr"></i></a>
-      <a href="https://www.instagram.com/padma.nair.ms" target="_blank" rel="noopener" class="c-row"><span class="c-ico"><i class="ph-fill ph-instagram-logo"></i></span><div><small>Instagram</small><b>@padma.nair.ms</b></div><i class="ph-bold ph-arrow-up-right c-arr"></i></a>
-      <a href="https://www.facebook.com/share/14DZ6U2zyuN/" target="_blank" rel="noopener" class="c-row"><span class="c-ico"><i class="ph-fill ph-facebook-logo"></i></span><div><small>Facebook</small><b>Padma Nair</b></div><i class="ph-bold ph-arrow-up-right c-arr"></i></a>
-    </div>
-  </div>
-</section>
-
-<nav class="dock" id="dock" aria-label="Quick navigation"><span class="pill" id="dockPill"></span>
-  <a href="#home" class="active" aria-label="Home"><i class="ph-fill ph-house"></i></a>
-  <a href="#about" aria-label="About"><i class="ph-fill ph-user"></i></a>
-  <a href="#resume" aria-label="Journey"><i class="ph-fill ph-path"></i></a>
-  <a href="#expertise" aria-label="Expertise"><i class="ph-fill ph-star"></i></a>
-  <a href="#contact" aria-label="Contact"><i class="ph-fill ph-envelope"></i></a>
-</nav>
-<a href="#home" class="to-top" id="toTop" aria-label="Back to top"><i class="ph-bold ph-arrow-up"></i></a>
-<footer>
-  <div><b>Padma Nair</b><br>© 2026 · Principal &amp; Educational Leader · All rights reserved</div>
-  <a href="#home"><i class="ph-bold ph-arrow-up"></i> Back to top</a>
-</footer>
-
-<script>
-  /* hero layout collapses on small screens */
-  const hl = document.getElementById('heroGrid');
-  const fit = () => {
-    const small = innerWidth <= 1000;
-    hl.style.gridTemplateColumns = small ? '1fr' : '1fr 1.05fr 1fr';
-    hl.style.textAlign = small ? 'center' : '';
-    hl.style.padding = small ? '8rem 1.5rem 8rem' : '8rem 2.5rem 6.5rem';
-    hl.style.gap = small ? '2rem' : '1rem';
-    hl.querySelectorAll('.lede').forEach(e => e.style.marginInline = small ? 'auto' : '');
-    hl.querySelectorAll('.hero-btns,.arrows').forEach(e => e.style.justifyContent = small ? 'center' : '');
-  };
-  fit(); addEventListener('resize', fit);
-
-  /* mobile menu */
-  const burger = document.getElementById('burger'), menu = document.getElementById('menu');
-  burger.addEventListener('click', () => {
-    const o = menu.classList.toggle('open');
-    burger.setAttribute('aria-expanded', o);
-    burger.innerHTML = o ? '<i class="ph-bold ph-x"></i>' : '<i class="ph-bold ph-list"></i>';
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); burger.innerHTML = '<i class="ph-bold ph-list"></i>'; }));
-
-  /* skill bars */
-  const sk = document.getElementById('skills');
-  new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { sk.querySelectorAll('.fill').forEach(f => f.classList.add('go')); o.disconnect(); } }), { threshold: .3 }).observe(sk);
-
-  /* nav highlight */
-  const links = document.querySelectorAll('.pill-nav a');
-  const spy = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
-  }), { threshold: .4 });
-  document.querySelectorAll('section[id]').forEach(s => spy.observe(s));
-</script>
+<footer><span>© 2026 Padma Nair. Principal &amp; Educational Leader.</span><a href="#home"><i class="ph-bold ph-arrow-up"></i> Back to top</a></footer>
+<button class="theme" id="theme" aria-label="Change colour theme"><span class="sw"></span>Change colours</button>
 
 <script>
 (() => {
-  const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
   const $ = (q, c=document) => c.querySelector(q), $$ = (q, c=document) => [...c.querySelectorAll(q)];
+  const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const toast = $('#toast');
+  const say = m => { toast.textContent = m; toast.classList.add('show'); clearTimeout(say.t); say.t = setTimeout(() => toast.classList.remove('show'), 2200); };
 
-  /* ── hero chapters ── */
-  const slides = [
-    {t:'Lead with care, without trying too hard', l:'Twenty-five years spent building school cultures where tradition and progress sit at the same table — steady leadership, considered curriculum, and a classroom-first instinct that never left the Principal\'s office.', n:25, s:'+', sub:'years in education', tag:'Principal &amp; Educational Leader<br>Spring Dale Public School'},
-    {t:'Five schools, three states, one steady vision', l:'From a classroom in Gujarat to the Principal\'s chair in Firozabad — every post added something to how I lead today.', n:5, s:'', sub:'institutions led &amp; taught', tag:'Gujarat · Madhya Pradesh<br>Uttar Pradesh'},
-    {t:'Teachers grow when someone backs them', l:'Mentorship, recruitment and staff development sit at the centre of every school I run — strong teachers make strong students.', n:12, s:'', sub:'areas of expertise', tag:'Faculty Mentorship<br>&amp; Staff Development'}
-  ];
-  const el = {t:$('#hTitle'), l:$('#hLede'), n:$('#hBig'), s:$('#hSub'), g:$('#hTag')};
-  const dots = $$('.circle'); let cur = 0, timer, typing;
+  /* menu */
+  const mb = $('#mb'), menu = $('#menu');
+  const tog = o => { menu.classList.toggle('open', o); mb.classList.toggle('open', o); mb.setAttribute('aria-expanded', o); };
+  mb.onclick = () => tog(!menu.classList.contains('open'));
+  $$('#menu a').forEach(a => a.onclick = () => tog(false));
+  addEventListener('keydown', e => e.key === 'Escape' && tog(false));
 
-  function countUp(node, to, suf){
-    if (RM){ node.textContent = to + suf; return; }
-    const t0 = performance.now(), d = 1100;
-    (function f(t){ const p = Math.min((t - t0)/d, 1), e = 1 - Math.pow(1 - p, 3);
-      node.textContent = Math.round(to * e) + (p === 1 ? suf : ''); if (p < 1) requestAnimationFrame(f); })(t0);
-  }
-  function type(text){
-    clearInterval(typing);
-    if (RM){ el.t.textContent = text; return; }
-    let i = 0; el.t.textContent = ''; el.t.classList.add('typing');
-    typing = setInterval(() => { el.t.textContent = text.slice(0, ++i); if (i >= text.length){ clearInterval(typing); el.t.classList.remove('typing'); } }, 28);
-  }
-  function go(i, user){
-    cur = (i + slides.length) % slides.length; const d = slides[cur];
-    dots.forEach((b, k) => b.classList.toggle('on', k === cur));
-    [el.l, el.n, el.s, el.g].forEach(e => e.classList.add('out'));
-    setTimeout(() => {
-      el.l.textContent = d.l; el.s.innerHTML = d.sub; el.g.innerHTML = d.tag;
-      [el.l, el.n, el.s, el.g].forEach(e => e.classList.remove('out'));
-      countUp(el.n, d.n, d.s); type(d.t);
-    }, 320);
-    if (user) restart();
-  }
-  function restart(){ clearInterval(timer); if (!RM) timer = setInterval(() => go(cur + 1), 7000); }
-  $('#prev').onclick = () => go(cur - 1, true);
-  $('#next').onclick = () => go(cur + 1, true);
-  dots.forEach(b => b.onclick = () => go(+b.dataset.i, true));
-  $('#home').addEventListener('mouseenter', () => clearInterval(timer));
-  $('#home').addEventListener('mouseleave', restart);
-  addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(cur + 1, true); if (e.key === 'ArrowLeft') go(cur - 1, true); });
-  countUp(el.n, 25, '+'); type(slides[0].t); restart();
+  /* theme */
+  const themes = ['cobalt', 'sunset', 'mint']; let ti = 0;
+  $('#theme').onclick = e => { ti = (ti + 1) % 3; document.documentElement.dataset.theme = themes[ti]; e.currentTarget.classList.add('sp'); setTimeout(() => e.currentTarget.classList.remove('sp'), 700); };
 
-  /* ── photo tilt + cursor glow + magnetic buttons ── */
-  const arch = $('#arch'), glow = $('#glow');
-  if (!RM && matchMedia('(hover:hover)').matches){
-    $('#home').addEventListener('mousemove', e => {
-      const r = arch.getBoundingClientRect(), x = (e.clientX - r.left)/r.width - .5, y = (e.clientY - r.top)/r.height - .5;
-      arch.classList.add('tilting');
-      arch.style.transform = `perspective(900px) rotateY(${x*14}deg) rotateX(${-y*12}deg) translateZ(10px)`;
-    });
-    $('#home').addEventListener('mouseleave', () => { arch.style.transform = ''; arch.classList.remove('tilting'); });
-    addEventListener('mousemove', e => { glow.style.transform = `translate(${e.clientX - 210}px,${e.clientY - 210}px)`; glow.style.left = glow.style.top = 0; });
-    $$('.btn,.round-ico,.circle').forEach(b => {
-      b.addEventListener('mousemove', e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width/2)*.25}px,${(e.clientY - r.top - r.height/2)*.35}px)`; });
-      b.addEventListener('mouseleave', () => b.style.transform = '');
-    });
-    $$('.exp,.glass').forEach(c => {
-      c.addEventListener('mousemove', e => { const r = c.getBoundingClientRect(), x = (e.clientX - r.left)/r.width - .5, y = (e.clientY - r.top)/r.height - .5;
-        c.style.transform = `perspective(700px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-3px)`; });
-      c.addEventListener('mouseleave', () => c.style.transform = '');
-    });
+  /* custom cursor */
+  const cur = $('#cur');
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches){
+    let cx = 0, cy = 0, tx = 0, ty = 0;
+    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; });
+    (function l(){ cx += (tx - cx)*.2; cy += (ty - cy)*.2; cur.style.transform = `translate(${cx - cur.offsetWidth/2}px,${cy - cur.offsetHeight/2}px)`; requestAnimationFrame(l); })();
+    document.addEventListener('pointerover', e => cur.classList.toggle('big', !!e.target.closest('a,button,.stk,.flip,.job,.ring,.ex')));
   }
 
-  /* ── scroll reveal, progress bar, back-to-top ── */
-  const items = $$('.sec-head,.about-grid>*,.job,.side>*,.exp,.contact-grid>*');
-  items.forEach((n, i) => { n.classList.add('rv'); n.style.transitionDelay = (i % 4)*80 + 'ms'; });
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);
-    setTimeout(() => e.target.style.transitionDelay = '', 1000); } }), {threshold:.12});
-  items.forEach(n => io.observe(n));
-  const bar = $('#bar'), top = $('#toTop');
-  addEventListener('scroll', () => {
-    const h = document.documentElement; bar.style.width = (scrollY/(h.scrollHeight - innerHeight)*100) + '%';
-    top.classList.toggle('show', scrollY > 600);
-  }, {passive:true});
+  /* hero letters: push away from pointer / finger */
+  const name = $('#name'), L = [];
+  $$('.row', name).forEach((r, ri) => { const t = r.textContent; r.textContent = ''; [...t].forEach((c, i) => { const s = document.createElement('span'); s.className = 'L'; s.textContent = c; s.style.setProperty('--i', i + ri*5); r.appendChild(s); L.push(s); }); });
+  const push = (x, y) => L.forEach(s => {
+    const r = s.getBoundingClientRect(), dx = r.left + r.width/2 - x, dy = r.top + r.height/2 - y, d = Math.hypot(dx, dy) || 1, R = 190;
+    if (d < R){ const f = (1 - d/R)*90; s.classList.add('mv'); s.style.transform = `translate(${dx/d*f}px,${dy/d*f}px) rotate(${dx/d*f*.5}deg) scale(${1 + (1 - d/R)*.25})`; }
+    else if (s.style.transform){ s.classList.remove('mv'); s.style.transform = ''; }
+  });
+  const rest = () => L.forEach(s => { s.classList.remove('mv'); s.style.transform = ''; });
+  if (!RM){
+    name.addEventListener('pointermove', e => push(e.clientX, e.clientY));
+    name.addEventListener('pointerleave', rest); name.addEventListener('pointerup', () => setTimeout(rest, 250));
+    name.addEventListener('pointerdown', e => { push(e.clientX, e.clientY); L.forEach(s => s.animate([{transform:s.style.transform||'none'},{transform:'translateY(-30px) rotate(8deg)'},{transform:s.style.transform||'none'}], {duration:450, easing:'ease-out'})); });
+  }
 
-  /* ── journey: click to expand ── */
-  $$('.job').forEach(j => { j.tabIndex = 0;
-    const t = () => j.classList.toggle('open');
-    j.addEventListener('click', t); j.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); t(); } }); });
+  /* draggable stickers */
+  $$('.stk').forEach(s => {
+    let ox = 0, oy = 0, x = 0, y = 0, on = false;
+    s.addEventListener('pointerdown', e => { on = true; s.setPointerCapture(e.pointerId); ox = e.clientX - x; oy = e.clientY - y; s.classList.add('drag'); });
+    s.addEventListener('pointermove', e => { if (!on) return; x = e.clientX - ox; y = e.clientY - oy; s.style.transform = `translate(${x}px,${y}px)`; });
+    const up = () => { on = false; s.classList.remove('drag'); };
+    s.addEventListener('pointerup', up); s.addEventListener('pointercancel', up);
+  });
 
-  /* ── expertise filter ── */
+  /* photo tilt */
+  const ph = $('#photo');
+  ph.addEventListener('pointermove', e => { if (RM) return; const r = ph.getBoundingClientRect(); ph.style.transform = `perspective(800px) rotateY(${((e.clientX - r.left)/r.width - .5)*16}deg) rotateX(${-((e.clientY - r.top)/r.height - .5)*16}deg)`; });
+  ph.addEventListener('pointerleave', () => ph.style.transform = '');
+
+  /* marquee */
+  const words = ['School leadership','Curriculum strategy','Faculty mentorship','Student welfare','Parent engagement','Digital literacy','Staff development','Institutional growth'];
+  const set = words.map(w => `<span>${w}</span>`).join(''); $('#mq').innerHTML = set + set;
+
+  /* about: words light up as you scroll */
+  const st = $('#stmt'), hl = st.dataset.hl.split(' ');
+  const ws = st.textContent.split(' ').map(w => { const s = document.createElement('span'); s.className = 'w' + (hl.some(h => w.toLowerCase().startsWith(h)) ? ' hl' : ''); s.textContent = w + ' '; return s; });
+  st.textContent = ''; ws.forEach(w => st.appendChild(w));
+
+  /* journey */
+  const jobs = $$('.job'), yr = $('#yr'), list = $('#list'), fill = $('#fill');
+  jobs.forEach(j => { j.tabIndex = 0; const t = () => j.classList.toggle('open'); j.onclick = t; j.onkeydown = e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); t(); } }; });
+  const jo = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){
+    jobs.forEach(j => j.classList.toggle('act', j === e.target));
+    if (yr.textContent !== e.target.dataset.y){ yr.textContent = e.target.dataset.y; yr.classList.add('pulse'); setTimeout(() => yr.classList.remove('pulse'), 300); }
+  } }), {rootMargin:'-42% 0px -42% 0px'});
+  jobs.forEach(j => jo.observe(j));
+
+  /* expertise filter with FLIP */
+  const cards = $$('#eg .ex');
   $$('#fl button').forEach(b => b.onclick = () => {
     $$('#fl button').forEach(x => x.classList.toggle('on', x === b));
-    $$('#expGrid .exp').forEach(c => c.classList.toggle('hide', b.dataset.f !== 'all' && !c.dataset.t.split(' ').includes(b.dataset.f)));
-  });
-
-  /* ── click to copy ── */
-  const toast = $('#toast');
-  $$('[data-copy]').forEach(a => a.addEventListener('click', e => {
-    if (e.target.closest('.c-arr')) return;
-    e.preventDefault();
-    (navigator.clipboard ? navigator.clipboard.writeText(a.dataset.copy) : Promise.reject()).then(() => 'Copied: ' + a.dataset.copy, () => 'Press and hold to copy')
-      .then(m => { toast.textContent = m; toast.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(() => toast.classList.remove('show'), 2000); });
-  }));
-})();
-</script>
-
-<script>
-(() => {
-  const M = matchMedia('(max-width:1000px), (hover:none)');
-  if (!M.matches) return;                       /* desktop untouched */
-  const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
-  const $ = (q, c=document) => c.querySelector(q), $$ = (q, c=document) => [...c.querySelectorAll(q)];
-  const buzz = n => { try { navigator.vibrate && navigator.vibrate(n); } catch(e){} };
-
-  /* tap ripple + haptic */
-  document.addEventListener('pointerdown', e => {
-    const t = e.target.closest('.btn,.circle,.exp,.job,.chip,.c-row,.arrows button,.fl button,.dock a,.round-ico');
-    if (!t) return;
-    buzz(8);
+    const first = cards.map(c => c.getBoundingClientRect()), f = b.dataset.f;
+    cards.forEach(c => c.hidden = f !== 'all' && !c.dataset.t.split(' ').includes(f));
     if (RM) return;
-    const r = t.getBoundingClientRect(), d = Math.max(r.width, r.height)*2.2, x = document.createElement('span');
-    x.className = 'ripple'; x.style.cssText = `width:${d}px;height:${d}px;left:${e.clientX - r.left - d/2}px;top:${e.clientY - r.top - d/2}px`;
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
-    t.style.overflow = 'hidden'; t.appendChild(x); setTimeout(() => x.remove(), 700);
-  }, {passive:true});
-
-  /* swipe hero left / right to change chapter */
-  const home = $('#home'), hint = $('#swipeHint'), next = $('#next'), prev = $('#prev'), mid = $('.hero-mid'), arch = $('#arch');
-  let sx = 0, sy = 0, dx = 0, track = false;
-  home.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; dx = 0; track = true; }, {passive:true});
-  home.addEventListener('touchmove', e => {
-    if (!track) return;
-    const x = e.touches[0].clientX - sx, y = e.touches[0].clientY - sy;
-    if (Math.abs(y) > Math.abs(x)*1.2) { track = false; return; }
-    dx = x;
-    if (!RM){                                   /* photo follows the finger + 3D lean */
-      mid.style.transform = `translateX(${x*.35}px)`;
-      arch.classList.add('tilting');
-      arch.style.transform = `perspective(800px) rotateY(${Math.max(-25, Math.min(25, x/6))}deg)`;
-    }
-  }, {passive:true});
-  const settle = () => {
-    track = false; mid.style.transition = 'transform .6s cubic-bezier(.34,1.56,.64,1)';
-    mid.style.transform = ''; arch.style.transform = ''; arch.classList.remove('tilting');
-    setTimeout(() => mid.style.transition = '', 650);
-  };
-  home.addEventListener('touchend', () => {
-    if (Math.abs(dx) > 55){ (dx < 0 ? next : prev).click(); buzz(15); hint.classList.add('gone'); }
-    settle();
+    cards.forEach((c, i) => { if (c.hidden) return; const l = c.getBoundingClientRect(), a = first[i];
+      c.animate(a.width ? [{transform:`translate(${a.left - l.left}px,${a.top - l.top}px) scale(.85)`}, {transform:'none'}] : [{transform:'scale(.3) rotate(-10deg)', opacity:0}, {transform:'none', opacity:1}], {duration:600, easing:'cubic-bezier(.34,1.56,.64,1)'}); });
   });
-  home.addEventListener('touchcancel', settle);
+  cards.forEach(c => c.addEventListener('click', () => { c.classList.add('tap'); setTimeout(() => c.classList.remove('tap'), 600); }));
 
-  /* gyroscope tilt (Android / permitted iOS) */
-  const gyro = e => {
-    if (RM || track || e.gamma == null) return;
-    const g = Math.max(-20, Math.min(20, e.gamma)), b = Math.max(-20, Math.min(20, (e.beta||45) - 45));
-    arch.classList.add('tilting');
-    arch.style.transform = `perspective(900px) rotateY(${g*.7}deg) rotateX(${-b*.6}deg)`;
+  /* rings */
+  const ring = r => { const f = $('.fg', r); f.style.transition = 'none'; f.style.strokeDashoffset = 264; f.getBoundingClientRect(); f.style.transition = ''; f.style.strokeDashoffset = 264*(1 - r.dataset.p/100); };
+  $$('.ring').forEach(r => r.onclick = () => ring(r));
+  const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ ring(e.target); ro.unobserve(e.target); } }), {threshold:.6});
+  $$('.ring').forEach(r => ro.observe(r));
+
+  /* flip cards */
+  $$('.flip').forEach(f => { const t = () => f.classList.toggle('f'); f.onclick = t; f.onkeydown = e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); t(); } }; });
+
+  /* copy + form */
+  $('#mail').addEventListener('click', e => { e.preventDefault(); navigator.clipboard ? navigator.clipboard.writeText('padmasnair@gmail.com').then(() => say('Email copied')) : (location.href = 'mailto:padmasnair@gmail.com'); });
+  $('#form').addEventListener('submit', e => { e.preventDefault(); const n = $('#fn').value, m = $('#fm').value;
+    say('Opening your email app…'); location.href = `mailto:padmasnair@gmail.com?subject=${encodeURIComponent('Hello from ' + n)}&body=${encodeURIComponent(m + '\n\n— ' + n)}`; });
+
+  /* reveal */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  $$('.rv').forEach((n, i) => { n.style.transitionDelay = (i % 3)*90 + 'ms'; io.observe(n); });
+
+  /* scroll: progress, marquee skew, word reveal, journey rail */
+  const bar = $('#bar'), mq = $('#mq'); let lastY = scrollY, sk = 0, tick = false;
+  const onScroll = () => {
+    const h = document.documentElement, vh = innerHeight;
+    bar.style.width = scrollY/(h.scrollHeight - vh)*100 + '%';
+    const r = st.getBoundingClientRect(), p = clamp((vh*.85 - r.top)/(r.height + vh*.35), 0, 1), n = Math.round(p*ws.length);
+    ws.forEach((w, i) => w.classList.toggle('on', i < n));
+    const lr = list.getBoundingClientRect(); fill.style.height = clamp((vh*.55 - lr.top)/lr.height, 0, 1)*100 + '%';
+    tick = false;
   };
-  const startGyro = () => addEventListener('deviceorientation', gyro, true);
-  if (window.DeviceOrientationEvent){
-    if (typeof DeviceOrientationEvent.requestPermission === 'function'){
-      home.addEventListener('click', () => DeviceOrientationEvent.requestPermission().then(r => r === 'granted' && startGyro()).catch(()=>{}), {once:true});
-    } else startGyro();
-  }
-
-  /* scroll parallax + dock */
-  const blobs = $$('.blob'), dock = $('#dock'), pill = $('#dockPill'), dl = $$('#dock a');
-  let tick = false;
-  addEventListener('scroll', () => {
-    if (tick) return; tick = true;
-    requestAnimationFrame(() => {
-      const y = scrollY;
-      if (!RM) blobs.forEach((b, i) => b.style.marginTop = (y*(i ? -.12 : .18)) + 'px');
-      dock.classList.toggle('show', y > 260);
-      tick = false;
-    });
-  }, {passive:true});
-  const place = () => { const i = Math.max(0, dl.findIndex(a => a.classList.contains('active'))); pill.style.transform = `translateX(${i*(52+3.2)}px)`; };
-  const spy = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting){ dl.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id)); place(); }
-  }), {threshold:.35});
-  $$('section[id]').forEach(s => spy.observe(s)); place();
-  dl.forEach(a => a.addEventListener('click', e => { e.preventDefault(); $(a.getAttribute('href')).scrollIntoView({behavior:'smooth'}); }));
-
-  /* touch-drag tilt on cards */
-  $$('.exp,.portrait,.glass').forEach(c => {
-    c.addEventListener('touchmove', e => {
-      if (RM) return; const t = e.touches[0], r = c.getBoundingClientRect(),
-        x = (t.clientX - r.left)/r.width - .5, y = (t.clientY - r.top)/r.height - .5;
-      c.style.transform = `perspective(600px) rotateY(${x*14}deg) rotateX(${-y*14}deg) scale(1.02)`;
-    }, {passive:true});
-    ['touchend','touchcancel'].forEach(ev => c.addEventListener(ev, () => c.style.transform = ''));
-  });
-
-  /* auto-expand the first job so people see it is tappable */
-  const first = $('.job.now'); if (first) setTimeout(() => first.classList.add('open'), 1600);
+  addEventListener('scroll', () => { if (!tick){ tick = true; requestAnimationFrame(onScroll); } }, {passive:true});
+  if (!RM) (function loop(){ const v = scrollY - lastY; lastY = scrollY; sk += (clamp(v*-.35, -14, 14) - sk)*.15; mq.style.setProperty('--sk', sk + 'deg'); requestAnimationFrame(loop); })();
+  onScroll();
 })();
 </script>
 </body>
