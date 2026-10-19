@@ -229,6 +229,52 @@ h1.swap.typing::after{content:'|';margin-left:2px;animation:blink .7s steps(1) i
 .to-top.show{transform:scale(1)}
 @media (hover:none){.glow{display:none}}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.arch,.blob{animation:none}}
+
+/* ── MOBILE / TOUCH ONLY ── */
+.dock{display:none}
+.swipe-hint{display:none}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);animation:rip .65s ease-out forwards;pointer-events:none;z-index:6}
+@keyframes rip{to{transform:scale(1);opacity:0}}
+@media (max-width:1000px), (hover:none){
+  .btn,.circle,.exp,.job,.glass,.chip,.c-row,.arrows button,.fl button{position:relative;overflow:hidden;transition:transform .2s var(--ease),background .25s;-webkit-tap-highlight-color:transparent}
+  .btn:active,.circle:active,.chip:active,.fl button:active,.arrows button:active{transform:scale(.9)}
+  .exp:active,.job:active,.glass:active,.c-row:active{transform:scale(.97)}
+  .rv:nth-child(odd){transform:translateX(-46px) scale(.95)}
+  .rv:nth-child(even){transform:translateX(46px) scale(.95)}
+  .rv.in{transform:none;transition:opacity .7s var(--ease),transform .9s cubic-bezier(.34,1.56,.64,1)}
+  .exp.rv:nth-child(n){transform:translateY(40px) scale(.8) rotate(-3deg)}
+  .exp.rv.in{transform:none}
+  .swipe-hint{display:flex;align-items:center;justify-content:center;gap:.6rem;font-family:var(--head);font-size:.74rem;font-weight:600;margin-top:1.4rem;color:var(--text-dim)}
+  .swipe-hint i{display:inline-block;animation:nudge 1.4s ease-in-out infinite}
+  .swipe-hint i:first-child{animation-direction:reverse}
+  .swipe-hint.gone{opacity:0;transition:opacity .4s}
+  @keyframes nudge{50%{transform:translateX(7px)}}
+  .arch{animation:float 5s ease-in-out infinite,pulseGlow 3s ease-in-out infinite}
+  @keyframes pulseGlow{50%{box-shadow:0 40px 60px -15px rgba(255,200,80,.55)}}
+  .hero-mid{will-change:transform}
+  .circle.on{animation:pop .45s cubic-bezier(.34,1.56,.64,1)}
+  @keyframes pop{from{transform:scale(.6)}}
+  .logo b{animation:spin 8s linear infinite}
+  @keyframes spin{to{transform:rotateY(360deg)}}
+  .sec-head h2{background:linear-gradient(90deg,#fff 0%,#ffe0a8 50%,#fff 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 4s linear infinite}
+  @keyframes sheen{to{background-position:-200% 0}}
+  .edu-deg,.c-ico{animation:ring 3s ease-in-out infinite}
+  @keyframes ring{50%{box-shadow:0 0 0 7px rgba(255,255,255,.22)}}
+  .job.open{background:rgba(255,255,255,.24)}
+  .job.now.open{background:#fff}
+}
+@media (max-width:700px){
+  body{padding-bottom:6.5rem}
+  .dock{display:flex;position:fixed;left:50%;bottom:1rem;transform:translate(-50%,160%);z-index:950;gap:.2rem;padding:.4rem;border-radius:999px;
+    background:rgba(60,22,3,.82);backdrop-filter:blur(14px);box-shadow:0 14px 34px rgba(50,15,0,.5);transition:transform .7s cubic-bezier(.34,1.56,.64,1)}
+  .dock.show{transform:translate(-50%,0)}
+  .dock a{position:relative;z-index:1;width:52px;height:46px;border-radius:999px;display:grid;place-items:center;font-size:1.25rem;color:#fff;transition:color .3s,transform .3s var(--ease)}
+  .dock a.active{color:#2b1100;transform:translateY(-4px)}
+  .dock .pill{position:absolute;top:.4rem;left:.4rem;width:52px;height:46px;border-radius:999px;background:#fff;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+  .to-top{bottom:5.6rem}
+  .toast{bottom:5.8rem}
+  .footer-pad{height:1px}
+}
 </style>
 </head>
 <body>
@@ -268,6 +314,7 @@ h1.swap.typing::after{content:'|';margin-left:2px;animation:blink .7s steps(1) i
     </div>
 
     <div class="hero-right">
+      <p class="swipe-hint" id="swipeHint"><i class="ph-bold ph-caret-left"></i> Swipe to explore <i class="ph-bold ph-caret-right"></i></p>
       <div class="big swap" id="hBig" data-to="25" data-suf="+">25+</div>
       <p class="big-sub swap" id="hSub">years in education</p>
       <p class="choose">Pick a chapter</p>
@@ -375,6 +422,13 @@ h1.swap.typing::after{content:'|';margin-left:2px;animation:blink .7s steps(1) i
   </div>
 </section>
 
+<nav class="dock" id="dock" aria-label="Quick navigation"><span class="pill" id="dockPill"></span>
+  <a href="#home" class="active" aria-label="Home"><i class="ph-fill ph-house"></i></a>
+  <a href="#about" aria-label="About"><i class="ph-fill ph-user"></i></a>
+  <a href="#resume" aria-label="Journey"><i class="ph-fill ph-path"></i></a>
+  <a href="#expertise" aria-label="Expertise"><i class="ph-fill ph-star"></i></a>
+  <a href="#contact" aria-label="Contact"><i class="ph-fill ph-envelope"></i></a>
+</nav>
 <a href="#home" class="to-top" id="toTop" aria-label="Back to top"><i class="ph-bold ph-arrow-up"></i></a>
 <footer>
   <div><b>Padma Nair</b><br>© 2026 · Principal &amp; Educational Leader · All rights reserved</div>
@@ -514,6 +568,100 @@ h1.swap.typing::after{content:'|';margin-left:2px;animation:blink .7s steps(1) i
     (navigator.clipboard ? navigator.clipboard.writeText(a.dataset.copy) : Promise.reject()).then(() => 'Copied: ' + a.dataset.copy, () => 'Press and hold to copy')
       .then(m => { toast.textContent = m; toast.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(() => toast.classList.remove('show'), 2000); });
   }));
+})();
+</script>
+
+<script>
+(() => {
+  const M = matchMedia('(max-width:1000px), (hover:none)');
+  if (!M.matches) return;                       /* desktop untouched */
+  const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const $ = (q, c=document) => c.querySelector(q), $$ = (q, c=document) => [...c.querySelectorAll(q)];
+  const buzz = n => { try { navigator.vibrate && navigator.vibrate(n); } catch(e){} };
+
+  /* tap ripple + haptic */
+  document.addEventListener('pointerdown', e => {
+    const t = e.target.closest('.btn,.circle,.exp,.job,.chip,.c-row,.arrows button,.fl button,.dock a,.round-ico');
+    if (!t) return;
+    buzz(8);
+    if (RM) return;
+    const r = t.getBoundingClientRect(), d = Math.max(r.width, r.height)*2.2, x = document.createElement('span');
+    x.className = 'ripple'; x.style.cssText = `width:${d}px;height:${d}px;left:${e.clientX - r.left - d/2}px;top:${e.clientY - r.top - d/2}px`;
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
+    t.style.overflow = 'hidden'; t.appendChild(x); setTimeout(() => x.remove(), 700);
+  }, {passive:true});
+
+  /* swipe hero left / right to change chapter */
+  const home = $('#home'), hint = $('#swipeHint'), next = $('#next'), prev = $('#prev'), mid = $('.hero-mid'), arch = $('#arch');
+  let sx = 0, sy = 0, dx = 0, track = false;
+  home.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; dx = 0; track = true; }, {passive:true});
+  home.addEventListener('touchmove', e => {
+    if (!track) return;
+    const x = e.touches[0].clientX - sx, y = e.touches[0].clientY - sy;
+    if (Math.abs(y) > Math.abs(x)*1.2) { track = false; return; }
+    dx = x;
+    if (!RM){                                   /* photo follows the finger + 3D lean */
+      mid.style.transform = `translateX(${x*.35}px)`;
+      arch.classList.add('tilting');
+      arch.style.transform = `perspective(800px) rotateY(${Math.max(-25, Math.min(25, x/6))}deg)`;
+    }
+  }, {passive:true});
+  const settle = () => {
+    track = false; mid.style.transition = 'transform .6s cubic-bezier(.34,1.56,.64,1)';
+    mid.style.transform = ''; arch.style.transform = ''; arch.classList.remove('tilting');
+    setTimeout(() => mid.style.transition = '', 650);
+  };
+  home.addEventListener('touchend', () => {
+    if (Math.abs(dx) > 55){ (dx < 0 ? next : prev).click(); buzz(15); hint.classList.add('gone'); }
+    settle();
+  });
+  home.addEventListener('touchcancel', settle);
+
+  /* gyroscope tilt (Android / permitted iOS) */
+  const gyro = e => {
+    if (RM || track || e.gamma == null) return;
+    const g = Math.max(-20, Math.min(20, e.gamma)), b = Math.max(-20, Math.min(20, (e.beta||45) - 45));
+    arch.classList.add('tilting');
+    arch.style.transform = `perspective(900px) rotateY(${g*.7}deg) rotateX(${-b*.6}deg)`;
+  };
+  const startGyro = () => addEventListener('deviceorientation', gyro, true);
+  if (window.DeviceOrientationEvent){
+    if (typeof DeviceOrientationEvent.requestPermission === 'function'){
+      home.addEventListener('click', () => DeviceOrientationEvent.requestPermission().then(r => r === 'granted' && startGyro()).catch(()=>{}), {once:true});
+    } else startGyro();
+  }
+
+  /* scroll parallax + dock */
+  const blobs = $$('.blob'), dock = $('#dock'), pill = $('#dockPill'), dl = $$('#dock a');
+  let tick = false;
+  addEventListener('scroll', () => {
+    if (tick) return; tick = true;
+    requestAnimationFrame(() => {
+      const y = scrollY;
+      if (!RM) blobs.forEach((b, i) => b.style.marginTop = (y*(i ? -.12 : .18)) + 'px');
+      dock.classList.toggle('show', y > 260);
+      tick = false;
+    });
+  }, {passive:true});
+  const place = () => { const i = Math.max(0, dl.findIndex(a => a.classList.contains('active'))); pill.style.transform = `translateX(${i*(52+3.2)}px)`; };
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ dl.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id)); place(); }
+  }), {threshold:.35});
+  $$('section[id]').forEach(s => spy.observe(s)); place();
+  dl.forEach(a => a.addEventListener('click', e => { e.preventDefault(); $(a.getAttribute('href')).scrollIntoView({behavior:'smooth'}); }));
+
+  /* touch-drag tilt on cards */
+  $$('.exp,.portrait,.glass').forEach(c => {
+    c.addEventListener('touchmove', e => {
+      if (RM) return; const t = e.touches[0], r = c.getBoundingClientRect(),
+        x = (t.clientX - r.left)/r.width - .5, y = (t.clientY - r.top)/r.height - .5;
+      c.style.transform = `perspective(600px) rotateY(${x*14}deg) rotateX(${-y*14}deg) scale(1.02)`;
+    }, {passive:true});
+    ['touchend','touchcancel'].forEach(ev => c.addEventListener(ev, () => c.style.transform = ''));
+  });
+
+  /* auto-expand the first job so people see it is tappable */
+  const first = $('.job.now'); if (first) setTimeout(() => first.classList.add('open'), 1600);
 })();
 </script>
 </body>
