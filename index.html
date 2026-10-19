@@ -340,9 +340,9 @@ let ri=0,ci=0,del=false;const ty=$('#typed');
   if(del&&--ci<0){del=false;ci=0;ri=(ri+1)%roles.length}
   setTimeout(tick,del?28:60)})();
 /* scroll: progress, nav, spy, timeline fill, top btn */
-const nav=$('#nav'),prog=$('#prog'),top=$('#top'),fill=$('#fill'),tl=$('#tl');
+const nav=$('#nav'),prog=$('#prog'),topBtn=$('#top'),fill=$('#fill'),tl=$('#tl');
 function onS(){const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
-  prog.style.width=(y/h*100)+'%';nav.classList.toggle('s',y>50);top.classList.toggle('show',y>700);
+  prog.style.width=(y/h*100)+'%';nav.classList.toggle('s',y>50);topBtn.classList.toggle('show',y>700);
   const r=tl.getBoundingClientRect();fill.style.height=Math.max(0,Math.min(r.height-16,innerHeight*.6-r.top))+'px'}
 addEventListener('scroll',onS,{passive:true});onS();
 const links=$$('.links a'),spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}),{threshold:.4});
