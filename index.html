@@ -68,20 +68,29 @@ footer{padding:1.5rem;text-align:center;font-size:.75rem;background:#111;color:#
 .hint{position:absolute;right:1.5rem;top:.3rem;color:var(--dim);z-index:3}
 .wr{position:absolute;left:50%;top:calc(var(--W)*(var(--kh) + var(--ko) - var(--kr)));width:calc(var(--W)*var(--kr)*2);aspect-ratio:1;translate:-50% 0}
 .wr svg{width:100%;display:block;rotate:calc(var(--rot,0)*-2deg)}.wr text{font-size:7px;font-weight:700;fill:var(--dim);letter-spacing:.1em}
-.me{position:absolute;left:50%;top:calc(var(--W)*(var(--kh) + var(--ko) - var(--kr)) + var(--W)*.025);translate:-50% 0;text-align:center;font-family:var(--hv);font-weight:800;font-size:max(.6rem,calc(var(--W)*.012));line-height:1.3;z-index:3}
+.me{position:absolute;left:50%;top:calc(var(--W)*(var(--kh) + var(--ko) - var(--kr)) + var(--W)*.06);translate:-50% 0;text-align:center;font-family:var(--hv);font-weight:800;font-size:max(.6rem,calc(var(--W)*.012));line-height:1.3;z-index:3}
 .arm{position:absolute;left:50%;top:calc(var(--W)*(var(--kh) + var(--ko)));width:0;height:0;transform:rotate(calc(var(--a)*1deg + var(--rot,0)*1deg));z-index:2}
 .cd{position:absolute;width:calc(var(--W)*var(--kcw));height:calc(var(--W)*var(--kcw)*1.38);left:calc(var(--W)*var(--kcw)/-2);top:calc(var(--W)*var(--kR)*-1 - var(--W)*var(--kcw)*.69);font-size:calc(var(--W)*.0095);padding:1.4em;border-radius:1.7em;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;color:#111;box-shadow:0 1.5em 3em rgba(0,0,0,.22);cursor:pointer;transition:translate .5s var(--e),scale .5s var(--e);animation:in .9s var(--e) both;animation-delay:calc(var(--i)*.1s + .5s)}
 .cd:hover,.cd:focus-visible{translate:0 -3%;scale:1.05;z-index:5}.cd small{font-size:.8em;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.3}
 .cd svg.art{width:78%;margin:auto;display:block;overflow:visible}
 .k0{background:radial-gradient(circle at 25% -8%,#111 0 32%,transparent 33%),#f1f1f1}.vt{writing-mode:vertical-rl;rotate:180deg;font-family:var(--hv);font-weight:900;font-size:3.4em;line-height:1}
-.k1{background:#050505;color:#fff}.k1 .art{width:84%}
+.k1{background:#050505;color:#fff}
 .k2{background:var(--red)}
 .k3{background:linear-gradient(170deg,#ececec,#b4b4b4);filter:grayscale(1)}.k3 small{position:relative;z-index:2;color:#111;text-shadow:0 0 .6em rgba(255,255,255,.7)}
-.k3 .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;filter:grayscale(1) contrast(1.05)}
 .k4{background:linear-gradient(160deg,#fff 45%,#d6d6d6)}.one{font-family:var(--hv);font-weight:900;font-size:4.8em;line-height:1;rotate:-6deg;margin:auto 0}
 .k4 .one{color:var(--red);position:relative;display:inline-block;margin:auto}
 .k4 .one::after{content:"";position:absolute;left:4%;right:4%;bottom:-.08em;height:.12em;border-radius:99px;background:#111;box-shadow:0 .2em 0 #111}
-.k5{background:#070707;color:#fff}.k5 .art{width:92%}
+.k5{background:#070707;color:#fff}
+.cd .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);z-index:0}
+.cd::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none}
+.cd>:not(.ph){position:relative;z-index:2}
+.cd svg.art{width:36%;margin:auto auto .8em}
+.k0::after{background:radial-gradient(circle at 25% -8%,#111 0 32%,transparent 33%),rgba(241,241,241,.6)}
+.k1::after{background:rgba(5,5,5,.66)}
+.k2::after{background:rgba(224,75,56,.72)}
+.k3::after{background:linear-gradient(180deg,rgba(255,255,255,.7),transparent 30%,transparent 62%,rgba(255,255,255,.75))}
+.k4::after{background:rgba(255,255,255,.72)}
+.k5::after{background:rgba(7,7,7,.68)}
 .q,.wel{font-weight:800}
 @media(max-width:700px){:root{--kcw:.36;--kR:.66;--kr:.3;--kh:.98;--ko:.08}.cd{font-size:calc(var(--W)*.021)}.frame{height:calc(var(--W)*.5)}.big{font-size:calc(var(--W)*.105)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
@@ -104,29 +113,27 @@ footer{padding:1.5rem;text-align:center;font-size:.75rem;background:#111;color:#
 <div class="me">▲<br>ME</div>
 
 <!-- 1. CONTACT -->
-<div class="arm" style="--a:-58"><div class="cd k0" data-go="contact" style="--i:0"><small>Say hello</small><span class="vt">CONTACT</span></div></div>
+<div class="arm" style="--a:-47.5"><div class="cd k0" data-go="contact" style="--i:0"><img class="ph" src="padma.jpg" alt="Padma Nair" draggable="false" style="object-position:50% 0%" onerror="this.style.display='none'"><small>Say hello</small><span class="vt">CONTACT</span></div></div>
 
-<!-- 2. CURRICULUM: open book -->
-<div class="arm" style="--a:-40"><div class="cd k1" data-go="expertise" style="--i:1"><small>Curriculum<br>Strategy</small>
+<!-- 2. CURRICULUM -->
+<div class="arm" style="--a:-28.5"><div class="cd k1" data-go="expertise" style="--i:1"><img class="ph" src="padma.jpg" alt="" draggable="false" style="object-position:25% 8%" onerror="this.style.display='none'"><small>Curriculum<br>Strategy</small>
 <svg class="art" viewBox="0 0 100 80" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M50 18C38 10 20 10 8 14v52c12-4 30-4 42 4 12-8 30-8 42-4V14C80 10 62 10 50 18z"/><path d="M50 18v52"/></g><g fill="none" stroke="#e04b38" stroke-width="3" stroke-linecap="round"><path d="M18 28q12-3 22 2M18 38q12-3 22 2M18 48q12-3 22 2M60 30q10-3 22-2M60 40q10-3 22-2"/></g></svg>
 <small>Learning by design</small></div></div>
 
-<!-- 3. GRADUATION CAP -->
-<div class="arm" style="--a:-21"><div class="cd k2" data-go="about" style="--i:2"><small>Education<br>since 2000</small>
+<!-- 3. EDUCATION -->
+<div class="arm" style="--a:-9.5"><div class="cd k2" data-go="about" style="--i:2"><img class="ph" src="padma.jpg" alt="" draggable="false" style="object-position:75% 15%" onerror="this.style.display='none'"><small>Education<br>since 2000</small>
 <svg class="art" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 18L6 40l44 22 44-22z" fill="#111"/><path d="M24 54v18c0 6 12 12 26 12s26-6 26-12V54L50 66z" fill="#111"/><path d="M90 42v26" stroke="#111" stroke-width="3" stroke-linecap="round"/><circle cx="90" cy="71" r="4.5" fill="#111"/></svg>
 <small style="text-align:right">Ed. Leader</small></div></div>
 
-<!-- 4. YOUR PHOTO: save as padma.jpg beside index.html -->
-<div class="arm" style="--a:-3"><div class="cd k3" data-go="about" style="--i:3"><small style="text-align:right">Principal<br>25+ yrs</small>
-<svg viewBox="0 0 100 140" preserveAspectRatio="xMidYMax slice" style="position:absolute;inset:0;width:100%;height:100%" aria-hidden="true"><path d="M8 140q2-40 42-44q40 4 42 44z" fill="#161616"/><ellipse cx="50" cy="64" rx="17" ry="21" fill="#a9a9a9"/><path d="M30 58q0-28 22-28q24 2 19 28q-6-13-20-11q-14 0-21 11z" fill="#111"/></svg>
-<img class="ph" src="thumbnail.jpg" alt="Padma Nair" draggable="false" onerror="this.style.display='none'">
+<!-- 4. PRINCIPAL -->
+<div class="arm" style="--a:9.5"><div class="cd k3" data-go="about" style="--i:3"><img class="ph" src="padma.jpg" alt="" draggable="false" style="object-position:50% 10%" onerror="this.style.display='none'"><small style="text-align:right">Principal<br>25+ yrs</small>
 <small>Spring Dale<br>Public School</small></div></div>
 
 <!-- 5. STUDENT-FIRST -->
-<div class="arm" style="--a:16"><div class="cd k4" data-go="journey" style="--i:4"><small>Student-first ✕</small><b class="one">A+</b><small>Care · Rigour · Growth</small></div></div>
+<div class="arm" style="--a:28.5"><div class="cd k4" data-go="journey" style="--i:4"><img class="ph" src="padma.jpg" alt="" draggable="false" style="object-position:50% 35%" onerror="this.style.display='none'"><small>Student-first ✕</small><b class="one">A+</b><small>Care · Rigour · Growth</small></div></div>
 
-<!-- 6. FACULTY MENTORSHIP -->
-<div class="arm" style="--a:33"><div class="cd k5" data-go="expertise" style="--i:5"><small>Faculty</small>
+<!-- 6. FACULTY -->
+<div class="arm" style="--a:47.5"><div class="cd k5" data-go="expertise" style="--i:5"><img class="ph" src="padma.jpg" alt="" draggable="false" style="object-position:35% 0%" onerror="this.style.display='none'"><small>Faculty</small>
 <svg class="art" viewBox="0 0 100 100" aria-hidden="true"><g stroke="#fff" stroke-width="1.2" opacity=".55"><path d="M50 50L50 14M50 50L81 32M50 50L81 68M50 50L50 86M50 50L19 68M50 50L19 32"/></g><g fill="#fff"><circle cx="50" cy="14" r="6"/><circle cx="81" cy="32" r="6"/><circle cx="81" cy="68" r="6"/><circle cx="50" cy="86" r="6"/><circle cx="19" cy="68" r="6"/><circle cx="19" cy="32" r="6"/></g><circle cx="50" cy="50" r="13" fill="#e04b38"/></svg>
 <small style="text-align:right">Mentorship</small></div></div>
 </div></section>
